@@ -1,0 +1,28 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#eef2fc"/><stop offset="100%" stop-color="#dfe6fb"/>
+</linearGradient>
+<linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#5690dc"/><stop offset="100%" stop-color="#8b5cf6"/>
+</linearGradient>
+</defs>
+<rect width="500" height="500" fill="url(#bg1)"/>
+<circle cx="100" cy="80" r="4" fill="#ffffff" opacity="0.7"/>
+<circle cx="420" cy="400" r="4" fill="#ffffff" opacity="0.7"/>
+<circle cx="440" cy="70" r="6" fill="#ffffff" opacity="0.5"/>
+
+<g transform="translate(200,205)" stroke="url(#ic1)" stroke-width="3" fill="none">
+<line x1="50" y1="45" x2="10" y2="10"/>
+<line x1="50" y1="45" x2="90" y2="10"/>
+<line x1="50" y1="45" x2="10" y2="80"/>
+<line x1="50" y1="45" x2="90" y2="80"/>
+</g>
+<g fill="url(#ic1)">
+<circle cx="250" cy="250" r="13"/>
+<circle cx="210" cy="215" r="8"/>
+<circle cx="290" cy="215" r="8"/>
+<circle cx="210" cy="285" r="8"/>
+<circle cx="290" cy="285" r="8"/>
+</g>
+</svg>

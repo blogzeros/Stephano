@@ -1,0 +1,25 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#f5f0fd"/><stop offset="100%" stop-color="#e9defa"/>
+</linearGradient>
+<linearGradient id="ic1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#b0339f"/>
+</linearGradient>
+</defs>
+<rect width="500" height="500" fill="url(#bg1)"/>
+<circle cx="100" cy="80" r="4" fill="#ffffff" opacity="0.7"/>
+<circle cx="420" cy="400" r="4" fill="#ffffff" opacity="0.7"/>
+<circle cx="440" cy="70" r="6" fill="#ffffff" opacity="0.5"/>
+
+<g transform="translate(206,206)">
+<rect x="16" y="16" width="56" height="56" rx="12" fill="url(#ic1)"/>
+<rect x="30" y="30" width="28" height="28" rx="6" fill="#fff" opacity="0.9"/>
+<g stroke="url(#ic1)" stroke-width="3.5" stroke-linecap="round">
+<line x1="35" y1="0" x2="35" y2="16"/><line x1="53" y1="0" x2="53" y2="16"/>
+<line x1="35" y1="72" x2="35" y2="88"/><line x1="53" y1="72" x2="53" y2="88"/>
+<line x1="0" y1="35" x2="16" y2="35"/><line x1="0" y1="53" x2="16" y2="53"/>
+<line x1="72" y1="35" x2="88" y2="35"/><line x1="72" y1="53" x2="88" y2="53"/>
+</g>
+</g>
+</svg>
