@@ -49,4 +49,55 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('dark-preview');
     });
   }
+
+  // Topics flyout panel
+  const topicsToggle = document.querySelector('[data-topics-toggle]');
+  const topicsPanel = document.querySelector('.topics-panel');
+  if (topicsToggle && topicsPanel) {
+    topicsToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      topicsPanel.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!topicsPanel.contains(e.target) && !topicsToggle.contains(e.target)) {
+        topicsPanel.classList.remove('open');
+      }
+    });
+  }
+
+  // Topics accordion sub-items
+  document.querySelectorAll('.topic-group-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.topic-group');
+      const wasOpen = group.classList.contains('open');
+      document.querySelectorAll('.topic-group').forEach(g => g.classList.remove('open'));
+      if (!wasOpen) group.classList.add('open');
+    });
+  });
+
+  // Bookmark toggle (article cards + product thumbnails)
+  document.querySelectorAll('.bookmark-btn, .bookmark-btn-thumb').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      btn.classList.toggle('active');
+    });
+  });
+
+  // Like toggle (article card footer)
+  document.querySelectorAll('.icon-action[aria-label="Like"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      btn.classList.toggle('active');
+    });
+  });
+
+  // Share button stub (prevents navigation when nested in a card link)
+  document.querySelectorAll('.icon-action[aria-label="Share"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+  });
 });
