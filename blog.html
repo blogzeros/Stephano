@@ -12,15 +12,16 @@
 
 <header class="topbar">
   <div class="topbar-left">
+    <button class="menu-toggle-mobile" id="mobileMenuBtn" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     <a href="index.html" class="brand">
       <svg class="brand-mark" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b0339f"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="16" cy="16" r="16" fill="url(#bm)"/><circle cx="10" cy="12" r="2.6" fill="#fff"/><circle cx="22" cy="12" r="2.6" fill="#fff"/><circle cx="16" cy="21" r="2.6" fill="#fff"/><path d="M10 12L16 21M22 12L16 21M10 12L22 12" stroke="#fff" stroke-width="1.4"/></svg>
       FlowMind
     </a>
   </div>
   <div class="topbar-right">
-    <button class="icon-btn" aria-label="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
-    <span class="icon-btn" style="position:relative;" aria-label="Notifications"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M7.15 18.68C5.25 17.97 4 16.16 4 14.14V13.65C4 11.31 4.46 8.99 5.36 6.83L5.65 6.13C6.49 4.12 8.3 2.67 10.45 2.28V2.28C11.47 2.09 12.53 2.09 13.55 2.28V2.28C15.7 2.67 17.51 4.12 18.35 6.13L18.64 6.83C19.54 8.99 20 11.31 20 13.65V14.14C20 16.16 18.75 17.97 16.85 18.68L16.6 18.78C13.63 19.89 10.37 19.89 7.4 18.78L7.15 18.68Z" stroke="currentColor" stroke-width="1.8"/></svg><span class="dot-badge">3</span></span>
-    <button class="icon-btn" aria-label="Toggle dark preview" data-dark-toggle><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4.75 16.74C7.32 21.29 13.02 22.85 17.48 20.22C18.73 19.48 19.76 18.49 20.52 17.34C20.78 16.96 20.35 16.5 19.92 16.63C16.58 17.64 12.88 16.23 11.06 13.02C9.25 9.81 9.9 5.84 12.43 3.39C12.76 3.07 12.58 2.47 12.13 2.5C10.77 2.6 9.42 3.01 8.16 3.75C3.7 6.38 2.18 12.19 4.75 16.74Z" stroke="currentColor" stroke-width="1.8"/></svg></button>
+    <button class="icon-btn" aria-label="Search"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" d="M22 22L18.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-width="1.5"></circle></svg></button>
+    <span class="icon-btn" style="position:relative;" aria-label="Notifications"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.14588 18.6797C5.25361 17.9701 4 16.1611 4 14.1402L4 13.6473C4 11.3056 4.46369 8.98715 5.36433 6.82563L5.65281 6.13327C6.49264 4.11769 8.29828 2.66633 10.4473 2.27951V2.27951C11.4742 2.09467 12.5258 2.09467 13.5527 2.27951V2.27951C15.7017 2.66633 17.5074 4.1177 18.3472 6.13327L18.6357 6.82564C19.5363 8.98716 20 11.3056 20 13.6473L20 14.1402C20 16.1611 18.7464 17.9701 16.8541 18.6797L16.5998 18.7751C13.6341 19.8872 10.3659 19.8872 7.40018 18.7751L7.14588 18.6797Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M15 19.5C13.8696 22.9376 10.1304 22.9376 9 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span class="dot-badge">3</span></span>
+    <button class="icon-btn" aria-label="Toggle dark preview" data-dark-toggle><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.74986 16.7432C7.32279 21.292 13.0213 22.8505 17.4777 20.2242C18.7341 19.4838 19.7577 18.4898 20.5222 17.3421C20.7792 16.9563 20.3537 16.4958 19.9155 16.6286C16.5806 17.6392 12.8806 16.2318 11.0648 13.0216C9.2491 9.81153 9.90502 5.83713 12.4299 3.39441C12.7616 3.07348 12.5837 2.46713 12.1279 2.50139C10.7719 2.60332 9.41671 3.01112 8.16028 3.75155C3.70381 6.3778 2.17692 12.1943 4.74986 16.7432Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M12 18.5L11.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M9.5 16.5L8.5 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
     <a href="index.html#subscribe" class="user-chip">
       <span>Ava Chen</span>
       <div class="user-avatar"></div>
@@ -75,6 +76,40 @@
   </div>
 </div>
 
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="mobile-drawer-backdrop" data-drawer-close></div>
+  <div class="mobile-drawer-panel">
+    <div class="drawer-header">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="url(#bm)"/><circle cx="10" cy="12" r="2.6" fill="#fff"/><circle cx="22" cy="12" r="2.6" fill="#fff"/><circle cx="16" cy="21" r="2.6" fill="#fff"/><path d="M10 12L16 21M22 12L16 21M10 12L22 12" stroke="#fff" stroke-width="1.4"/></svg>
+        FlowMind
+      </a>
+      <button class="icon-btn" data-drawer-close aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+    <nav class="drawer-nav">
+      <a class="drawer-item" href="index.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.96 2.52C10.87 1.56 13.13 1.56 15.04 2.52L15.4 2.7C17.12 3.56 18.7 4.7 20.06 6.06V6.06C21.29 7.29 21.92 9 21.79 10.73V10.73C21.6 13.22 20.89 15.63 19.71 17.83L19.43 18.35C18.53 20.02 16.9 21.18 15.03 21.5V21.5C13.02 21.83 10.98 21.83 8.97 21.5V21.5C7.1 21.18 5.47 20.02 4.57 18.35L4.29 17.83C3.11 15.63 2.4 13.22 2.21 10.73V10.73C2.08 9 2.71 7.29 3.94 6.06V6.06C5.3 4.7 6.88 3.56 8.6 2.7L8.96 2.52Z" stroke="currentColor" stroke-width="1.6"/></svg></span>Home</a>
+      <a class="drawer-item active" href="blog.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M16.19 2.47C19.02 2.78 21.28 4.97 21.68 7.79V7.79C21.89 9.26 21.89 10.74 21.68 12.21V12.21C21.28 15.03 19.02 17.22 16.19 17.53L15.37 17.63C13.13 17.87 10.87 17.87 8.63 17.63L7.81 17.53C4.98 17.22 2.72 15.03 2.32 12.21V12.21C2.1 10.74 2.1 9.26 2.32 7.79V7.79C2.72 4.97 4.98 2.78 7.81 2.47L8.63 2.37C10.87 2.13 13.13 2.13 15.37 2.37L16.19 2.47Z" stroke="currentColor" stroke-width="1.6"/><path opacity="0.6" d="M8 8L16 8M8 12H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Articles</a>
+      <a class="drawer-item" href="shop.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.87 21.36C5.11 21.14 3.64 19.93 3.08 18.25V18.25C2.33 15.99 2 13.95 2 11.9V10.76C2 9.46 2.95 8.36 4.23 8.17V8.17C9.38 7.39 14.62 7.39 19.77 8.17V8.17C21.05 8.36 22 9.46 22 10.76V11.89C22 13.95 21.67 15.99 21.02 17.95L20.92 18.25C20.36 19.93 18.88 21.14 17.13 21.36V21.36C13.72 21.78 10.28 21.78 6.87 21.36V21.36Z" stroke="currentColor" stroke-width="1.6"/><path d="M7 7.5L9 2M17 7.5L15 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Templates</a>
+      <a class="drawer-item" href="post.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3.37 8.67C3.74 5.35 6.39 2.7 9.71 2.29V2.29C11.22 2.1 12.78 2.1 14.29 2.29V2.29C17.61 2.7 20.26 5.35 20.63 8.67V8.67C20.88 10.88 20.88 13.12 20.63 15.33V15.33C20.26 18.65 17.61 21.3 14.29 21.71V21.71C12.78 21.9 11.22 21.9 9.71 21.71V21.71C6.39 21.3 3.74 18.65 3.37 15.33V15.33C3.12 13.12 3.12 10.88 3.37 8.67V8.67Z" stroke="currentColor" stroke-width="1.6"/></svg></span>Guides</a>
+      <div class="drawer-group">
+        <button class="drawer-group-btn">
+          <span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10.5 3H6C4.34 3 3 4.34 3 6V10.5C3 11.3 3.32 12.06 3.88 12.62L11.38 20.12C12.54 21.28 14.42 21.28 15.58 20.12L20.12 15.58C21.28 14.42 21.28 12.54 20.12 11.38L12.62 3.88C12.06 3.32 11.3 3 10.5 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg></span>
+          Topics
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="drawer-subitems">
+          <a href="blog.html">AI Agents</a>
+          <a href="blog.html">Automation</a>
+          <a href="blog.html">Prompting</a>
+          <a href="blog.html">RPA</a>
+          <a href="blog.html">Multi-Agent</a>
+          <a href="blog.html">LLM Tooling</a>
+        </div>
+      </div>
+      <a class="drawer-item" href="index.html#subscribe"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.37 11.12L20.32 10.35C21.02 9.79 21.29 8.85 21 8.01C20.78 7.34 20.42 6.73 19.96 6.2C19.37 5.53 18.42 5.3 17.59 5.62L16.45 6.06C15.85 6.29 15.16 5.94 14.95 5.32L14.73 3.97C14.59 3.08 13.92 2.38 13.04 2.21C12.36 2.07 11.65 2.07 10.96 2.21C10.08 2.38 9.41 3.08 9.27 3.97L9.05 5.32C8.95 5.94 8.28 6.29 7.67 6.06L6.4 5.62C5.58 5.3 4.63 5.53 4.04 6.2C3.58 6.73 3.22 7.34 3 8.01C2.71 8.85 2.98 9.79 3.68 10.35L4.63 11.12C5.14 11.53 5.14 12.32 4.63 12.74L3.68 13.5C2.98 14.06 2.71 15 3 15.84C3.22 16.51 3.58 17.12 4.04 17.65C4.63 18.32 5.58 18.55 6.41 18.23L7.55 17.79C8.16 17.55 8.83 17.9 8.93 18.55L9.14 19.9C9.28 20.79 9.95 21.5 10.83 21.66C11.53 21.8 12.24 21.8 12.93 21.66C13.81 21.5 14.48 20.79 14.62 19.9L14.83 18.55C14.93 17.9 15.6 17.55 16.21 17.79L17.35 18.23C18.18 18.55 19.12 18.32 19.72 17.65C20.18 17.12 20.53 16.51 20.76 15.84C21.05 15 20.78 14.06 20.08 13.5L19.13 12.74C18.62 12.32 18.62 11.53 19.13 11.12Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.8" stroke="currentColor" stroke-width="1.5"/></svg></span>Settings</a>
+    </nav>
+  </div>
+</div>
 
 <div class="page-shell">
   <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Articles</span></div>

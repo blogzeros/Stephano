@@ -93,6 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Mobile drawer (hamburger nav)
+  const mobileMenuBtn = document.querySelector('#mobileMenuBtn');
+  const mobileDrawer = document.querySelector('#mobileDrawer');
+  if (mobileMenuBtn && mobileDrawer) {
+    mobileMenuBtn.addEventListener('click', () => mobileDrawer.classList.add('open'));
+    mobileDrawer.querySelectorAll('[data-drawer-close]').forEach(el => {
+      el.addEventListener('click', () => mobileDrawer.classList.remove('open'));
+    });
+  }
+  document.querySelectorAll('.drawer-group-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.drawer-group');
+      group.classList.toggle('open');
+    });
+  });
+
   // Share button stub (prevents navigation when nested in a card link)
   document.querySelectorAll('.icon-action[aria-label="Share"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
