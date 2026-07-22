@@ -116,4 +116,73 @@ document.addEventListener('DOMContentLoaded', () => {
       e.stopPropagation();
     });
   });
+
+  // Search overlay
+  const searchToggle = document.querySelector('[data-search-toggle]');
+  const searchOverlay = document.querySelector('#searchOverlay');
+  if (searchToggle && searchOverlay) {
+    searchToggle.addEventListener('click', () => {
+      searchOverlay.classList.add('open');
+      const input = searchOverlay.querySelector('input');
+      if (input) setTimeout(() => input.focus(), 50);
+    });
+    searchOverlay.querySelectorAll('[data-search-close]').forEach(el => {
+      el.addEventListener('click', () => searchOverlay.classList.remove('open'));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') searchOverlay.classList.remove('open');
+    });
+  }
+  document.querySelectorAll('.search-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.searchTab;
+      document.querySelectorAll('.search-result-item').forEach(item => {
+        const type = item.dataset.type;
+        item.style.display = (filter === 'all' || filter === type) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  // Notification dropdown
+  const notifToggle = document.querySelector('[data-notif-toggle]');
+  const notifDropdown = document.querySelector('#notifDropdown');
+  if (notifToggle && notifDropdown) {
+    notifToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifDropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!notifDropdown.contains(e.target) && !notifToggle.contains(e.target)) {
+        notifDropdown.classList.remove('open');
+      }
+    });
+  }
+  document.querySelectorAll('.notif-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.notif-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.notifTab;
+      document.querySelectorAll('.notif-panel').forEach(p => {
+        p.style.display = (p.dataset.notifPanel === target) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Settings: theme option select
+  document.querySelectorAll('.theme-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+    });
+  });
+
+  // Settings: color swatch select
+  document.querySelectorAll('.color-swatch').forEach(sw => {
+    sw.addEventListener('click', () => {
+      document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+      sw.classList.add('active');
+    });
+  });
 });
