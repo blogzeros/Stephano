@@ -248,7 +248,7 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--primary); outline-
 /* ---------------- Notification dropdown ---------------- */
 .notif-dropdown{
   position:fixed; top:calc(var(--header-h) + 8px); right:24px; width:340px; max-width:92vw;
-  background:var(--paper); border-radius:20px; box-shadow:var(--shadow-md); z-index:80;
+  background:var(--paper); border-radius:20px; border:1.5px solid var(--grey-200); box-shadow:var(--shadow-md); z-index:80;
   display:flex; visibility:hidden; pointer-events:none; flex-direction:column; max-height:70vh;
   transform:scale(0.95) translateY(-8px); opacity:0; transition:transform .2s ease, opacity .2s ease, visibility 0s 0.2s;
 }
@@ -256,9 +256,9 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--primary); outline-
 .notif-tabs{display:flex; gap:8px; padding:16px 16px 0; flex-shrink:0;}
 .notif-tab{flex:1; padding:9px 0; border-radius:999px; font-size:13px; font-weight:800; color:var(--text-secondary); background:var(--grey-50); text-align:center;}
 .notif-tab.active{background:var(--grad-brand); color:#fff;}
-.notif-panel{padding:8px 16px 16px; overflow-y:auto;}
+.notif-panel{padding:8px 16px 16px; overflow-x:hidden; overflow-y:auto;}
 .notif-actions{
-  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0 8px; border-bottom:1px solid var(--grey-50);
+  display:flex; align-items:center; justify-content:flex-start; gap:10px; padding:12px 0 8px; border-bottom:1px solid var(--grey-50);
 }
 .notif-select-all{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-primary); font-weight:700;}
 .notif-select-all input{width:16px; height:16px; accent-color:var(--primary);} 
@@ -283,7 +283,6 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--primary); outline-
   max-height:40px; margin-top:8px; opacity:1; pointer-events:auto;
 }
 .notif-item-actions .small { padding: 4px 8px; font-size: 12px; }
-.notif-clear-btn, .notif-unsubscribe-btn { margin-left:10px; }
 .notif-item.unread .notif-text{color:var(--text-primary);}
 .notif-item.unread .notif-time{color:var(--text-secondary);}
 .notif-item:not(.unread){opacity:.85;}
@@ -302,14 +301,16 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--primary); outline-
   color:var(--text-secondary); background:var(--paper);
 }
 .notif-bin-btn:hover{border-color:#e5484d; color:#e5484d; background:rgba(229,72,77,0.08);}
+.notif-bin-btn[data-tooltip]::after{top:calc(100% + 8px); left:50%; transform:translateX(-50%);}
 .notif-item-bin-btn{
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
   width:26px; height:26px; border-radius:50%; border:1.5px solid var(--grey-200);
   color:var(--text-secondary); background:var(--paper);
 }
 .notif-item-bin-btn:hover{border-color:#e5484d; color:#e5484d; background:rgba(229,72,77,0.08);}
+.notif-item-bin-btn[data-tooltip]::after{top:calc(100% + 6px); left:50%; transform:translateX(-50%);}
 
-.notif-more{position:relative; display:none; align-items:center;}
+.notif-more{position:relative; display:none; align-items:center; margin-left:auto;}
 .notif-more-btn{
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
   width:32px; height:32px; border-radius:50%; border:1.5px solid var(--grey-200);
@@ -367,7 +368,7 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--primary); outline-
 /* ---------------- Account popup (guest / logged-in) ---------------- */
 .account-popup{
   position:fixed; top:calc(var(--header-h) + 8px); right:24px; width:300px; max-width:92vw;
-  background:var(--paper); border-radius:20px; box-shadow:var(--shadow-md); z-index:80; padding:24px;
+  background:var(--paper); border-radius:20px; border:1.5px solid var(--grey-200); box-shadow:var(--shadow-md); z-index:80; padding:24px;
   display:block; visibility:hidden; pointer-events:none;
   transform:scale(0.95) translateY(-8px); opacity:0; transition:transform .2s ease, opacity .2s ease, visibility 0s 0.2s;
 }
