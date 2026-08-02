@@ -1,0 +1,118 @@
+<div class="page-shell">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Settings</span></div>
+  <div class="page-title-row"><h1>Settings</h1></div>
+
+  <button class="settings-mobile-trigger" id="settingsMobileTrigger" aria-label="Open settings menu">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" d="M22 7L12 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M22 17L12 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M8 17C8 18.6569 6.65685 20 5 20C3.34315 20 2 18.6569 2 17C2 15.3431 3.34315 14 5 14C6.65685 14 8 15.3431 8 17Z" stroke="currentColor" stroke-width="1.5"></path><path d="M8 7C8 8.65685 6.65685 10 5 10C3.34315 10 2 8.65685 2 7C2 5.34315 3.34315 4 5 4C6.65685 4 8 5.34315 8 7Z" stroke="currentColor" stroke-width="1.5"></path></svg>
+  </button>
+  <div class="settings-mobile-panel" id="settingsMobilePanel">
+    <div class="smp-backdrop" data-smp-close></div>
+    <div class="smp-sheet">
+      <div class="smp-header">
+        <h3>Settings</h3>
+        <button class="icon-btn" data-smp-close aria-label="Close settings"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+      </div>
+      <button class="settings-mobile-item active" data-settings-tab="profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Profile
+      </button>
+      <button class="settings-mobile-item" data-settings-tab="liked">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        Liked Items
+      </button>
+      <button class="settings-mobile-item" data-settings-tab="purchases">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.87 21.36C5.11 21.14 3.64 19.93 3.08 18.25V18.25C2.33 15.99 2 13.95 2 11.9V10.76C2 9.46 2.95 8.36 4.23 8.17V8.17C9.38 7.39 14.62 7.39 19.77 8.17V8.17C21.05 8.36 22 9.46 22 10.76V11.89C22 13.95 21.67 15.99 21.02 17.95L20.92 18.25C20.36 19.93 18.88 21.14 17.13 21.36V21.36C13.72 21.78 10.28 21.78 6.87 21.36V21.36Z" stroke="currentColor" stroke-width="1.6"/><path d="M7 7.5L9 2M17 7.5L15 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        Purchase History
+      </button>
+    </div>
+  </div>
+
+  <div class="settings-layout">
+    <nav class="settings-nav">
+      <button class="settings-nav-item active" data-settings-tab="profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span class="snav-label">Profile</span>
+      </button>
+      <button class="settings-nav-item" data-settings-tab="liked">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span class="snav-label">Liked Items</span>
+      </button>
+      <button class="settings-nav-item" data-settings-tab="purchases">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.87 21.36C5.11 21.14 3.64 19.93 3.08 18.25V18.25C2.33 15.99 2 13.95 2 11.9V10.76C2 9.46 2.95 8.36 4.23 8.17V8.17C9.38 7.39 14.62 7.39 19.77 8.17V8.17C21.05 8.36 22 9.46 22 10.76V11.89C22 13.95 21.67 15.99 21.02 17.95L20.92 18.25C20.36 19.93 18.88 21.14 17.13 21.36V21.36C13.72 21.78 10.28 21.78 6.87 21.36V21.36Z" stroke="currentColor" stroke-width="1.6"/><path d="M7 7.5L9 2M17 7.5L15 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span class="snav-label">Purchase History</span>
+      </button>
+    </nav>
+
+
+    <div class="settings-content">
+
+      <div class="settings-panel" data-settings-panel="profile" id="profile">
+        <div class="settings-card">
+          <div class="profile-header">
+            <div class="profile-avatar-lg"></div>
+            <div>
+              <h4>Ava Chen</h4>
+              <p>ava.chen@flowmind.dev</p>
+            </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-row"><label>Full Name</label><input type="text" value="Ava Chen"></div>
+            <div class="form-row"><label>Email</label><input type="email" value="ava.chen@flowmind.dev"></div>
+            <div class="form-row"><label>Username</label><input type="text" value="avachen"></div>
+            <div class="form-row"><label>Company</label><input type="text" value="FlowMind"></div>
+          </div>
+          <div style="margin-top:20px;">
+            <button class="btn btn-primary btn-sm">Save Changes</button>
+          </div>
+        </div>
+
+        <div class="settings-card">
+          <h3>Account</h3>
+          <p class="sc-desc">Manage your session and account data.</p>
+          <button class="btn btn-outline" id="logoutBtnSettings">Sign Out</button>
+          <div class="danger-row">
+            <span style="font-size:13.5px; color:var(--text-secondary);">Permanently delete your account and all data</span>
+            <a href="#" class="danger-link">Delete Account</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-panel" data-settings-panel="liked" style="display:none;">
+        <div class="settings-card">
+          <h3>Liked Items</h3>
+          <p class="sc-desc">Articles and products you've liked.</p>
+          <div class="mini-list-item">
+            <div class="mini-thumb"><img src="assets/thumb-agent.svg" alt=""></div>
+            <div class="mini-info"><div class="mini-title">Building Your First Autonomous Support Agent</div><div class="mini-sub">Article · AI Agents</div></div>
+          </div>
+          <div class="mini-list-item">
+            <div class="mini-thumb"><img src="assets/thumb-network.svg" alt=""></div>
+            <div class="mini-info"><div class="mini-title">Orchestrating Multiple Agents Without the Chaos</div><div class="mini-sub">Article · Multi-Agent</div></div>
+          </div>
+          <div class="mini-list-item">
+            <div class="mini-thumb"><img src="assets/product-flow.svg" alt=""></div>
+            <div class="mini-info"><div class="mini-title">Lead Enrichment Flow</div><div class="mini-sub">Product · Make.com</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-panel" data-settings-panel="purchases" style="display:none;">
+        <div class="settings-card">
+          <h3>Purchase History</h3>
+          <p class="sc-desc">Products you've bought from the shop.</p>
+          <div class="mini-list-item">
+            <div class="mini-thumb"><img src="assets/product-agent.svg" alt=""></div>
+            <div class="mini-info"><div class="mini-title">Support Agent Blueprint</div><div class="mini-sub">Purchased Jun 15, 2026 · $49</div></div>
+            <button class="btn btn-outline btn-sm">Download</button>
+          </div>
+          <div class="mini-list-item">
+            <div class="mini-thumb"><img src="assets/product-chip.svg" alt=""></div>
+            <div class="mini-info"><div class="mini-title">RAG Pipeline Starter</div><div class="mini-sub">Purchased May 30, 2026 · $39</div></div>
+            <button class="btn btn-outline btn-sm">Download</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

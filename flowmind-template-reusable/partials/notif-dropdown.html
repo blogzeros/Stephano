@@ -1,0 +1,87 @@
+<div class="notif-dropdown" id="notifDropdown">
+  <div class="notif-tabs">
+    <button class="notif-tab active" data-notif-tab="notifications">Notifications</button>
+    <button class="notif-tab" data-notif-tab="bookmarks">Bookmarked</button>
+  </div>
+  <div class="notif-panel" data-notif-panel="notifications">
+    <div class="notif-actions">
+      <label class="notif-select-all">
+        <input type="checkbox" id="notifSelectAll">
+        <span>Select all</span>
+      </label>
+      <button class="notif-bin-btn" id="notifClearBtn" aria-label="Clear selected" data-tooltip="Clear" style="display:none;" disabled><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      <button class="btn btn-sm btn-outline notif-mark-read-btn" id="markReadBtn" style="display:none;">Mark as read</button>
+      <button class="btn btn-sm btn-outline notif-mark-unread-btn" id="markUnreadBtn" style="display:none;">Mark as unread</button>
+      <div class="notif-more dropdown-anchor">
+        <button class="notif-more-btn" id="notifMoreBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="More actions">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="19" cy="12" r="1.7" fill="currentColor"/></svg>
+        </button>
+        <div class="notif-more-menu label-dropdown-panel" id="notifMoreMenu" role="listbox">
+          <button class="label-dropdown-item" id="moreMarkRead" role="option">Mark as read</button>
+          <button class="label-dropdown-item" id="moreMarkUnread" role="option">Mark as unread</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="notif-item unread">
+      <label class="notif-item-checkbox-label"><input type="checkbox" class="notif-item-checkbox"></label>
+      <div>
+        <div class="notif-text"><strong>Priya Nair</strong> published a new guide on agent escalation.</div>
+        <div class="notif-time">2 minutes ago</div>
+      </div>
+      <div class="notif-item-actions">
+        <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      </div>
+    </div>
+    <div class="notif-item unread">
+      <label class="notif-item-checkbox-label"><input type="checkbox" class="notif-item-checkbox"></label>
+      <div>
+        <div class="notif-text"><strong>Marcus Cole</strong> replied to your comment on Workflows.</div>
+        <div class="notif-time">14 minutes ago</div>
+      </div>
+      <div class="notif-item-actions">
+        <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      </div>
+    </div>
+    <div class="notif-item unread">
+      <label class="notif-item-checkbox-label"><input type="checkbox" class="notif-item-checkbox"></label>
+      <div>
+        <div class="notif-text"><strong>Dana Okafor</strong> mentioned you in a discussion.</div>
+        <div class="notif-time">1 hour ago</div>
+      </div>
+      <div class="notif-item-actions">
+        <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      </div>
+    </div>
+    <div class="notif-item unread">
+      <label class="notif-item-checkbox-label"><input type="checkbox" class="notif-item-checkbox"></label>
+      <div>
+        <div class="notif-text"><strong>Sam Reyes</strong> added a new prompt product.</div>
+        <div class="notif-time">3 hours ago</div>
+      </div>
+      <div class="notif-item-actions">
+        <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      </div>
+    </div>
+    <a href="notifications.html" class="notif-viewall">View All<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></a>
+  </div>
+  <div class="notif-panel" data-notif-panel="bookmarks" style="display:none;">
+    <div class="notif-item">
+      <div class="notif-thumb"><img src="assets/thumb-agent.svg" alt=""></div>
+      <div><div class="notif-text">Building Your First Autonomous Support Agent</div><div class="notif-time">Article · AI Agents</div></div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-thumb"><img src="assets/product-agent.svg" alt=""></div>
+      <div><div class="notif-text">Support Agent Blueprint</div><div class="notif-time">Product · $49</div></div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-thumb"><img src="assets/thumb-network.svg" alt=""></div>
+      <div><div class="notif-text">Orchestrating Multiple Agents Without the Chaos</div><div class="notif-time">Article · Multi-Agent</div></div>
+    </div>
+    <a href="bookmarks.html" class="notif-viewall">View All<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></a>
+  </div>
+</div>

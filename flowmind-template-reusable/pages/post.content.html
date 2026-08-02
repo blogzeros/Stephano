@@ -1,0 +1,313 @@
+<div class="page-shell">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="blog.html">Articles</a><span>/</span><span>Autonomous Support Agent</span></div>
+
+  <div class="post-layout">
+  <div class="post-main">
+  <div class="post-wrap" style="margin-top:20px;">
+    <span class="cat-pill">AI Agents</span>
+    <h1 class="title" style="margin-top:14px;">Building Your First Autonomous Support Agent</h1>
+    <p class="post-meta-desc">A step-by-step blueprint for an agent that resolves tickets without babysitting — where to spend your effort, and where not to.</p>
+    <div class="byline">
+      <div class="byline-author">
+        <div class="avatar-sm" style="width:34px; height:34px;"></div>
+        <div class="byline-text">
+          <div class="who">Priya Nair</div>
+          <div class="when">June 14, 2026 · 7 min read</div>
+        </div>
+      </div>
+      <div class="byline-actions">
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
+        <button class="icon-action" data-comment-toggle aria-label="Comments"><svg width="18" height="18" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M168,281 C166.832,281 165.704,280.864 164.62,280.633 L159.912,283.463 L159.975,278.824 C156.366,276.654 154,273.066 154,269 C154,262.373 160.268,257 168,257 C175.732,257 182,262.373 182,269 C182,275.628 175.732,281 168,281 L168,281 Z M168,255 C159.164,255 152,261.269 152,269 C152,273.419 154.345,277.354 158,279.919 L158,287 L165.009,282.747 C165.979,282.907 166.977,283 168,283 C176.836,283 184,276.732 184,269 C184,261.269 176.836,255 168,255 L168,255 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path><path opacity="0.6" d="M175,266 L161,266 C160.448,266 160,266.448 160,267 C160,267.553 160.448,268 161,268 L175,268 C175.552,268 176,267.553 176,267 C176,266.448 175.552,266 175,266 L175,266 Z M173,272 L163,272 C162.448,272 162,272.447 162,273 C162,273.553 162.448,274 163,274 L173,274 C173.552,274 174,273.553 174,273 C174,272.447 173.552,272 173,272 L173,272 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path></svg></button>
+        <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      </div>
+    </div>
+
+    <figure class="post-hero">
+      <img src="assets/thumb-agent.svg" alt="Illustration of an AI support agent in a support center environment">
+      <figcaption class="post-hero-caption">Illustration of the agent flow that routes tickets, checks policy, and escalates smartly.</figcaption>
+    </figure>
+
+    <!-- ==================== POST BODY START ==================== -->
+
+    <div class="note-block note-info">
+      <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div>
+        <strong>Using v2.6?</strong><br>
+        Looking for v2.5 documentation? <a href="#" style="color:var(--primary);">Visit old documentation</a>.
+      </div>
+    </div>
+
+    <!-- Collapsible Table of Contents -->
+    <div class="toc-wrap" id="tocWrap">
+      <div class="toc-header" id="tocHeader">
+        <h3>Table of Contents</h3>
+        <button class="toc-toggle" id="tocToggle">Show All</button>
+      </div>
+      <div class="toc-body" id="tocBody">
+        <ul id="tocList"></ul>
+      </div>
+    </div>
+
+    <p>Most "autonomous agent" projects fail for a boring reason: someone tries to automate judgment before automating the plumbing. Get the plumbing right first, and the judgment part turns out to be the easy 20%.</p>
+
+    <p>This is the shape of a support agent that actually survives contact with real tickets — not a demo that works on three happy-path examples and falls over on the fourth.</p>
+
+    <!-- ======================== Blockquote Style 1 ======================== -->
+    <h2 id="sec-retrieval">Start with retrieval, not reasoning</h2>
+    <p>Before the agent decides anything, it needs to know what's true: order status, refund policy, account history. Wire up retrieval against your actual systems first. An agent with perfect reasoning and stale data will confidently say the wrong thing — and confidence is the expensive part to walk back.</p>
+
+    <div class="pull-img">
+      <img src="assets/thumb-network.svg" alt="Illustration of a connected data network">
+    </div>
+
+    <blockquote class="bq-style1">
+      "An agent's judgment is only as good as the ground truth you hand it. Fix retrieval before you tune the prompt."
+      <span class="bq-author">— Priya Nair</span>
+    </blockquote>
+
+    <div class="infeed-ad">Ad goes here</div>
+
+    <!-- ======================== Code Block ======================== -->
+    <h2 id="sec-tools">Give it three tools, not thirty</h2>
+    <p>Every extra tool is another way the agent can pick wrong. Start with lookup order, issue refund, and escalate to human. Ship that, watch where it actually gets stuck, and add the fourth tool only when you have a real transcript proving it's needed.</p>
+
+    <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>JavaScript</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code>const tools = ['lookup_order', 'issue_refund', 'escalate_to_human'];
+
+function pickTool(intent) {
+  if (intent === 'order_status') return tools[0];
+  if (intent === 'refund')      return tools[1];
+  return tools[2]; // default: escalate
+}</code></pre>
+    </div>
+
+    <!-- ======================== Note Block Warning ======================== -->
+    <h2 id="sec-escalation">Design the escalation path first</h2>
+    <p>Paradoxically, the fastest way to earn trust in an autonomous agent is to make it excellent at knowing when it's out of its depth. A clean handoff — full context, no repeated questions — matters more to the customer than one extra thing the bot could technically attempt.</p>
+
+    <div class="note-block note-warning">
+      <svg class="note-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div>
+        <strong>Warning:</strong> Never let the agent attempt a refund without first verifying the order exists and is within the return window. A wrong refund erodes trust faster than no refund at all.
+      </div>
+    </div>
+
+    <div class="infeed-ad">Ad goes here</div>
+
+    <!-- ======================== Table ======================== -->
+    <h2 id="sec-comparison">Tool comparison</h2>
+    <p>Here's how the three core tools compare in terms of complexity and risk.</p>
+
+    <div class="doc-table-wrap">
+      <table class="doc-table">
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Risk Level</th>
+            <th>Complexity</th>
+            <th>When to Use</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-label="Tool">lookup_order</td><td data-label="Risk Level">Low</td><td data-label="Complexity">Simple</td><td data-label="When to Use">Always — first step for any ticket</td></tr>
+          <tr><td data-label="Tool">issue_refund</td><td data-label="Risk Level">Medium</td><td data-label="Complexity">Moderate</td><td data-label="When to Use">When order is verified and within policy</td></tr>
+          <tr><td data-label="Tool">escalate_to_human</td><td data-label="Risk Level">None</td><td data-label="Complexity">Simple</td><td data-label="When to Use">When confidence is below threshold</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ======================== Blockquote Style 2 ======================== -->
+    <blockquote class="bq-style2">
+      "The best agents are the ones that know when to stop. Overconfidence is the most expensive mistake in automation."
+      <span class="bq-author">— FlowMind Engineering Team</span>
+    </blockquote>
+
+    <!-- ======================== Alert Success ======================== -->
+    <h2 id="sec-deployment">Deploying to production</h2>
+    <p>After iterating on the three-tool agent, you're ready to deploy. Start with a 10% traffic split and monitor escalation rates.</p>
+
+    <div class="alert alert-success">
+      <div><div class="alert-title">Success!</div>A well-configured agent should resolve 60-80% of tickets without human intervention within the first week.</div>
+    </div>
+
+    <div class="alert alert-info">
+      <div><div class="alert-title">Tip!</div>Keep your escalation threshold high at first (e.g., 90% confidence) and lower it gradually as you validate the agent's decisions.</div>
+    </div>
+
+    <div class="alert alert-danger">
+      <div><div class="alert-title">Error!</div>If the agent keeps routing valid tickets to escalation, stop the rollout and review the intent matching logic immediately.</div>
+    </div>
+
+    <details class="spoiler">
+      <summary>Spoiler: reveal details</summary>
+      <div class="spoiler-body">
+        <p>This spoiler is closed by default and opens when the user clicks the summary. Any content can go here — including text, lists, images, or code blocks.</p>
+      </div>
+    </details>
+
+    <!-- ======================== Accordion ======================== -->
+    <h2 id="sec-faq">Frequently Asked Questions</h2>
+
+    <div class="accordion">
+      <details>
+        <summary>How long does it take to set up a support agent?</summary>
+        <div class="acc-body"><p>With the FlowMind blueprint, most teams have a working agent in 2-3 days. The retrieval integration is usually the longest part — expect 1-2 days for wiring up order systems and policies.</p></div>
+      </details>
+      <details>
+        <summary>Can I use this approach for sales or onboarding?</summary>
+        <div class="acc-body"><p>Absolutely. The same three-tool pattern works for any domain where you need bounded actions. Replace lookup_order with lookup_account, issue_refund with send_proposal, and keep the escalation path.</p></div>
+      </details>
+      <details>
+        <summary>What happens when the agent encounters an edge case?</summary>
+        <div class="acc-body"><p>The agent escalates to a human with full context — the original ticket, what the agent already checked, and why it's stuck. The customer never has to repeat themselves.</p></div>
+      </details>
+    </div>
+
+    <!-- ======================== Author Card ======================== -->
+    <div class="author-card">
+      <div class="avatar-sm" style="width:56px; height:56px;"></div>
+      <div>
+        <h4>Priya Nair</h4>
+        <p>Priya builds support automation at FlowMind and has shipped agent systems for teams from 5 to 500 people. She writes about the parts that don't make it into the demo.</p>
+      </div>
+    </div>
+
+    <!-- ==================== POST BODY END ==================== -->
+
+    <div class="post-nav-row">
+      <a href="post.html" class="post-nav-item prev">
+        <svg class="pn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" style="transform:rotate(180deg);"><path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="pn-text"><div class="pn-label">Previous</div><div class="pn-title">When RPA Still Beats an LLM Agent</div></div>
+      </a>
+      <a href="post.html" class="post-nav-item next">
+        <div class="pn-text"><div class="pn-label">Next</div><div class="pn-title">The 12 Workflows Worth Automating First</div></div>
+        <svg class="pn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </a>
+    </div>
+
+    <div class="share-row-feature">
+      <span class="share-row-label">Share:</span>
+      <div class="share-row-icons">
+        <a href="#" class="share-social fb" aria-label="Share on Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>Facebook</a>
+        <a href="#" class="share-social wap" aria-label="Share on WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.28-.14-1.64-.81-1.9-.9-.25-.1-.44-.14-.62.14-.19.28-.72.9-.88 1.08-.16.19-.32.21-.6.07-.28-.14-1.17-.43-2.23-1.38-.82-.73-1.38-1.64-1.54-1.92-.16-.28-.02-.43.12-.57.12-.12.28-.32.42-.48.14-.16.19-.28.28-.46.1-.19.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.47-.16-.01-.35-.01-.53-.01-.19 0-.49.07-.75.35-.25.28-.98.96-.98 2.33 0 1.37 1 2.7 1.14 2.88.14.19 1.97 3 4.78 4.21.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.64-.67 1.87-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33Z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.83-1.47A10 10 0 1 0 12 2Zm0 18.18a8.15 8.15 0 0 1-4.16-1.14l-.3-.18-3.09.94.95-3-.2-.31A8.18 8.18 0 1 1 12 20.18Z"/></svg></a>
+        <a href="#" class="share-social x" aria-label="Share on X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2H21.5l-7.1 8.12L22.75 22h-6.8l-5.33-6.98L4.5 22H1.24l7.6-8.7L1 2h6.96l4.82 6.38Zm-1.19 18h1.88L7.03 3.9H5.02Z"/></svg></a>
+        <button class="share-social plus" data-share-toggle aria-label="More share options"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      </div>
+    </div>
+
+    <button class="btn btn-outline btn-block" data-comment-toggle style="margin-bottom:8px;">
+      <svg width="17" height="17" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="margin-right:6px; vertical-align:-3px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M168,281 C166.832,281 165.704,280.864 164.62,280.633 L159.912,283.463 L159.975,278.824 C156.366,276.654 154,273.066 154,269 C154,262.373 160.268,257 168,257 C175.732,257 182,262.373 182,269 C182,275.628 175.732,281 168,281 L168,281 Z M168,255 C159.164,255 152,261.269 152,269 C152,273.419 154.345,277.354 158,279.919 L158,287 L165.009,282.747 C165.979,282.907 166.977,283 168,283 C176.836,283 184,276.732 184,269 C184,261.269 176.836,255 168,255 L168,255 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path><path opacity="0.6" d="M175,266 L161,266 C160.448,266 160,266.448 160,267 C160,267.553 160.448,268 161,268 L175,268 C175.552,268 176,267.553 176,267 C176,266.448 175.552,266 175,266 L175,266 Z M173,272 L163,272 C162.448,272 162,272.447 162,273 C162,273.553 162.448,274 163,274 L173,274 C173.552,274 174,273.553 174,273 C174,272.447 173.552,272 173,272 L173,272 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path></svg>
+      Leave a Comment
+    </button>
+  </div>
+
+  <div class="section-head">
+    <h2>Related Reading</h2>
+  </div>
+  <div class="article-grid">
+    <div class="card article-card">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));">M</div>
+          <div class="author-text"><div class="aname">Marcus Cole</div><div class="ameta">Jun 2, 2026 · 8 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+        <div class="article-thumb"><img src="assets/thumb-network.svg" alt="Illustration of a connected network"></div>
+        <span class="cat-pill">Multi-Agent</span>
+        <h3>Orchestrating Multiple Agents Without the Chaos</h3>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+    <div class="card article-card">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--secondary), var(--primary));">S</div>
+          <div class="author-text"><div class="aname">Sam Reyes</div><div class="ameta">Jun 10, 2026 · 5 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+        <div class="article-thumb"><img src="assets/thumb-chat.svg" alt="Illustration of a chat interface"></div>
+        <span class="cat-pill">Prompting</span>
+        <h3>Prompt Patterns That Survive Contact With Users</h3>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+    <div class="card article-card">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter">P</div>
+          <div class="author-text"><div class="aname">Priya Nair</div><div class="ameta">Jun 5, 2026 · 6 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+        <div class="article-thumb"><img src="assets/thumb-gears.svg" alt="Illustration of automation gears"></div>
+        <span class="cat-pill">RPA</span>
+        <h3>When RPA Still Beats an LLM Agent</h3>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <aside class="post-sidebar">
+    <div class="side-panel">
+      <h3>Popular Posts</h3>
+      <div class="popular-list">
+        <div class="popular-item">
+          <span class="popular-rank">1</span>
+          <div><div class="ptitle">The Psychology Behind Color in UI Design</div><div class="pmeta">6 min read</div></div>
+        </div>
+        <div class="popular-item">
+          <span class="popular-rank">2</span>
+          <div><div class="ptitle">Mastering Microinteractions in Agent UIs</div><div class="pmeta">5 min read</div></div>
+        </div>
+        <div class="popular-item">
+          <span class="popular-rank">3</span>
+          <div><div class="ptitle">Designing for Accessibility in Chat Interfaces</div><div class="pmeta">8 min read</div></div>
+        </div>
+        <div class="popular-item">
+          <span class="popular-rank">4</span>
+          <div><div class="ptitle">Choosing Between RAG and Fine-Tuning</div><div class="pmeta">9 min read</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="side-panel side-subscribe">
+      <h3>Stay in the Loop</h3>
+      <p>New automation products and one deep-dive guide every Thursday. No hype.</p>
+      <form class="cta-form">
+        <input type="email" placeholder="you@company.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+    <div class="side-ad">
+      <span>Ad goes here</span>
+    </div>
+  </aside>
+  </div>
+</div>
