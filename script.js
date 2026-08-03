@@ -762,6 +762,82 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   applyAuthUI();
 
+  // ---- Auth gating: block key actions/pages for guests with a "please log in" note ----
+  function ensureAuthToast() {
+    let toast = document.querySelector('#authToast');
+    if (toast) return toast;
+    toast = document.createElement('div');
+    toast.id = 'authToast';
+    toast.className = 'auth-toast';
+    toast.innerHTML = `
+      <div class="auth-toast-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div class="auth-toast-body">
+        <div class="auth-toast-title">You need to log in</div>
+        <div class="auth-toast-msg" id="authToastMsg">Sign in to continue.</div>
+      </div>
+      <a href="auth.html" class="btn btn-primary btn-sm auth-toast-btn">Log In</a>
+      <button type="button" class="icon-btn auth-toast-close" aria-label="Close"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    `;
+    document.body.appendChild(toast);
+    toast.querySelector('.auth-toast-close').addEventListener('click', () => hideAuthToast());
+    return toast;
+  }
+  let authToastTimer = null;
+  function showAuthToast(message) {
+    const toast = ensureAuthToast();
+    toast.querySelector('#authToastMsg').textContent = message || 'Sign in to continue.';
+    toast.classList.add('open');
+    clearTimeout(authToastTimer);
+    authToastTimer = setTimeout(() => hideAuthToast(), 5000);
+  }
+  function hideAuthToast() {
+    const toast = document.querySelector('#authToast');
+    if (toast) toast.classList.remove('open');
+    clearTimeout(authToastTimer);
+  }
+
+  // Map of selectors -> friendly action messages, intercepted for guests before any other handler runs
+  const guardedActions = [
+    { selector: '.bookmark-btn, .bookmark-btn-thumb', message: 'Log in to save items to your bookmarks.' },
+    { selector: '.icon-action[aria-label="Like"]', message: 'Log in to like this post.' },
+    { selector: '[data-comment-toggle]', message: 'Log in to join the conversation.' },
+    { selector: '[data-requires-auth="buy"]', message: 'Log in to purchase this product.' }
+  ];
+  document.addEventListener('click', (e) => {
+    if (isLoggedIn()) return;
+    for (const { selector, message } of guardedActions) {
+      const match = e.target.closest(selector);
+      if (match) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        showAuthToast(message);
+        return;
+      }
+    }
+  }, true);
+
+  // Full-page guard for pages that only make sense when signed in
+  function gatePage(containerSelector, message) {
+    const container = document.querySelector(containerSelector);
+    if (!container || isLoggedIn()) return;
+    container.innerHTML = `
+      <div class="auth-gate">
+        <div class="auth-gate-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>You need to log in</h3>
+        <p>${message}</p>
+        <a href="auth.html" class="btn btn-primary">Log In</a>
+      </div>
+    `;
+    showAuthToast(message);
+  }
+  const path = window.location.pathname;
+  if (path.endsWith('settings.html')) {
+    gatePage('.settings-layout', 'Sign in to manage your profile and account settings.');
+  }
+  if (path.endsWith('bookmarks.html')) {
+    gatePage('.page-shell', 'Sign in to view the items you\'ve bookmarked.');
+  }
+
   const profileTrigger = document.querySelector('#profileTrigger');
   const accountPopup = document.querySelector('#accountPopup');
   if (profileTrigger && accountPopup) {
@@ -951,6 +1027,83 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutBtnSettings.addEventListener('click', () => {
       localStorage.removeItem('flowmind_loggedin');
       window.location.href = 'index.html';
+    });
+  }
+
+  // ---- Settings: Danger Zone (Delete Account Data / Delete Account) ----
+  const dangerOverlay = document.querySelector('#dangerOverlay');
+  if (dangerOverlay) {
+    const accountEmail = 'ava.chen@flowmind.dev';
+    const titleEl = dangerOverlay.querySelector('#dangerModalTitle');
+    const warningEl = dangerOverlay.querySelector('#dangerModalWarning');
+    const emailLabelEl = dangerOverlay.querySelector('#dangerModalEmail');
+    const input = dangerOverlay.querySelector('#dangerConfirmInput');
+    const confirmBtn = dangerOverlay.querySelector('#dangerConfirmBtn');
+
+    const actionCopy = {
+      data: {
+        title: 'Delete Account Data',
+        warning: 'This will permanently erase your activity, content, likes, and personal data. Your account will remain active, but this action cannot be undone.',
+        confirmLabel: 'Delete Data'
+      },
+      account: {
+        title: 'Delete Account',
+        warning: 'This will permanently delete your account and all associated data, including your profile, posts, purchases, and liked items. This action cannot be undone.',
+        confirmLabel: 'Delete Account'
+      }
+    };
+
+    let currentAction = null;
+
+    const resetModal = () => {
+      input.value = '';
+      confirmBtn.disabled = true;
+      confirmBtn.classList.remove('btn-loading');
+    };
+
+    const openModal = (type) => {
+      currentAction = type;
+      const copy = actionCopy[type];
+      titleEl.textContent = copy.title;
+      warningEl.textContent = copy.warning;
+      emailLabelEl.textContent = accountEmail;
+      confirmBtn.textContent = copy.confirmLabel;
+      resetModal();
+      dangerOverlay.classList.add('open');
+      setTimeout(() => input.focus(), 50);
+    };
+
+    const closeModal = () => {
+      dangerOverlay.classList.remove('open');
+      currentAction = null;
+      resetModal();
+    };
+
+    const dataBtn = document.querySelector('#deleteAccountDataBtn');
+    const accountBtn = document.querySelector('#deleteAccountBtn');
+    if (dataBtn) dataBtn.addEventListener('click', () => openModal('data'));
+    if (accountBtn) accountBtn.addEventListener('click', () => openModal('account'));
+
+    dangerOverlay.querySelectorAll('[data-danger-close]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dangerOverlay.classList.contains('open')) closeModal();
+    });
+
+    input.addEventListener('input', () => {
+      confirmBtn.disabled = input.value.trim().toLowerCase() !== accountEmail.toLowerCase();
+    });
+
+    confirmBtn.addEventListener('click', () => {
+      if (confirmBtn.disabled || !currentAction) return;
+      // Demo behaviour: simulate the destructive action, then send the user back to sign-in.
+      confirmBtn.disabled = true;
+      confirmBtn.textContent = 'Processing…';
+      setTimeout(() => {
+        localStorage.removeItem('flowmind_loggedin');
+        window.location.href = 'index.html';
+      }, 600);
     });
   }
 
