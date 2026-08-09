@@ -665,6 +665,79 @@
 
     <p>Each section below shows a live rendering of the component followed by the exact markup to copy. The comment on the first line of each snippet — <code>&lt;!--[ Feature Name ]--&gt;</code> — is just a label; it's optional and safe to delete.</p>
 
+    <h2 id="sec-typography">Typography</h2>
+    <p>Bare <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code> tags carry a default scale (used as a fallback anywhere a component doesn't set its own size). Alongside them, a set of utility classes — <code>.subtitle1</code>, <code>.subtitle2</code>, <code>.body1</code>, <code>.body2</code>, <code>.text-button</code>, <code>.caption</code>, <code>.overline</code> — cover the smaller in-between sizes, and <code>.font-thin</code> through <code>.font-extrabold</code>, <code>.italic</code>, <code>.underline</code>, and <code>.line-through</code> layer on style, weight, and decoration.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Type Scale</div>
+      <div class="doc-demo-render" style="display:block;">
+        <h1 class="mb-2">Heading - H1</h1>
+        <h2 class="mb-2">Heading - H2</h2>
+        <h3 class="mb-2">Heading - H3</h3>
+        <h4 class="mb-2">Heading - H4</h4>
+        <h5 class="mb-2">Heading - H5</h5>
+        <h6 class="mb-2">Heading - H6</h6>
+        <p class="subtitle1 mb-2">Subtitle 1</p>
+        <p class="subtitle2 mb-2">Subtitle 2</p>
+        <p class="body1 mb-2">Body 1</p>
+        <p class="body2 mb-2">Body 2</p>
+        <span class="text-button mb-2">Button</span>
+        <span class="caption mb-2">Caption</span>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Type Scale ]--&gt;
+&lt;h1&gt;Heading - H1&lt;/h1&gt;
+&lt;h2&gt;Heading - H2&lt;/h2&gt;
+&lt;h3&gt;Heading - H3&lt;/h3&gt;
+&lt;h4&gt;Heading - H4&lt;/h4&gt;
+&lt;h5&gt;Heading - H5&lt;/h5&gt;
+&lt;h6&gt;Heading - H6&lt;/h6&gt;
+&lt;p class=&quot;subtitle1&quot;&gt;Subtitle 1&lt;/p&gt;
+&lt;p class=&quot;subtitle2&quot;&gt;Subtitle 2&lt;/p&gt;
+&lt;p class=&quot;body1&quot;&gt;Body 1&lt;/p&gt;
+&lt;p class=&quot;body2&quot;&gt;Body 2&lt;/p&gt;
+&lt;span class=&quot;text-button&quot;&gt;Button&lt;/span&gt;
+&lt;span class=&quot;caption&quot;&gt;Caption&lt;/span&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Style, Weight &amp; Decoration</div>
+      <div class="doc-demo-render" style="display:block;">
+        <p class="body1 italic mb-1">Italic</p>
+        <p class="body1 font-thin mb-1">Thin - 100</p>
+        <p class="body1 font-extralight mb-1">Extralight - 200</p>
+        <p class="body1 font-light mb-1">Light - 300</p>
+        <p class="body1 mb-1">Normal - 400</p>
+        <p class="body1 font-medium mb-1">Medium - 500</p>
+        <p class="body1 font-semibold mb-1">Semibold - 600</p>
+        <p class="body1 font-bold mb-1">Bold - 700</p>
+        <p class="body1 underline mb-1">Underline</p>
+        <p class="body1 line-through mb-1">Line Through</p>
+        <p class="overline mb-1">Overline</p>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Style, Weight &amp; Decoration ]--&gt;
+&lt;p class=&quot;body1 italic&quot;&gt;Italic&lt;/p&gt;
+&lt;p class=&quot;body1 font-thin&quot;&gt;Thin - 100&lt;/p&gt;
+&lt;p class=&quot;body1 font-extralight&quot;&gt;Extralight - 200&lt;/p&gt;
+&lt;p class=&quot;body1 font-light&quot;&gt;Light - 300&lt;/p&gt;
+&lt;p class=&quot;body1&quot;&gt;Normal - 400&lt;/p&gt;
+&lt;p class=&quot;body1 font-medium&quot;&gt;Medium - 500&lt;/p&gt;
+&lt;p class=&quot;body1 font-semibold&quot;&gt;Semibold - 600&lt;/p&gt;
+&lt;p class=&quot;body1 font-bold&quot;&gt;Bold - 700&lt;/p&gt;
+&lt;p class=&quot;body1 underline&quot;&gt;Underline&lt;/p&gt;
+&lt;p class=&quot;body1 line-through&quot;&gt;Line Through&lt;/p&gt;
+&lt;p class=&quot;overline&quot;&gt;Overline&lt;/p&gt;</code></pre>
+    </div>
+    </div>
+
     <h2 id="sec-buttons">Buttons</h2>
     <p>Three visual styles ship with the template: <code>.btn-primary</code> (contained), <code>.btn-outline</code> (outlined), and <code>.btn-pastel</code> (tinted). Combine any of them with a size modifier — <code>.btn-lg</code>, the unmodified default (medium), <code>.btn-sm</code>, or <code>.btn-tiny</code> — and drop an inline <code>&lt;svg&gt;</code> before or after the label for a leading or trailing icon.</p>
     <div class="doc-demo-block">
@@ -678,8 +751,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Button Variants ]--&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Contained&lt;/button&gt;
@@ -698,8 +771,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Size — Large ]--&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Contained&lt;/button&gt;
@@ -718,8 +791,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Size — Medium ]--&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Contained&lt;/button&gt;
@@ -738,8 +811,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Size — Small ]--&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;Contained&lt;/button&gt;
@@ -758,8 +831,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Size — Tiny ]--&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-tiny&quot;&gt;Contained&lt;/button&gt;
@@ -778,8 +851,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Icon — Left ]--&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-search&quot;&gt;&lt;/use&gt;&lt;/svg&gt;Search&lt;/button&gt;
@@ -798,8 +871,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Icon — Right ]--&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Continue&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-chevron-right-sm&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/button&gt;
@@ -808,7 +881,7 @@
     </div>
     </div>
     <h2 id="sec-blockquotes">Blockquotes</h2>
-    <p>Use inside .post-wrap (or any content column). Three variants ship with the template.</p>
+    <p>Use inside .post-wrap (or any content column). Two variants ship with the template.</p>
     <div class="doc-demo-block">
       <div class="doc-demo-label">Standard Blockquote</div>
       <div class="doc-demo-render">
@@ -819,8 +892,8 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Standard Blockquote ]--&gt;
 &lt;blockquote&gt;
@@ -833,206 +906,143 @@
       <div class="doc-demo-label">Blockquote — Style 1</div>
       <div class="doc-demo-render">
         <blockquote class="bq-style1">
-          "An agent's judgment is only as good as the ground truth you hand it. Fix retrieval before you tune the prompt."
-          <span class="bq-author">— Priya Nair</span>
-        </blockquote>
-      </div>
-      <div class="code-block">
-      <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-      </div>
-      <pre><code class="language-html">&lt;!--[ Blockquote — Style 1 ]--&gt;
-&lt;blockquote class=&quot;bq-style1&quot;&gt;
-  &quot;An agent&#x27;s judgment is only as good as the ground truth you hand it. Fix retrieval before you tune the prompt.&quot;
-  &lt;span class=&quot;bq-author&quot;&gt;— Priya Nair&lt;/span&gt;
-&lt;/blockquote&gt;</code></pre>
-    </div>
-    </div>
-    <div class="doc-demo-block">
-      <div class="doc-demo-label">Blockquote — Style 2</div>
-      <div class="doc-demo-render">
-        <blockquote class="bq-style2">
           "The best agents are the ones that know when to stop. Overconfidence is the most expensive mistake in automation."
           <span class="bq-author">— FlowMind Engineering Team</span>
         </blockquote>
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
-      <pre><code class="language-html">&lt;!--[ Blockquote — Style 2 ]--&gt;
-&lt;blockquote class=&quot;bq-style2&quot;&gt;
+      <pre><code class="language-html">&lt;!--[ Blockquote — Style 1 ]--&gt;
+&lt;blockquote class=&quot;bq-style1&quot;&gt;
   &quot;The best agents are the ones that know when to stop. Overconfidence is the most expensive mistake in automation.&quot;
   &lt;span class=&quot;bq-author&quot;&gt;— FlowMind Engineering Team&lt;/span&gt;
 &lt;/blockquote&gt;</code></pre>
     </div>
     </div>
 
-    <h2 id="sec-note-blocks">Note Blocks</h2>
-    <p>Inline callouts with an icon. Four color variants — swap the modifier class and the icon's stroke color follows automatically.</p>
+    <h2 id="sec-alerts">Alerts</h2>
+    <p>Pill-shaped status banners for surfacing success, info, warning, and error states — three visual weights (standard, filled, outlined) built on one shared icon set.</p>
     <div class="doc-demo-block">
-      <div class="doc-demo-label">Note Block — Info</div>
+      <div class="doc-demo-label">Alert — Standard</div>
       <div class="doc-demo-render">
-        <div class="note-block note-info">
-          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <div>
-            <strong>Using v2.6?</strong><br>
-            Looking for v2.5 documentation? <a href="#">Visit old documentation</a>.
+        <div class="alert2-group">
+          <div class="alert2 alert2-standard alert2-success">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M15 10L11.8423 13.5979C11.6514 13.8154 11.3162 13.8259 11.112 13.6206L9.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is a success Alert.</span>
+          </div>
+          <div class="alert2 alert2-standard alert2-info">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M12 16L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.6" d="M12 8.5L12 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is an info Alert.</span>
+          </div>
+          <div class="alert2 alert2-standard alert2-warning">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M12 8V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.6" d="M12 15.5V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is a warning Alert.</span>
+          </div>
+          <div class="alert2 alert2-standard alert2-error">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M10 10L14.0001 14.0001M14 10L9.99992 14.0001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is an error Alert.</span>
           </div>
         </div>
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
-      <pre><code class="language-html">&lt;!--[ Note Block — Info ]--&gt;
-&lt;div class=&quot;note-block note-info&quot;&gt;
-  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;path d=&quot;M12 16v-4M12 8h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;
-  &lt;div&gt;
-    &lt;strong&gt;Using v2.6?&lt;/strong&gt;&lt;br&gt;
-    Looking for v2.5 documentation? &lt;a href=&quot;#&quot;&gt;Visit old documentation&lt;/a&gt;.
+      <pre><code class="language-html">&lt;!--[ Alert — Standard ]--&gt;
+&lt;div class=&quot;alert2-group&quot;&gt;
+  &lt;div class=&quot;alert2 alert2-standard alert2-success&quot;&gt;
+    &lt;svg class=&quot;alert2-icon&quot; ...&gt;&lt;/svg&gt;
+    &lt;span class=&quot;alert2-text&quot;&gt;This is a success Alert.&lt;/span&gt;
   &lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-standard alert2-info&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-standard alert2-warning&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-standard alert2-error&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
     </div>
     <div class="doc-demo-block">
-      <div class="doc-demo-label">Note Block — Warning</div>
+      <div class="doc-demo-label">Alert — Filled</div>
       <div class="doc-demo-render">
-        <div class="note-block note-warning">
-          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="1.5"/></svg>
-          <div><strong>Warning:</strong> Never let the agent attempt a refund without first verifying the order exists.</div>
+        <div class="alert2-group">
+          <div class="alert2 alert2-filled alert2-success">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.75" d="M15 10L11.8423 13.5979C11.6514 13.8154 11.3162 13.8259 11.112 13.6206L9.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is a filled success Alert.</span>
+          </div>
+          <div class="alert2 alert2-filled alert2-info">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.75" d="M12 16L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.75" d="M12 8.5L12 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is a filled info Alert.</span>
+          </div>
+          <div class="alert2 alert2-filled alert2-warning">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.75" d="M12 8V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.75" d="M12 15.5V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is a filled warning Alert.</span>
+          </div>
+          <div class="alert2 alert2-filled alert2-error">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.75" d="M10 10L14.0001 14.0001M14 10L9.99992 14.0001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is a filled error Alert.</span>
+          </div>
         </div>
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
-      <pre><code class="language-html">&lt;!--[ Note Block — Warning ]--&gt;
-&lt;div class=&quot;note-block note-warning&quot;&gt;
-  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 9v4M12 17h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;path d=&quot;M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;/svg&gt;
-  &lt;div&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Never let the agent attempt a refund without first verifying the order exists.&lt;/div&gt;
+      <pre><code class="language-html">&lt;!--[ Alert — Filled ]--&gt;
+&lt;div class=&quot;alert2-group&quot;&gt;
+  &lt;div class=&quot;alert2 alert2-filled alert2-success&quot;&gt;
+    &lt;svg class=&quot;alert2-icon&quot; ...&gt;&lt;/svg&gt;
+    &lt;span class=&quot;alert2-text&quot;&gt;This is a filled success Alert.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-filled alert2-info&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-filled alert2-warning&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-filled alert2-error&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
     </div>
     <div class="doc-demo-block">
-      <div class="doc-demo-label">Note Block — Success</div>
+      <div class="doc-demo-label">Alert — Outlined</div>
       <div class="doc-demo-render">
-        <div class="note-block note-success">
-          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div><strong>Nice —</strong> that config is valid and ready to ship.</div>
+        <div class="alert2-group">
+          <div class="alert2 alert2-outlined alert2-success">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M15 10L11.8423 13.5979C11.6514 13.8154 11.3162 13.8259 11.112 13.6206L9.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is an outlined success Alert.</span>
+          </div>
+          <div class="alert2 alert2-outlined alert2-info">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M12 16L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.6" d="M12 8.5L12 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is an outlined info Alert.</span>
+          </div>
+          <div class="alert2 alert2-outlined alert2-warning">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M12 8V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.6" d="M12 15.5V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is an outlined warning Alert.</span>
+          </div>
+          <div class="alert2 alert2-outlined alert2-error">
+            <svg class="alert2-icon" viewBox="0 0 24 24" fill="none"><path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/><path opacity="0.6" d="M10 10L14.0001 14.0001M14 10L9.99992 14.0001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="alert2-text">This is an outlined error Alert.</span>
+          </div>
         </div>
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
-      <pre><code class="language-html">&lt;!--[ Note Block — Success ]--&gt;
-&lt;div class=&quot;note-block note-success&quot;&gt;
-  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;path d=&quot;M8 12l2.5 2.5L16 9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;
-  &lt;div&gt;&lt;strong&gt;Nice —&lt;/strong&gt; that config is valid and ready to ship.&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-    <div class="doc-demo-block">
-      <div class="doc-demo-label">Note Block — Danger</div>
-      <div class="doc-demo-render">
-        <div class="note-block note-danger">
-          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-          <div><strong>Heads up —</strong> this action can't be undone once confirmed.</div>
-        </div>
-      </div>
-      <div class="code-block">
-      <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-      </div>
-      <pre><code class="language-html">&lt;!--[ Note Block — Danger ]--&gt;
-&lt;div class=&quot;note-block note-danger&quot;&gt;
-  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;path d=&quot;M15 9l-6 6M9 9l6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;
-  &lt;div&gt;&lt;strong&gt;Heads up —&lt;/strong&gt; this action can&#x27;t be undone once confirmed.&lt;/div&gt;
+      <pre><code class="language-html">&lt;!--[ Alert — Outlined ]--&gt;
+&lt;div class=&quot;alert2-group&quot;&gt;
+  &lt;div class=&quot;alert2 alert2-outlined alert2-success&quot;&gt;
+    &lt;svg class=&quot;alert2-icon&quot; ...&gt;&lt;/svg&gt;
+    &lt;span class=&quot;alert2-text&quot;&gt;This is an outlined success Alert.&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-outlined alert2-info&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-outlined alert2-warning&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;alert2 alert2-outlined alert2-error&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </div>
     </div>
 
-    <h2 id="sec-alerts">Alerts</h2>
-    <p>Bordered banners for step-by-step or procedural content — heavier emphasis than a note block.</p>
-    <div class="doc-demo-block">
-      <div class="doc-demo-label">Alert — Info</div>
-      <div class="doc-demo-render">
-        <div class="alert alert-info">
-          <div><div class="alert-title">Tip!</div>Keep your escalation threshold high at first and lower it gradually.</div>
-        </div>
-      </div>
-      <div class="code-block">
-      <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-      </div>
-      <pre><code class="language-html">&lt;!--[ Alert — Info ]--&gt;
-&lt;div class=&quot;alert alert-info&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Tip!&lt;/div&gt;Keep your escalation threshold high at first and lower it gradually.&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-    <div class="doc-demo-block">
-      <div class="doc-demo-label">Alert — Success</div>
-      <div class="doc-demo-render">
-        <div class="alert alert-success">
-          <div><div class="alert-title">Success!</div>A well-configured agent should resolve 60-80% of tickets without human intervention.</div>
-        </div>
-      </div>
-      <div class="code-block">
-      <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-      </div>
-      <pre><code class="language-html">&lt;!--[ Alert — Success ]--&gt;
-&lt;div class=&quot;alert alert-success&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Success!&lt;/div&gt;A well-configured agent should resolve 60-80% of tickets without human intervention.&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-    <div class="doc-demo-block">
-      <div class="doc-demo-label">Alert — Warning</div>
-      <div class="doc-demo-render">
-        <div class="alert alert-warning">
-          <div><div class="alert-title">Careful!</div>This setting affects every workspace member, not just your account.</div>
-        </div>
-      </div>
-      <div class="code-block">
-      <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-      </div>
-      <pre><code class="language-html">&lt;!--[ Alert — Warning ]--&gt;
-&lt;div class=&quot;alert alert-warning&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Careful!&lt;/div&gt;This setting affects every workspace member, not just your account.&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
-    <div class="doc-demo-block">
-      <div class="doc-demo-label">Alert — Danger</div>
-      <div class="doc-demo-render">
-        <div class="alert alert-danger">
-          <div><div class="alert-title">Error!</div>If the agent keeps mis-routing tickets, stop the rollout and review intent matching.</div>
-        </div>
-      </div>
-      <div class="code-block">
-      <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-      </div>
-      <pre><code class="language-html">&lt;!--[ Alert — Danger ]--&gt;
-&lt;div class=&quot;alert alert-danger&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Error!&lt;/div&gt;If the agent keeps mis-routing tickets, stop the rollout and review intent matching.&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </div>
-    </div>
 
     <h2 id="sec-code-block">Code Block</h2>
     <p>A language label, a copy button (wired up in script.js), and real syntax highlighting — add a <code>language-xxx</code> class to the <code>&lt;code&gt;</code> element and highlight.js loads that language pack on demand and colors it using the <code>--hl-*</code> tokens in styles.css.</p>
@@ -1041,8 +1051,8 @@
       <div class="doc-demo-render">
         <div class="code-block">
           <div class="code-block-header">
-            <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>JavaScript</span>
-            <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+            <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>JavaScript</span>
+            <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
           </div>
           <pre><code class="language-javascript">const tools = ['lookup_order', 'issue_refund', 'escalate_to_human'];
         
@@ -1054,14 +1064,14 @@
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Code Block ]--&gt;
 &lt;div class=&quot;code-block&quot;&gt;
   &lt;div class=&quot;code-block-header&quot;&gt;
-    &lt;span class=&quot;code-block-lang&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M9 8L4 12L9 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;path d=&quot;M15 8L20 12L15 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;JavaScript&lt;/span&gt;
-    &lt;button class=&quot;code-copy-btn&quot; aria-label=&quot;Copy code&quot; data-tooltip=&quot;Copy&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;rect x=&quot;8&quot; y=&quot;8&quot; width=&quot;12&quot; height=&quot;12&quot; rx=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;path d=&quot;M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;
+    &lt;span class=&quot;code-block-lang&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.75&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;path d=&quot;M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.75&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;path opacity=&quot;0.6&quot; d=&quot;M9.81053 20.2205L14.2104 3.7998&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.75&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;JavaScript&lt;/span&gt;
+    &lt;button class=&quot;code-copy-btn&quot; aria-label=&quot;Copy code&quot; data-tooltip=&quot;Copy&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.75&quot;/&gt;&lt;path opacity=&quot;0.6&quot; d=&quot;M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.75&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;pre&gt;&lt;code&gt;const tools = [&#x27;lookup_order&#x27;, &#x27;issue_refund&#x27;, &#x27;escalate_to_human&#x27;];
 
@@ -1092,8 +1102,8 @@ function pickTool(intent) {
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Table ]--&gt;
 &lt;div class=&quot;doc-table-wrap&quot;&gt;
@@ -1121,8 +1131,8 @@ function pickTool(intent) {
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Pulled Image ]--&gt;
 &lt;div class=&quot;pull-img&quot;&gt;
@@ -1145,8 +1155,8 @@ function pickTool(intent) {
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Spoiler ]--&gt;
 &lt;details class=&quot;spoiler&quot;&gt;
@@ -1176,8 +1186,8 @@ function pickTool(intent) {
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Accordion ]--&gt;
 &lt;div class=&quot;accordion&quot;&gt;
@@ -1202,8 +1212,8 @@ function pickTool(intent) {
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ In-Feed Ad ]--&gt;
 &lt;div class=&quot;infeed-ad&quot;&gt;Ad goes here&lt;/div&gt;</code></pre>
@@ -1227,8 +1237,8 @@ function pickTool(intent) {
       </div>
       <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
-        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg></button>
       </div>
       <pre><code class="language-html">&lt;!--[ Table of Contents ]--&gt;
 &lt;div class=&quot;toc-wrap&quot; id=&quot;tocWrap&quot;&gt;

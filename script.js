@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Code block copy button: copy text, show a checkmark for 2s, then revert
   document.querySelectorAll('.code-copy-btn').forEach(btn => {
     const originalIcon = btn.innerHTML;
-    const checkIcon = '<svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const checkIcon = '<svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9.86221 17.5978C9.67192 17.8155 9.33719 17.8269 9.13254 17.6226L4 12.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
     let revertTimer = null;
     btn.addEventListener('click', () => {
       const code = btn.closest('.code-block')?.querySelector('pre');

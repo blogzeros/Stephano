@@ -66,6 +66,16 @@
   --font-body: "Mulish", ui-sans-serif, sans-serif;
   --font-code: "Fira Code", "JetBrains Mono", monospace;
 
+  /* ---- Font weight scale (used by the .font-* utility classes) ---- */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
   /* ---- Layout ---- */
   --rail-w: 76px;
   --header-h: 64px;
@@ -168,6 +178,42 @@ body{
   font-size:15px;
 }
 h1,h2,h3,h4,h5,h6{font-family:var(--font-heading); color:var(--text-primary); margin:0;}
+
+/* ---------------- Typography scale ----------------
+   Ported from the reference dashboard's Mui Typography variants.
+   These are base/fallback sizes for bare heading tags and the
+   subtitle/body/button/caption/overline utility classes below —
+   components with their own font-size (e.g. .post-wrap h1.title,
+   .page-title-row h1, .pd-title) keep their own sizing since a
+   class selector already outweighs these element selectors. */
+h1{font-size:6rem; font-weight:var(--font-weight-light); line-height:1.167;}
+h2{font-size:3.75rem; font-weight:var(--font-weight-light); line-height:1.2;}
+h3{font-size:3rem; font-weight:var(--font-weight-normal); line-height:1.167;}
+h4{font-size:2.125rem; font-weight:var(--font-weight-normal); line-height:1.235;}
+h5{font-size:1.5rem; font-weight:var(--font-weight-normal); line-height:1.334;}
+h6{font-size:1.25rem; font-weight:var(--font-weight-medium); line-height:1.6;}
+
+.subtitle1{display:block; font-family:var(--font-body); font-size:1rem; font-weight:var(--font-weight-normal); line-height:1.75; color:var(--text-primary); margin:0;}
+.subtitle2{display:block; font-family:var(--font-body); font-size:.875rem; font-weight:var(--font-weight-medium); line-height:1.57; color:var(--text-primary); margin:0;}
+.body1{display:block; font-family:var(--font-body); font-size:1rem; font-weight:var(--font-weight-normal); line-height:1.5; color:var(--text-primary); margin:0;}
+.body2{display:block; font-family:var(--font-body); font-size:.875rem; font-weight:var(--font-weight-normal); line-height:1.43; color:var(--text-primary); margin:0;}
+.text-button{display:inline-block; font-family:var(--font-body); font-size:.875rem; font-weight:var(--font-weight-medium); line-height:1.75; text-transform:uppercase; letter-spacing:.02857em; color:var(--text-primary);}
+.caption{display:block; font-family:var(--font-body); font-size:.75rem; font-weight:var(--font-weight-normal); line-height:1.66; color:var(--text-primary); margin:0;}
+.overline{display:block; font-family:var(--font-body); font-size:.75rem; font-weight:var(--font-weight-normal); line-height:2.66; text-transform:uppercase; letter-spacing:.08333em; color:var(--text-primary); margin:0;}
+
+.font-thin{font-weight:var(--font-weight-thin);}
+.font-extralight{font-weight:var(--font-weight-extralight);}
+.font-light{font-weight:var(--font-weight-light);}
+.font-medium{font-weight:var(--font-weight-medium);}
+.font-semibold{font-weight:var(--font-weight-semibold);}
+.font-bold{font-weight:var(--font-weight-bold);}
+.font-extrabold{font-weight:var(--font-weight-extrabold);}
+.italic{font-style:italic;}
+.underline{text-decoration:underline;}
+.line-through{text-decoration:line-through;}
+.mb-1{margin-bottom:.25rem;}
+.mb-2{margin-bottom:.5rem;}
+
 img{max-width:100%; display:block;}
 a{color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent;}
 ul{margin:0; padding:0; list-style:none;}
@@ -1175,9 +1221,13 @@ html.layout-fluid .site-footer{max-width:none;}
 .doc-jump-link:hover{background:var(--primary-tint); color:var(--primary);}
 
 .post-wrap blockquote{
-  border-left:3px solid var(--primary); padding:4px 0 4px 22px; margin:30px 0;
+  border-left:3px solid var(--grey-400); padding:4px 0 4px 22px; margin:30px 0;
   font-family:var(--font-heading); font-size:20px; font-style:italic; color:var(--text-primary);
 }
+.post-wrap blockquote:not(.bq-style1) span{
+  display:block; font-size:14px; font-style:normal;
+}
+.post-wrap blockquote:not(.bq-style1) span::before{content:"— ";}
 .pull-img{border-radius:var(--radius-2xl); overflow:hidden; margin:30px 0; box-shadow:var(--shadow-xs);}
 .author-card{
   display:flex; gap:18px; align-items:flex-start; background:var(--primary-tint);
@@ -1244,36 +1294,15 @@ html.layout-fluid .site-footer{max-width:none;}
 .toc-body li a:hover{background:var(--primary-tint); color:var(--primary);}
 .toc-body li.toc-h3 a{padding-left:28px; font-size:13px;}
 
-/* Blockquote Style 1 — standard */
+/* Blockquote Style 1 — with attribution */
 .post-wrap blockquote.bq-style1{
-  border-left:4px solid var(--primary); padding:6px 0 6px 22px; margin:30px 0;
-  font-family:var(--font-heading); font-size:20px; font-style:italic; color:var(--text-primary);
+  border-left:4px solid var(--primary); padding:16px 22px; margin:30px 0;
+  background:var(--primary-tint); border-radius:0 var(--radius-md) var(--radius-md) 0;
+  color:var(--text-primary); position:relative;
 }
-/* Blockquote Style 2 — with attribution */
-.post-wrap blockquote.bq-style2{
-  border-left:4px solid var(--accent-blue); padding:16px 22px; margin:30px 0;
-  background:rgba(0,192,235,0.06); border-radius:0 var(--radius-md) var(--radius-md) 0;
-  font-style:italic; color:var(--text-primary); position:relative;
+.post-wrap blockquote.bq-style1 .bq-author{
+  display:block; margin-top:10px; font-size:13px; font-weight:700; color:var(--primary);
 }
-.post-wrap blockquote.bq-style2 .bq-author{
-  display:block; margin-top:10px; font-size:13px; font-style:normal; font-weight:700; color:var(--accent-blue);
-}
-
-/* Note blocks */
-.note-block{display:flex; gap:12px; padding:16px 20px; border-radius:var(--radius-md); margin:24px 0; font-size:14px; line-height:1.65;}
-.note-block .note-icon{flex-shrink:0; width:22px; height:22px; margin-top:1px;}
-.note-block.note-info{background:#eef6ff; color:#1a5276;}
-.note-block.note-info .note-icon{color:#2980b9;}
-.note-block.note-warning{background:#fdf5e6; color:#7d6608;}
-.note-block.note-warning .note-icon{color:#d4a017;}
-.note-block.note-danger{background:#fdecea; color:#922b21;}
-.note-block.note-danger .note-icon{color:#e74c3c;}
-.note-block.note-success{background:#eaf8ec; color:#1e7e34;}
-.note-block.note-success .note-icon{color:#27ae60;}
-html.dark .note-block.note-info{background:rgba(41,128,185,0.12); color:#aed6f1;}
-html.dark .note-block.note-warning{background:rgba(212,160,23,0.12); color:#f9e79f;}
-html.dark .note-block.note-danger{background:rgba(231,76,60,0.12); color:#f5b7b1;}
-html.dark .note-block.note-success{background:rgba(39,174,96,0.12); color:#abebc6;}
 
 /* Tables */
 .doc-table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:24px 0; border-radius:var(--radius-lg); border:1px solid var(--grey-100);}
@@ -1302,7 +1331,7 @@ html.dark .note-block.note-success{background:rgba(39,174,96,0.12); color:#abebc
   border:none; width:30px; height:30px; padding:0; border-radius:8px; cursor:pointer;
 }
 .code-copy-btn:hover{background:var(--grey-100); color:var(--text-primary);}
-.code-copy-btn .icon-check, .share-copy-icon-btn .icon-check{color:var(--success, #2bb673);}
+.share-copy-icon-btn .icon-check{color:var(--success, #2bb673);}
 .code-copy-btn[data-tooltip]::after{top:calc(100% + 6px); left:50%; transform:translateX(-50%);}
 .code-block pre{margin:0; padding:6px 22px 20px; overflow-x:auto; font-family:var(--font-code); font-size:13.5px; line-height:1.7; color:var(--hl-text);}
 .code-block code{font-family:inherit;}
@@ -1376,17 +1405,39 @@ html.dark .note-block.note-success{background:rgba(39,174,96,0.12); color:#abebc
 .spoiler[open] summary::after{content:'Hide';}
 .spoiler .spoiler-body{padding:0 20px 16px; font-size:14px; line-height:1.7; color:var(--text-secondary);}
 
-/* Alert blocks */
-.alert{display:flex; gap:12px; padding:14px 20px; border-radius:var(--radius-md); margin:20px 0; font-size:14px; line-height:1.6; border:1px solid transparent;}
-.alert.alert-info{background:#eef6ff; border-color:#bee5ff; color:#1a5276;}
-.alert.alert-warning{background:#fdf5e6; border-color:#fce4a8; color:#7d6608;}
-.alert.alert-success{background:#eaf8ec; border-color:#b7eb8f; color:#1e7e34;}
-.alert.alert-danger{background:#fdecea; border-color:#f5b7b1; color:#922b21;}
-.alert .alert-title{font-weight:800; margin-bottom:4px;}
-html.dark .alert.alert-info{background:rgba(41,128,185,0.1); border-color:rgba(41,128,185,0.2); color:#aed6f1;}
-html.dark .alert.alert-warning{background:rgba(212,160,23,0.1); border-color:rgba(212,160,23,0.2); color:#f9e79f;}
-html.dark .alert.alert-success{background:rgba(39,174,96,0.1); border-color:rgba(39,174,96,0.2); color:#abebc6;}
-html.dark .alert.alert-danger{background:rgba(231,76,60,0.1); border-color:rgba(231,76,60,0.2); color:#f5b7b1;}
+/* Alerts — pill-shaped status banners, three weights x four severities */
+.alert2-group{display:flex; flex-direction:column; gap:10px; margin:20px 0;}
+.alert2{
+  display:flex; align-items:center; gap:10px;
+  padding:13px 22px; border-radius:999px;
+  font-size:14px; line-height:1.4; font-weight:600;
+  border:1.5px solid transparent;
+}
+.alert2-icon{flex-shrink:0; width:20px; height:20px;}
+.alert2-text{flex:1;}
+
+/* Standard — soft tinted background, colored icon + text */
+.alert2-standard.alert2-success{background:rgba(103,187,58,0.12); color:var(--success);}
+.alert2-standard.alert2-info{background:rgba(0,192,235,0.12); color:var(--accent-blue);}
+.alert2-standard.alert2-warning{background:rgba(248,163,42,0.12); color:var(--warning);}
+.alert2-standard.alert2-error{background:rgba(227,93,106,0.12); color:var(--error);}
+
+/* Filled — solid background, white text */
+.alert2-filled.alert2-success{background:var(--success); color:#fff;}
+.alert2-filled.alert2-info{background:var(--accent-blue); color:#fff;}
+.alert2-filled.alert2-warning{background:var(--warning); color:#fff;}
+.alert2-filled.alert2-error{background:var(--error); color:#fff;}
+
+/* Outlined — transparent background, colored border + icon, default text */
+.alert2-outlined{background:transparent; color:var(--text-primary);}
+.alert2-outlined.alert2-success{border-color:var(--success);}
+.alert2-outlined.alert2-success .alert2-icon{color:var(--success);}
+.alert2-outlined.alert2-info{border-color:var(--accent-blue);}
+.alert2-outlined.alert2-info .alert2-icon{color:var(--accent-blue);}
+.alert2-outlined.alert2-warning{border-color:var(--warning);}
+.alert2-outlined.alert2-warning .alert2-icon{color:var(--warning);}
+.alert2-outlined.alert2-error{border-color:var(--error);}
+.alert2-outlined.alert2-error .alert2-icon{color:var(--error);}
 
 /* Steps list */
 .doc-steps{counter-reset:step-counter; list-style:none; padding:0; margin:24px 0;}
@@ -1615,8 +1666,7 @@ html.dark .alert.alert-danger{background:rgba(231,76,60,0.1); border-color:rgba(
   .pull-img{border-radius:var(--radius-xl);}
   .post-meta-desc{font-size:14px;}
   .breadcrumb{font-size:12px; flex-wrap:wrap;}
-  .post-wrap blockquote.bq-style1{font-size:17px; padding-left:16px;}
-  .post-wrap blockquote.bq-style2{padding:14px 16px; font-size:15px;}
+  .post-wrap blockquote.bq-style1{padding:14px 16px; font-size:15px;}
 
   /* Tables - stay a real table, just scroll horizontally on narrow screens */
   .doc-table-wrap{margin:20px 0; border-radius:var(--radius-md);}
@@ -1631,7 +1681,8 @@ html.dark .alert.alert-danger{background:rgba(231,76,60,0.1); border-color:rgba(
   .toc-wrap{margin:0 0 20px;}
 
   /* Note blocks & alerts */
-  .note-block, .alert{padding:14px 16px; font-size:13px; margin:18px 0;}
+  .alert2{padding:12px 18px; font-size:13px;}
+  .alert2-group{margin:18px 0;}
 
   /* Accordion */
   .accordion details summary{padding:12px 16px; font-size:14px;}
@@ -1663,7 +1714,7 @@ html.dark .alert.alert-danger{background:rgba(231,76,60,0.1); border-color:rgba(
   .post-wrap p{font-size:14px;}
   .code-block pre{font-size:11.5px; padding:12px 14px;}
   .doc-table td{font-size:13px; padding:9px 12px;}
-  .note-block, .alert{font-size:12.5px; padding:12px 14px;}
+  .alert2{font-size:12.5px; padding:11px 16px;}
   .accordion details summary{font-size:13px; padding:10px 14px;}
   .byline{gap:8px;}
   .byline-author{gap:8px;}
