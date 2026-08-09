@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Sidebar "Home" link (rail icon + mobile drawer item) only makes sense
+  // when you're not already on the home page — hide both on index.html.
+  const onHomePage = /(^|\/)index\.html$/.test(window.location.pathname) || /\/$/.test(window.location.pathname);
+  if (onHomePage) {
+    document.getElementById('railHomeBtn')?.remove();
+    document.getElementById('drawerHomeItem')?.remove();
+  }
+
+  // Syntax highlighting: only loads highlight.js (and only the specific
+  // language packs actually used on the page) when a code block with a
+  // language-xxx class is present — pages with no code blocks load nothing.
+  initSyntaxHighlighting();
+
   // Product gallery thumbnail swap
   const thumbs = document.querySelectorAll('.pd-thumbs img');
   const mainImg = document.querySelector('.pd-gallery-main img');
@@ -62,9 +75,146 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Tags page: search box + two dropdown-panel filters (Groups, Tags) —
+  // the exact chip-more / label-dropdown-panel component used for the
+  // Articles page "More" menu — combine to filter the post grid. A
+  // sidebar deep link like tags.html#langgraph pre-selects that tag.
+  const tagPostGrid = document.getElementById('tagPostGrid');
+  if (tagPostGrid) {
+    const tagCards = tagPostGrid.querySelectorAll('.article-card[data-tags]');
+    const tagEmptyMsg = document.getElementById('tagEmptyMsg');
+    const tagSearchInput = document.getElementById('tagSearchInput');
+
+    let activeGroup = 'all';
+    let activeTag = 'all';
+
+    const applyFilters = () => {
+      const query = (tagSearchInput?.value || '').trim().toLowerCase();
+      let visible = 0;
+      tagCards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(/\s+/);
+        const group = card.dataset.group || '';
+        const matchesGroup = activeGroup === 'all' || group === activeGroup;
+        const matchesTag = activeTag === 'all' || tags.includes(activeTag);
+        const haystack = [
+          card.querySelector('h3')?.textContent || '',
+          card.querySelector('.excerpt')?.textContent || '',
+          card.querySelector('.card-tags-row')?.textContent || '',
+        ].join(' ').toLowerCase();
+        const matchesQuery = !query || haystack.includes(query);
+        const show = matchesGroup && matchesTag && matchesQuery;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      if (tagEmptyMsg) tagEmptyMsg.style.display = visible ? 'none' : 'block';
+    };
+
+    // Wires one filter-field dropdown (label + value pill button, clear
+    // button, and option panel) as a filter: opens on click or
+    // Enter/Space, closes on outside-click/Escape, and picking an item
+    // updates the displayed value ("All Groups" / "All Tags" when
+    // nothing is picked) plus the field's active/has-value styling.
+    // Returns a setter so the two filters can stay in sync.
+    const wireDropdownFilter = ({ wrapId, btnId, panelId, clearId, labelDefault, onSelect }) => {
+      const wrap = document.getElementById(wrapId);
+      const btn = document.getElementById(btnId);
+      const panel = document.getElementById(panelId);
+      const clearBtn = document.getElementById(clearId);
+      if (!wrap || !btn || !panel) return null;
+      const valueEl = btn.querySelector('.filter-field-value');
+      const items = panel.querySelectorAll('.label-dropdown-item');
+
+      const closePanel = () => {
+        panel.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      };
+      const togglePanel = () => {
+        const isOpen = panel.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+      };
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePanel();
+      });
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          togglePanel();
+        }
+      });
+      document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target)) closePanel();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closePanel();
+      });
+
+      const select = (filter, label) => {
+        items.forEach(i => i.classList.toggle('active', i.dataset.filter === filter));
+        if (valueEl) valueEl.textContent = filter === 'all' ? labelDefault : label;
+        wrap.classList.toggle('has-value', filter !== 'all');
+        closePanel();
+      };
+
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          select(item.dataset.filter, item.textContent.trim());
+          onSelect(item);
+        });
+      });
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const allItem = panel.querySelector('.label-dropdown-item[data-filter="all"]');
+          if (allItem) allItem.click();
+        });
+      }
+
+      return select;
+    };
+
+    let setGroupFilter, setTagFilter;
+
+    setTagFilter = wireDropdownFilter({
+      wrapId: 'tagFilterWrap', btnId: 'tagFilterBtn', panelId: 'tagFilterPanel', clearId: 'tagFilterClear', labelDefault: 'All Tags',
+      onSelect: (item) => {
+        activeTag = item.dataset.filter;
+        activeGroup = activeTag === 'all' ? 'all' : (item.dataset.group || 'all');
+        if (setGroupFilter) {
+          const groupItem = document.querySelector(`#groupFilterPanel .label-dropdown-item[data-filter="${activeGroup}"]`);
+          setGroupFilter(activeGroup, groupItem ? groupItem.textContent.trim() : 'All Groups');
+        }
+        applyFilters();
+      }
+    });
+
+    setGroupFilter = wireDropdownFilter({
+      wrapId: 'groupFilterWrap', btnId: 'groupFilterBtn', panelId: 'groupFilterPanel', clearId: 'groupFilterClear', labelDefault: 'All Groups',
+      onSelect: (item) => {
+        activeGroup = item.dataset.filter;
+        activeTag = 'all';
+        if (setTagFilter) setTagFilter('all', 'All Tags');
+        applyFilters();
+      }
+    });
+
+    if (tagSearchInput) {
+      tagSearchInput.addEventListener('input', applyFilters);
+    }
+
+    const initialTag = window.location.hash.replace('#', '');
+    const initialItem = initialTag && document.querySelector(`#tagFilterPanel .label-dropdown-item[data-filter="${initialTag}"]`);
+    if (initialItem) {
+      initialItem.click();
+    } else {
+      applyFilters();
+    }
+  }
+
   // "More" topics dropdown (Articles/Blog page) — More button stays fixed;
   // picking a hidden label swaps it into one of the 3 visible category slots.
-  const chipMoreWrap = document.querySelector('.chip-more-wrap');
+  const chipMoreWrap = document.getElementById('chipMoreBtn')?.closest('.chip-more-wrap');
   if (chipMoreWrap) {
     const moreBtn = chipMoreWrap.querySelector('.chip-more');
     const panel = chipMoreWrap.querySelector('.label-dropdown-panel');
@@ -189,11 +339,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (topicsToggle && topicsPanel) {
     topicsToggle.addEventListener('click', (e) => {
       e.preventDefault();
+      if (categoriesPanel) categoriesPanel.classList.remove('open');
       topicsPanel.classList.toggle('open');
     });
     document.addEventListener('click', (e) => {
       if (!topicsPanel.contains(e.target) && !topicsToggle.contains(e.target)) {
         topicsPanel.classList.remove('open');
+      }
+    });
+  }
+
+  // Categories flyout panel
+  const categoriesToggle = document.querySelector('[data-categories-toggle]');
+  const categoriesPanel = document.querySelector('.categories-panel');
+  if (categoriesToggle && categoriesPanel) {
+    categoriesToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (topicsPanel) topicsPanel.classList.remove('open');
+      categoriesPanel.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!categoriesPanel.contains(e.target) && !categoriesToggle.contains(e.target)) {
+        categoriesPanel.classList.remove('open');
       }
     });
   }
@@ -209,10 +376,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Bookmark toggle (article cards + product thumbnails)
-  const bookmarkOutline = '<svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg>';
-  const bookmarkOutlineSm = '<svg fill="none" height="17" viewBox="0 0 24 24" width="17" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg>';
-  const bookmarkFilled = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path opacity="0.5" d="M9 11L11.5 13.5L15.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
-  const bookmarkFilledSm = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path opacity="0.5" d="M9 11L11.5 13.5L15.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+  const bookmarkOutline = '<svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg>';
+  const bookmarkOutlineSm = '<svg fill="none" height="17" viewBox="0 0 24 24" width="17" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg>';
+  const bookmarkFilled = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+  const bookmarkFilledSm = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
 
   document.querySelectorAll('.bookmark-btn, .bookmark-btn-thumb').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -226,11 +393,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Like toggle (article card footer)
+  const heartOutline = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+  const heartFilled = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
   document.querySelectorAll('.icon-action[aria-label="Like"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
+      const wasActive = btn.classList.contains('active');
       btn.classList.toggle('active');
+      btn.innerHTML = wasActive ? heartOutline : heartFilled;
     });
   });
 
@@ -319,6 +490,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getAllItemCheckboxes() {
     return notifPanelNotifications ? Array.from(notifPanelNotifications.querySelectorAll('.notif-item-checkbox')) : [];
+  }
+
+  const notifEmptyState = document.getElementById('notifEmptyState');
+  const bookmarksEmptyState = document.getElementById('bookmarksEmptyState');
+
+  function updateDropdownEmptyStates() {
+    if (notifPanelNotifications && notifEmptyState) {
+      const hasItems = notifPanelNotifications.querySelectorAll('.notif-item').length > 0;
+      notifEmptyState.style.display = hasItems ? 'none' : 'flex';
+      const viewAll = notifPanelNotifications.querySelector('.notif-viewall');
+      if (viewAll) viewAll.style.display = hasItems ? 'flex' : 'none';
+      const actions = notifPanelNotifications.querySelector('.notif-actions');
+      if (actions) actions.style.display = hasItems ? 'flex' : 'none';
+    }
+    const bookmarksPanel = document.querySelector('.notif-panel[data-notif-panel="bookmarks"]');
+    if (bookmarksPanel && bookmarksEmptyState) {
+      const hasBookmarks = bookmarksPanel.querySelectorAll('.notif-item').length > 0;
+      bookmarksEmptyState.style.display = hasBookmarks ? 'none' : 'flex';
+      const viewAll = bookmarksPanel.querySelector('.notif-viewall');
+      if (viewAll) viewAll.style.display = hasBookmarks ? 'flex' : 'none';
+    }
   }
 
   function getPageItemCheckboxes() {
@@ -513,6 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
       updateSelectAllState();
+      updateDropdownEmptyStates();
     });
   }
 
@@ -593,6 +786,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (item) item.remove();
       updateSelectAllState();
       updatePageSelectAllState();
+      updateDropdownEmptyStates();
       renderNotifPage();
     }
   });
@@ -828,7 +1022,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="auth.html" class="btn btn-primary">Log In</a>
       </div>
     `;
-    showAuthToast(message);
   }
   const path = window.location.pathname;
   if (path.endsWith('settings.html')) {
@@ -1268,3 +1461,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// ---------------------------------------------------------------
+// Syntax highlighting for .code-block <pre><code class="language-xxx">
+// Loads highlight.js core + only the needed language packs from
+// cdnjs, on demand — pages with no code blocks never fetch it.
+// Classes are prefixed "hl-" to match the --hl-* tokens in styles.css.
+// ---------------------------------------------------------------
+function initSyntaxHighlighting() {
+  const blocks = document.querySelectorAll('.code-block pre code[class*="language-"]');
+  if (!blocks.length) return;
+
+  const HLJS_VERSION = '11.9.0';
+  const BASE = `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${HLJS_VERSION}`;
+
+  const languages = new Set();
+  blocks.forEach(el => {
+    const match = el.className.match(/\blanguage-([\w-]+)\b/i);
+    if (match) languages.add(match[1]);
+  });
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  loadScript(`${BASE}/highlight.min.js`).then(() => {
+    if (!window.hljs) return;
+    window.hljs.configure({ classPrefix: 'hl-' });
+
+    const loaders = [...languages].map(lang =>
+      loadScript(`${BASE}/languages/${lang}.min.js`).catch(() => {
+        // Unknown/unsupported language name — skip it, block just stays plain text.
+      })
+    );
+
+    Promise.all(loaders).then(() => {
+      blocks.forEach(el => {
+        try { window.hljs.highlightElement(el); } catch (e) { /* leave as plain text */ }
+      });
+    });
+  }).catch(() => { /* offline or CDN blocked — code blocks stay readable, unhighlighted */ });
+}

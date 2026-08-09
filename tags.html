@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bookmarks — FlowMind</title>
+<title>Tags — FlowMind</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script>
@@ -625,99 +625,368 @@
 
 
 <div class="page-shell">
-  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Bookmarks</span></div>
-  <div class="page-title-row"><h1>Your Bookmarks</h1></div>
+  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Tags</span></div>
+  <div class="page-title-row">
+    <div>
+      <h1>Browse by Tag</h1>
+      <p class="tag-page-sub">Filter articles by the tools, models, and languages we write about.</p>
+    </div>
+  </div>
 
   <div class="toolbar">
-    <div class="chip-row">
-      <button class="chip active" data-filter="all">All</button>
-      <button class="chip" data-filter="article">Articles</button>
-      <button class="chip" data-filter="product">Products</button>
+    <div class="search-field">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="text" id="tagSearchInput" placeholder="Search articles...">
+    </div>
+    <div class="filter-row">
+      <div class="filter-field" id="groupFilterWrap">
+        <div class="filter-field-btn" id="groupFilterBtn" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false" aria-controls="groupFilterPanel">
+          <span class="filter-field-label">Group</span>
+          <span class="filter-field-value-row">
+            <span class="filter-field-value" id="groupFilterValue">All Groups</span>
+            <svg class="filter-field-caret" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="label-dropdown-panel filter-dropdown-panel" id="groupFilterPanel" role="listbox">
+          <button class="label-dropdown-item active" role="option" data-filter="all">All Groups</button>
+          <button class="label-dropdown-item" role="option" data-filter="frameworks">Frameworks &amp; SDKs</button>
+          <button class="label-dropdown-item" role="option" data-filter="visual-tools">Visual &amp; Workflow Tools</button>
+          <button class="label-dropdown-item" role="option" data-filter="infra-models">Infrastructure &amp; Models</button>
+          <button class="label-dropdown-item" role="option" data-filter="languages">Languages &amp; Execution</button>
+        </div>
+      </div>
+
+      <div class="filter-field" id="tagFilterWrap">
+        <div class="filter-field-btn" id="tagFilterBtn" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false" aria-controls="tagFilterPanel">
+          <span class="filter-field-label">Tag</span>
+          <span class="filter-field-value-row">
+            <span class="filter-field-value" id="tagFilterValue">All Tags</span>
+            <svg class="filter-field-caret" width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="label-dropdown-panel filter-dropdown-panel" id="tagFilterPanel" role="listbox">
+          <button class="label-dropdown-item active" role="option" data-filter="all">All Tags</button>
+          <button class="label-dropdown-item" role="option" data-filter="langgraph" data-group="frameworks">#LangGraph</button>
+          <button class="label-dropdown-item" role="option" data-filter="crewai" data-group="frameworks">#CrewAI</button>
+          <button class="label-dropdown-item" role="option" data-filter="autogen" data-group="frameworks">#AutoGen</button>
+          <button class="label-dropdown-item" role="option" data-filter="n8n" data-group="visual-tools">#n8n</button>
+          <button class="label-dropdown-item" role="option" data-filter="make" data-group="visual-tools">#Make</button>
+          <button class="label-dropdown-item" role="option" data-filter="flowise" data-group="visual-tools">#Flowise</button>
+          <button class="label-dropdown-item" role="option" data-filter="claudeapi" data-group="infra-models">#ClaudeAPI</button>
+          <button class="label-dropdown-item" role="option" data-filter="openai" data-group="infra-models">#OpenAI</button>
+          <button class="label-dropdown-item" role="option" data-filter="ollama" data-group="infra-models">#Ollama</button>
+          <button class="label-dropdown-item" role="option" data-filter="python" data-group="languages">#Python</button>
+          <button class="label-dropdown-item" role="option" data-filter="typescript" data-group="languages">#TypeScript</button>
+          <button class="label-dropdown-item" role="option" data-filter="docker" data-group="languages">#Docker</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="bookmark-list">
-    <div class="bookmark-row" data-type="article">
-      <div class="bm-thumb"><img src="assets/thumb-agent.svg" alt="Illustration of an AI agent"></div>
-      <div class="bm-info">
-        <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#openai" class="card-tags">OpenAI</a> <span class="card-tags-sep">/</span> <a href="tags.html#langgraph" class="card-tags">LangGraph</a></span>
-        <h3><a href="post.html">Building Your First Autonomous Support Agent</a></h3>
-        <div class="bm-meta">Priya Nair · Jun 14, 2026 · 7 min read</div>
+  <div class="article-grid" id="tagPostGrid">
+    <div class="card article-card" data-tags="langgraph" data-group="frameworks">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter">P</div>
+          <div class="author-text"><div class="aname">Priya Nair</div><div class="ameta">Jun 14, 2026 · 7 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
       </div>
-      <div class="bm-actions">
-        <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
-        <button class="bookmark-btn active" aria-label="Remove bookmark"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-        <a href="post.html" class="btn btn-pastel btn-sm">Read</a>
-      </div>
-    </div>
-
-    <div class="bookmark-row" data-type="article">
-      <div class="bm-thumb"><img src="assets/thumb-network.svg" alt="Illustration of a connected network"></div>
-      <div class="bm-info">
-        <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#crewai" class="card-tags">CrewAI</a> <span class="card-tags-sep">/</span> <a href="tags.html#autogen" class="card-tags">AutoGen</a></span>
-        <h3><a href="post.html">Orchestrating Multiple Agents Without the Chaos</a></h3>
-        <div class="bm-meta">Marcus Cole · Jun 2, 2026 · 8 min read</div>
-      </div>
-      <div class="bm-actions">
-        <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
-        <button class="bookmark-btn active" aria-label="Remove bookmark"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-        <a href="post.html" class="btn btn-pastel btn-sm">Read</a>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-agent.svg" alt="Illustration of an AI agent"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#langgraph" class="card-tags">#LangGraph</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Building Stateful Agents with LangGraph</h3>
+        <p class="excerpt">Graph-based orchestration for agents that need memory, branching, and retries.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
       </div>
     </div>
 
-    <div class="bookmark-row" data-type="article">
-      <div class="bm-thumb"><img src="assets/thumb-chip.svg" alt="Illustration of a processing chip"></div>
-      <div class="bm-info">
-        <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#openai" class="card-tags">OpenAI</a> <span class="card-tags-sep">/</span> <a href="tags.html#python" class="card-tags">Python</a></span>
-        <h3><a href="post.html">Choosing Between RAG and Fine-Tuning</a></h3>
-        <div class="bm-meta">Dana Okafor · Jun 8, 2026 · 9 min read</div>
+    <div class="card article-card" data-tags="crewai" data-group="frameworks">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));">M</div>
+          <div class="author-text"><div class="aname">Marcus Cole</div><div class="ameta">Jun 12, 2026 · 6 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
       </div>
-      <div class="bm-actions">
-        <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
-        <button class="bookmark-btn active" aria-label="Remove bookmark"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-        <a href="post.html" class="btn btn-pastel btn-sm">Read</a>
-      </div>
-    </div>
-
-    <div class="bookmark-row" data-type="product">
-      <div class="bm-thumb"><img src="assets/product-agent.svg" alt="Support agent blueprint preview"></div>
-      <div class="bm-info">
-        <span class="cat-pill">Product</span>
-        <h3><a href="product.html">Support Agent Blueprint</a></h3>
-        <div class="bm-meta">$49 · n8n + OpenAI</div>
-      </div>
-      <div class="bm-actions">
-        <button class="bookmark-btn-thumb active" style="position:static;" aria-label="Remove bookmark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-        <a href="product.html" class="btn btn-pastel btn-sm">View</a>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-network.svg" alt="Illustration of a connected network"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#crewai" class="card-tags">#CrewAI</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Orchestrating Multi-Agent Crews with CrewAI</h3>
+        <p class="excerpt">Role-based agent teams that hand off work like a real project squad.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
       </div>
     </div>
 
-    <div class="bookmark-row" data-type="product">
-      <div class="bm-thumb"><img src="assets/product-chip.svg" alt="RAG pipeline starter preview"></div>
-      <div class="bm-info">
-        <span class="cat-pill">Product</span>
-        <h3><a href="product.html">RAG Pipeline Starter</a></h3>
-        <div class="bm-meta">$39 · Python</div>
+    <div class="card article-card" data-tags="autogen" data-group="frameworks">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-gold), var(--accent-orange));">D</div>
+          <div class="author-text"><div class="aname">Dana Okafor</div><div class="ameta">Jun 8, 2026 · 9 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
       </div>
-      <div class="bm-actions">
-        <button class="bookmark-btn-thumb active" style="position:static;" aria-label="Remove bookmark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-        <a href="product.html" class="btn btn-pastel btn-sm">View</a>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-chip.svg" alt="Illustration of a processor chip"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#autogen" class="card-tags">#AutoGen</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>AutoGen Patterns for Reliable Tool Calls</h3>
+        <p class="excerpt">Keeping multi-turn agent conversations from spiraling out of control.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
       </div>
     </div>
 
-    <div class="bookmark-row" data-type="product">
-      <div class="bm-thumb"><img src="assets/product-chat.svg" alt="Slack standup bot preview"></div>
-      <div class="bm-info">
-        <span class="cat-pill">Product</span>
-        <h3><a href="product.html">Slack AI Standup Bot</a></h3>
-        <div class="bm-meta">$19 · Zapier</div>
+    <div class="card article-card" data-tags="n8n" data-group="visual-tools">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter">P</div>
+          <div class="author-text"><div class="aname">Priya Nair</div><div class="ameta">Jun 5, 2026 · 5 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
       </div>
-      <div class="bm-actions">
-        <button class="bookmark-btn-thumb active" style="position:static;" aria-label="Remove bookmark"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
-        <a href="product.html" class="btn btn-pastel btn-sm">View</a>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-workflow.svg" alt="Illustration of a workflow diagram"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#n8n" class="card-tags">#n8n</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>The 12 Workflows Worth Automating First</h3>
+        <p class="excerpt">Where to point n8n before touching anything fancier.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
       </div>
     </div>
+
+    <div class="card article-card" data-tags="make" data-group="visual-tools">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));">M</div>
+          <div class="author-text"><div class="aname">Marcus Cole</div><div class="ameta">Jun 3, 2026 · 6 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-gears.svg" alt="Illustration of mechanical gears"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#make" class="card-tags">#Make</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Make.com Scenarios That Replace a Full-Time VA</h3>
+        <p class="excerpt">Visual scenarios that quietly handle the busywork nobody wants.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card article-card" data-tags="flowise" data-group="visual-tools">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-gold), var(--accent-orange));">D</div>
+          <div class="author-text"><div class="aname">Dana Okafor</div><div class="ameta">May 30, 2026 · 8 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-doc.svg" alt="Illustration of a document"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#flowise" class="card-tags">#Flowise</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Prototyping RAG Pipelines Visually in Flowise</h3>
+        <p class="excerpt">Drag-and-drop chains for testing retrieval ideas before you commit to code.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card article-card" data-tags="claudeapi" data-group="infra-models">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter">P</div>
+          <div class="author-text"><div class="aname">Priya Nair</div><div class="ameta">May 27, 2026 · 7 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-chat.svg" alt="Illustration of a chat interface"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#claudeapi" class="card-tags">#ClaudeAPI</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Structured Outputs with the Claude API</h3>
+        <p class="excerpt">Getting predictable JSON back from Claude without fighting the prompt.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card article-card" data-tags="openai" data-group="infra-models">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));">M</div>
+          <div class="author-text"><div class="aname">Marcus Cole</div><div class="ameta">May 24, 2026 · 6 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-rocket.svg" alt="Illustration of a rocket launching"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#openai" class="card-tags">#OpenAI</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Function Calling Patterns for the OpenAI API</h3>
+        <p class="excerpt">Designing tool schemas the model actually calls correctly.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card article-card" data-tags="ollama" data-group="infra-models">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-gold), var(--accent-orange));">D</div>
+          <div class="author-text"><div class="aname">Dana Okafor</div><div class="ameta">May 20, 2026 · 9 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-network.svg" alt="Illustration of a connected network"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#ollama" class="card-tags">#Ollama</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Running Local Models in Production with Ollama</h3>
+        <p class="excerpt">What changes when your LLM runs on hardware you control.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card article-card" data-tags="python" data-group="languages">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter">P</div>
+          <div class="author-text"><div class="aname">Priya Nair</div><div class="ameta">May 17, 2026 · 6 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-chip.svg" alt="Illustration of a processor chip"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#python" class="card-tags">#Python</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Async Python Patterns for Agent Pipelines</h3>
+        <p class="excerpt">Keeping concurrent tool calls fast without race conditions.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card article-card" data-tags="typescript" data-group="languages">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));">M</div>
+          <div class="author-text"><div class="aname">Marcus Cole</div><div class="ameta">May 14, 2026 · 5 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-doc.svg" alt="Illustration of a document"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#typescript" class="card-tags">#TypeScript</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Type-Safe Tool Schemas in TypeScript</h3>
+        <p class="excerpt">Catching malformed tool calls before they ever reach the model.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card article-card" data-tags="docker" data-group="languages">
+      <div class="article-card-top">
+        <div class="author-block">
+          <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-gold), var(--accent-orange));">D</div>
+          <div class="author-text"><div class="aname">Dana Okafor</div><div class="ameta">May 10, 2026 · 7 min read</div></div>
+        </div>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+      </div>
+      <a href="post.html" style="display:contents;">
+                <div class="article-thumb"><img src="assets/thumb-gears.svg" alt="Illustration of mechanical gears"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#docker" class="card-tags">#Docker</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Containerizing Agent Workers with Docker</h3>
+        <p class="excerpt">A clean image per agent, so scaling out is just another replica.</p>
+      </a>
+      <div class="card-actions">
+        <div class="card-actions-left">
+          <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+          <button class="icon-action" aria-label="Like"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9.34385C2 15.638 8.20633 19.5195 11.3839 20.7759C11.7805 20.9328 12.2195 20.9328 12.6161 20.7759C15.7937 19.5195 22 15.638 22 9.34385C22 6.37211 20.4779 3.46837 17.44 3.07135C14 2.62178 13 4.39359 12 5.67101C11 4.39359 10 2.62178 6.56 3.07135C3.52211 3.46837 2 6.37211 2 9.34385Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+        <a href="post.html" class="learn-more-link">Learn More</a>
+      </div>
+    </div>
+
   </div>
+
+  <p class="tag-empty-msg" id="tagEmptyMsg" style="display:none;">No posts match this tag yet.</p>
 </div>
 
 <footer class="site-footer">

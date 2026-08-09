@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Building Your First Autonomous Support Agent — FlowMind</title>
+<title>Component Documentation — FlowMind</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Mulish:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script>
@@ -30,20 +30,97 @@
 </script>
 <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+<svg style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="icon-brand-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b0339f"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!--[ Icon: Brand Mark — used in header, mobile drawer, footer ]-->
+  <symbol id="icon-brand-mark" viewBox="0 0 32 32" fill="none">
+    <circle cx="16" cy="16" r="16" fill="url(#icon-brand-gradient)"/>
+    <circle cx="10" cy="12" r="2.6" fill="#fff"/>
+    <circle cx="22" cy="12" r="2.6" fill="#fff"/>
+    <circle cx="16" cy="21" r="2.6" fill="#fff"/>
+    <path d="M10 12L16 21M22 12L16 21M10 12L22 12" stroke="#fff" stroke-width="1.4"/>
+  </symbol>
+
+  <!--[ Icon: Chevron — used ~9x across nav/topics/drawer/dropdowns ]-->
+  <symbol id="icon-chevron" viewBox="0 0 24 24" fill="none">
+    <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <!--[ Icon: Close (X) — used across all overlays/modals/drawer ]-->
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none">
+    <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+
+  <!--[ Icon: Back Arrow — used in mobile drawer sub-panels ]-->
+  <symbol id="icon-back" viewBox="0 0 24 24" fill="none">
+    <path d="M9 10L4 15L9 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4 15H15.5C18 15 20 13 20 10.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <!--[ Icon: Chevron Right (small) — used in notif/share "view all" links ]-->
+  <symbol id="icon-chevron-right-sm" viewBox="0 0 24 24" fill="none">
+    <path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+
+  <!--[ Icon: Search ]-->
+  <symbol id="icon-search" viewBox="0 0 24 24" fill="none">
+    <path opacity="0.6" d="M22 22L18.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+
+  <!--[ Icon: Person / Guest Profile ]-->
+  <symbol id="icon-person" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+
+  <!--[ Icon: Kebab / More Menu ]-->
+  <symbol id="icon-kebab" viewBox="0 0 24 24" fill="none">
+    <circle cx="5" cy="12" r="1.7" fill="currentColor"/>
+    <circle cx="12" cy="12" r="1.7" fill="currentColor"/>
+    <circle cx="19" cy="12" r="1.7" fill="currentColor"/>
+  </symbol>
+
+  <!--[ Icon: Log Out ]-->
+  <symbol id="icon-logout" viewBox="0 0 24 24" fill="none">
+    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <!--[ Icon: Moon (static, single-state) ]-->
+  <symbol id="icon-moon" viewBox="0 0 24 24" fill="none">
+    <path d="M4.74986 16.7432C7.32279 21.292 13.0213 22.8505 17.4777 20.2242C18.7341 19.4838 19.7577 18.4898 20.5222 17.3421C20.7792 16.9563 20.3537 16.4958 19.9155 16.6286C16.5806 17.6392 12.8806 16.2318 11.0648 13.0216C9.2491 9.81153 9.90502 5.83713 12.4299 3.39441C12.7616 3.07348 12.5837 2.46713 12.1279 2.50139C10.7719 2.60332 9.41671 3.01112 8.16028 3.75155C3.70381 6.3778 2.17692 12.1943 4.74986 16.7432Z" stroke="currentColor" stroke-width="1.5"/>
+    <path opacity="0.6" d="M12 18.5L11.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path opacity="0.6" d="M9.5 16.5L8.5 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+
+  <!--[ Icon: Sun (static, single-state) ]-->
+  <symbol id="icon-sun" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M12 2.5V4.4M12 19.6V21.5M4.5 12H2.5M21.5 12H19.5M5.7 5.7L4.3 4.3M18.3 5.7L19.7 4.3M5.7 18.3L4.3 19.7M18.3 18.3L19.7 19.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
 
 <header class="topbar">
   <div class="topbar-left">
     <button class="menu-toggle-mobile" id="mobileMenuBtn" aria-label="Open menu" data-tooltip="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 5L7 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M4 12L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M4 19L7 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M20 5L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M20 12L11 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M20 19L11 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
     <a href="index.html" class="brand">
-      <svg class="brand-mark" viewBox="0 0 32 32" fill="none"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b0339f"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs><circle cx="16" cy="16" r="16" fill="url(#bm)"/><circle cx="10" cy="12" r="2.6" fill="#fff"/><circle cx="22" cy="12" r="2.6" fill="#fff"/><circle cx="16" cy="21" r="2.6" fill="#fff"/><path d="M10 12L16 21M22 12L16 21M10 12L22 12" stroke="#fff" stroke-width="1.4"/></svg>
+      <svg class="brand-mark" viewBox="0 0 32 32"><use href="#icon-brand-mark"></use></svg>
       FlowMind
     </a>
   </div>
   <div class="topbar-right">
-    <button class="icon-btn" aria-label="Search" data-tooltip="Search" data-search-toggle><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" d="M22 22L18.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-width="1.5"></circle></svg></button>
+    <button class="icon-btn" aria-label="Search" data-tooltip="Search" data-search-toggle><svg width="24" height="24"><use href="#icon-search"></use></svg></button>
     <span class="icon-btn" style="position:relative;" aria-label="Notifications" data-tooltip="Notifications" data-notif-toggle><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.14588 18.6797C5.25361 17.9701 4 16.1611 4 14.1402L4 13.6473C4 11.3056 4.46369 8.98715 5.36433 6.82563L5.65281 6.13327C6.49264 4.11769 8.29828 2.66633 10.4473 2.27951V2.27951C11.4742 2.09467 12.5258 2.09467 13.5527 2.27951V2.27951C15.7017 2.66633 17.5074 4.1177 18.3472 6.13327L18.6357 6.82564C19.5363 8.98716 20 11.3056 20 13.6473L20 14.1402C20 16.1611 18.7464 17.9701 16.8541 18.6797L16.5998 18.7751C13.6341 19.8872 10.3659 19.8872 7.40018 18.7751L7.14588 18.6797Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M15 19.5C13.8696 22.9376 10.1304 22.9376 9 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg><span class="dot-badge">3</span></span>
-    <button class="icon-btn" aria-label="Toggle dark preview" data-dark-toggle data-tooltip="Dark mode"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.74986 16.7432C7.32279 21.292 13.0213 22.8505 17.4777 20.2242C18.7341 19.4838 19.7577 18.4898 20.5222 17.3421C20.7792 16.9563 20.3537 16.4958 19.9155 16.6286C16.5806 17.6392 12.8806 16.2318 11.0648 13.0216C9.2491 9.81153 9.90502 5.83713 12.4299 3.39441C12.7616 3.07348 12.5837 2.46713 12.1279 2.50139C10.7719 2.60332 9.41671 3.01112 8.16028 3.75155C3.70381 6.3778 2.17692 12.1943 4.74986 16.7432Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M12 18.5L11.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M9.5 16.5L8.5 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+    <button class="icon-btn theme-toggle-btn" aria-label="Toggle dark mode" data-dark-toggle data-tooltip="Dark mode"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-toggle-icon" xmlns="http://www.w3.org/2000/svg"><g class="ti-moon"><path d="M4.74986 16.7432C7.32279 21.292 13.0213 22.8505 17.4777 20.2242C18.7341 19.4838 19.7577 18.4898 20.5222 17.3421C20.7792 16.9563 20.3537 16.4958 19.9155 16.6286C16.5806 17.6392 12.8806 16.2318 11.0648 13.0216C9.2491 9.81153 9.90502 5.83713 12.4299 3.39441C12.7616 3.07348 12.5837 2.46713 12.1279 2.50139C10.7719 2.60332 9.41671 3.01112 8.16028 3.75155C3.70381 6.3778 2.17692 12.1943 4.74986 16.7432Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M12 18.5L11.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M9.5 16.5L8.5 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></g><g class="ti-sun"><circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.5"></circle><path d="M12 2.5V4.4M12 19.6V21.5M4.5 12H2.5M21.5 12H19.5M5.7 5.7L4.3 4.3M18.3 5.7L19.7 4.3M5.7 18.3L4.3 19.7M18.3 18.3L19.7 19.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></g></svg></button>
     <button class="user-chip" id="profileTrigger" data-tooltip="Account">
       <span class="user-name-label">Sign In</span>
       <div class="user-avatar guest" id="headerAvatar"><img src="assets/avatar-user.svg" alt="Profile"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/></svg></div>
@@ -53,48 +130,59 @@
 
 <nav class="rail">
   <div class="rail-group">
-    <a class="rail-btn" href="index.html" data-tooltip="Home"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8.96 2.52C10.87 1.56 13.13 1.56 15.04 2.52L15.4 2.7C17.12 3.56 18.7 4.7 20.06 6.06V6.06C21.29 7.29 21.92 9 21.79 10.73V10.73C21.6 13.22 20.89 15.63 19.71 17.83L19.43 18.35C18.53 20.02 16.9 21.18 15.03 21.5V21.5C13.02 21.83 10.98 21.83 8.97 21.5V21.5C7.1 21.18 5.47 20.02 4.57 18.35L4.29 17.83C3.11 15.63 2.4 13.22 2.21 10.73V10.73C2.08 9 2.71 7.29 3.94 6.06V6.06C5.3 4.7 6.88 3.56 8.6 2.7L8.96 2.52Z" stroke="currentColor" stroke-width="1.6"/></svg></a>
-    <button class="rail-btn" data-tooltip="Topics" data-topics-toggle aria-haspopup="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10.5 3H6C4.34 3 3 4.34 3 6V10.5C3 11.3 3.32 12.06 3.88 12.62L11.38 20.12C12.54 21.28 14.42 21.28 15.58 20.12L20.12 15.58C21.28 14.42 21.28 12.54 20.12 11.38L12.62 3.88C12.06 3.32 11.3 3 10.5 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg></button>
-    <a class="rail-btn" href="blog.html" data-tooltip="Articles"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M16.19 2.47C19.02 2.78 21.28 4.97 21.68 7.79V7.79C21.89 9.26 21.89 10.74 21.68 12.21V12.21C21.28 15.03 19.02 17.22 16.19 17.53L15.37 17.63C13.13 17.87 10.87 17.87 8.63 17.63L7.81 17.53C4.98 17.22 2.72 15.03 2.32 12.21V12.21C2.1 10.74 2.1 9.26 2.32 7.79V7.79C2.72 4.97 4.98 2.78 7.81 2.47L8.63 2.37C10.87 2.13 13.13 2.13 15.37 2.37L16.19 2.47Z" stroke="currentColor" stroke-width="1.6"/><path opacity="0.6" d="M8 8L16 8M8 12H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
-    <a class="rail-btn" href="shop.html" data-tooltip="Products"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6.87 21.36C5.11 21.14 3.64 19.93 3.08 18.25V18.25C2.33 15.99 2 13.95 2 11.9V10.76C2 9.46 2.95 8.36 4.23 8.17V8.17C9.38 7.39 14.62 7.39 19.77 8.17V8.17C21.05 8.36 22 9.46 22 10.76V11.89C22 13.95 21.67 15.99 21.02 17.95L20.92 18.25C20.36 19.93 18.88 21.14 17.13 21.36V21.36C13.72 21.78 10.28 21.78 6.87 21.36V21.36Z" stroke="currentColor" stroke-width="1.6"/><path d="M7 7.5L9 2M17 7.5L15 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+    <a class="rail-btn" id="railHomeBtn" href="index.html" data-tooltip="Home"><svg width="22" height="22" class="transition-transform group-hover:scale-[0.85]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.95997 2.52001C10.8737 1.56314 13.1263 1.56314 15.04 2.52001L15.3983 2.69915C17.1215 3.56075 18.698 4.69802 20.0603 6.06032V6.06032C21.2894 7.28936 21.9233 8.99739 21.79 10.7304V10.7304C21.5988 13.2159 20.8894 15.6339 19.7076 17.8288L19.4278 18.3484C18.5271 20.021 16.9032 21.1828 15.0294 21.4951V21.4951C13.0236 21.8294 10.9764 21.8294 8.9706 21.4951V21.4951C7.09675 21.1828 5.47286 20.021 4.57221 18.3484L4.29245 17.8288C3.11057 15.6339 2.40123 13.2159 2.21003 10.7304V10.7304C2.07672 8.99739 2.71064 7.28936 3.93968 6.06032V6.06032C5.30198 4.69802 6.8785 3.56075 8.6017 2.69915L8.95997 2.52001Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M11.0137 16.8356C10.0655 16.6776 9.32242 15.9345 9.16438 14.9863V14.9863C9.05555 14.3333 9.05555 13.6667 9.16438 13.0137V13.0137C9.32242 12.0655 10.0655 11.3224 11.0137 11.1644V11.1644C11.6667 11.0555 12.3333 11.0555 12.9863 11.1644V11.1644C13.9345 11.3224 14.6776 12.0655 14.8356 13.0137V13.0137C14.9445 13.6667 14.9445 14.3333 14.8356 14.9863V14.9863C14.6776 15.9345 13.9345 16.6776 12.9863 16.8356V16.8356C12.3333 16.9445 11.6667 16.9445 11.0137 16.8356V16.8356Z" stroke="currentColor" stroke-width="1.5"></path></svg></a>
+    <button class="rail-btn" data-tooltip="Categories" data-categories-toggle aria-haspopup="true"><svg width="22" height="22" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.1361 6.17647C19.3602 6.17647 21.2527 7.79672 21.5954 9.99422V9.99422C21.8637 11.7145 21.8818 13.4646 21.649 15.19L21.5516 15.9118C21.5236 16.1193 21.5096 16.2231 21.4936 16.3153C21.1256 18.4397 19.4372 20.0889 17.3048 20.4071C17.2122 20.4209 17.1022 20.4331 16.8821 20.4575V20.4575C16.6455 20.4838 16.5272 20.497 16.4161 20.5087C13.4802 20.8191 10.5198 20.8191 7.58386 20.5087C7.47283 20.497 7.36157 20.4846 7.13905 20.4599V20.4599C6.95911 20.4399 6.86915 20.4299 6.78931 20.4184C4.6053 20.1041 2.88551 18.3954 2.55715 16.2135C2.54514 16.1337 2.53456 16.0438 2.51341 15.864L2.39813 14.8841C2.34373 14.4217 2.31653 14.1905 2.2937 13.9596C2.13199 12.3238 2.13199 10.6762 2.2937 9.04043C2.31653 8.80947 2.34373 8.57827 2.39813 8.11587V8.11587C2.47551 7.4582 2.51419 7.12937 2.5806 6.84871C3.06523 4.80054 4.78059 3.27516 6.87136 3.03316C7.15785 3 7.48895 3 8.15115 3L9.15561 3C9.52064 3 9.70315 3 9.87474 3.03012C10.2425 3.09468 10.5849 3.2609 10.863 3.50997C10.9928 3.62617 11.1057 3.76959 11.3315 4.05644L12.0851 5.01407C12.3927 5.40479 12.5464 5.60015 12.7331 5.74725C12.9596 5.92577 13.222 6.05319 13.5024 6.12078C13.7334 6.17647 13.982 6.17647 14.4792 6.17647L17.1361 6.17647Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+    <button class="rail-btn" data-tooltip="Tags" data-topics-toggle aria-haspopup="true"><svg width="22" height="22" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.25735 9.39715C4.41128 7.24214 5.50422 5.26357 7.24646 3.98593L8.45182 3.102C10.5638 1.55324 13.4362 1.55324 15.5482 3.102L16.7535 3.98592C18.4958 5.26357 19.5887 7.24214 19.7427 9.39716L19.7997 10.1958C19.9329 12.0608 19.8832 13.9343 19.6513 15.7896L19.5976 16.2191C19.2448 19.0418 17.0464 21.2791 14.2303 21.6814V21.6814C12.7509 21.8927 11.2491 21.8927 9.76973 21.6814V21.6814C6.95364 21.2791 4.75522 19.0418 4.40238 16.2191L4.3487 15.7896C4.11679 13.9343 4.06709 12.0608 4.2003 10.1958L4.25735 9.39715Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M11.3425 10.8904C10.7103 10.7851 10.2149 10.2897 10.1096 9.65753V9.65753C10.037 9.22218 10.037 8.77782 10.1096 8.34247V8.34247C10.2149 7.71032 10.7103 7.21495 11.3425 7.10959V7.10959C11.7778 7.03703 12.2222 7.03703 12.6575 7.10959V7.10959C13.2897 7.21495 13.7851 7.71032 13.8904 8.34247V8.34247C13.963 8.77782 13.963 9.22218 13.8904 9.65753V9.65753C13.7851 10.2897 13.2897 10.7851 12.6575 10.8904V10.8904C12.2222 10.963 11.7778 10.963 11.3425 10.8904V10.8904Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M14 17L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+    <a class="rail-btn" href="blog.html" data-tooltip="Articles"><svg width="22" height="22" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.3042 2.21958C20.4998 2.10002 21.5528 3.00379 21.616 4.20371L21.7318 6.40405C21.9103 9.79523 21.8005 13.1954 21.4038 16.5681L21.1439 18.7765C21.0619 19.4742 20.4706 20 19.7681 20L19.3487 20C17.1343 20 14.9379 20.3983 12.8646 21.1758V21.1758C12.3071 21.3848 11.6929 21.3848 11.1355 21.1758V21.1758C9.06206 20.3983 6.86572 20 4.65134 20L4.2319 20C3.52942 20 2.93814 19.4742 2.85606 18.7765L2.59624 16.5681C2.19946 13.1954 2.08972 9.79523 2.26821 6.40405L2.38408 4.20241C2.44729 3.00144 3.49831 2.09508 4.69552 2.2091V2.2091C6.71663 2.40158 8.68925 2.942 10.5263 3.80647L11.2621 4.15274C11.7307 4.37326 12.272 4.37911 12.7453 4.16877L13.9247 3.64457C15.6306 2.88638 17.4466 2.40534 19.3042 2.21958V2.21958Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M18 8L16 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 8.5L6 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M12 21L12 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M18 11L16 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 11.5L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M18 14L16 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 14.5L6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></a>
+    <a class="rail-btn" href="shop.html" data-tooltip="Products"><svg width="22" height="22" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.87198 21.3594C5.11427 21.1399 3.63861 19.9296 3.07986 18.2487L2.97791 17.942C2.33019 15.9933 2 13.9532 2 11.8998L2 10.7553C2 9.459 2.94839 8.35774 4.23037 8.16544V8.16544C9.38131 7.3928 14.6187 7.3928 19.7696 8.16544V8.16544C21.0516 8.35774 22 9.459 22 10.7553L22 11.8931C22 13.9509 21.6682 15.9953 21.0175 17.9475L20.9156 18.2531C20.3561 19.9316 18.8825 21.1397 17.1269 21.3591V21.3591C13.7222 21.7847 10.2767 21.7847 6.87198 21.3594V21.3594Z" stroke="currentColor" stroke-width="1.5"></path><path d="M7 7.5L9 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M17 7.5L15 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M8 13L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M12 13L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 13L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></a>
   </div>
   <div class="rail-group">
-    <a class="rail-btn" href="settings.html" data-tooltip="Settings"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19.37 11.12L20.32 10.35C21.02 9.79 21.29 8.85 21 8.01C20.78 7.34 20.42 6.73 19.96 6.2C19.37 5.53 18.42 5.3 17.59 5.62L16.45 6.06C15.85 6.29 15.16 5.94 14.95 5.32L14.73 3.97C14.59 3.08 13.92 2.38 13.04 2.21C12.36 2.07 11.65 2.07 10.96 2.21C10.08 2.38 9.41 3.08 9.27 3.97L9.05 5.32C8.95 5.94 8.28 6.29 7.67 6.06L6.4 5.62C5.58 5.3 4.63 5.53 4.04 6.2C3.58 6.73 3.22 7.34 3 8.01C2.71 8.85 2.98 9.79 3.68 10.35L4.63 11.12C5.14 11.53 5.14 12.32 4.63 12.74L3.68 13.5C2.98 14.06 2.71 15 3 15.84C3.22 16.51 3.58 17.12 4.04 17.65C4.63 18.32 5.58 18.55 6.41 18.23L7.55 17.79C8.16 17.55 8.83 17.9 8.93 18.55L9.14 19.9C9.28 20.79 9.95 21.5 10.83 21.66C11.53 21.8 12.24 21.8 12.93 21.66C13.81 21.5 14.48 20.79 14.62 19.9L14.83 18.55C14.93 17.9 15.6 17.55 16.21 17.79L17.35 18.23C18.18 18.55 19.12 18.32 19.72 17.65C20.18 17.12 20.53 16.51 20.76 15.84C21.05 15 20.78 14.06 20.08 13.5L19.13 12.74C18.62 12.32 18.62 11.53 19.13 11.12Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.8" stroke="currentColor" stroke-width="1.5"/></svg></a>
+    <a class="rail-btn" href="settings.html" data-tooltip="Settings"><svg width="22" height="22" class="transition-transform group-hover:scale-[0.85]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.3712 11.1182L20.3235 10.3478C21.0169 9.78681 21.2876 8.85332 21.0018 8.00845C20.7764 7.34225 20.4214 6.72728 19.9571 6.19901C19.3683 5.52905 18.4246 5.2967 17.5921 5.61673L16.4487 6.05624L16.3289 6.1025C15.7233 6.33735 15.0468 5.96142 14.9455 5.31981L14.7317 3.96598C14.5926 3.08499 13.9195 2.38385 13.0449 2.20894C12.3553 2.07101 11.6452 2.07101 10.9555 2.20894C10.081 2.38385 9.40786 3.08499 9.26876 3.96598L9.05497 5.31996C8.95366 5.96157 8.27712 6.3375 7.6715 6.10265L7.55132 6.05624L6.40797 5.61673C5.57546 5.2967 4.63171 5.52905 4.04293 6.19901C3.57867 6.72728 3.22362 7.34225 2.99825 8.00845C2.71244 8.85332 2.98309 9.7868 3.6765 10.3478L4.6288 11.1182L4.7128 11.186C5.22952 11.6019 5.22952 12.3968 4.7128 12.8127L4.62904 12.8803L3.67673 13.6507C2.98332 14.2117 2.71267 15.1452 2.99848 15.9901C3.22385 16.6563 3.5789 17.2712 4.04316 17.7995C4.63194 18.4695 5.57568 18.7018 6.4082 18.3818L7.55154 17.9423L7.67131 17.896C8.27692 17.6612 8.95346 18.0371 9.05476 18.6787L9.26876 20.034C9.40786 20.915 10.081 21.6161 10.9555 21.7911C11.6452 21.929 12.3553 21.929 13.0449 21.7911C13.9195 21.6161 14.5926 20.915 14.7317 20.034L14.9457 18.6789C15.047 18.0373 15.7235 17.6613 16.3291 17.8962L16.4485 17.9423L17.5918 18.3818C18.4243 18.7018 19.3681 18.4695 19.9569 17.7995C20.4211 17.2712 20.7762 16.6563 21.0016 15.9901C21.2874 15.1452 21.0167 14.2117 20.3233 13.6507L19.371 12.8803L19.2872 12.8127C18.7705 12.3968 18.7705 11.6019 19.2872 11.186L19.3712 11.1182Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M11.0137 14.8356C10.0655 14.6776 9.32242 13.9345 9.16438 12.9863V12.9863C9.05555 12.3333 9.05555 11.6667 9.16438 11.0137V11.0137C9.32242 10.0655 10.0655 9.32242 11.0137 9.16438V9.16438C11.6667 9.05555 12.3333 9.05555 12.9863 9.16438V9.16438C13.9345 9.32242 14.6776 10.0655 14.8356 11.0137V11.0137C14.9445 11.6667 14.9445 12.3333 14.8356 12.9863V12.9863C14.6776 13.9345 13.9345 14.6776 12.9863 14.8356V14.8356C12.3333 14.9445 11.6667 14.9445 11.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path></svg></a>
   </div>
 </nav>
 <div class="topics-panel" id="topicsPanel">
-  <div class="topics-panel-header">Topics</div>
+  <div class="topics-panel-header">Tags</div>
   <div class="topic-group">
-    <button class="topic-group-btn">AI Agents <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="topic-group-btn">Frameworks &amp; SDKs <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
-      <a href="blog.html">Support Agents</a>
-      <a href="blog.html">Sales Agents</a>
-      <a href="blog.html">Multi-Agent Systems</a>
+      <a href="tags.html#langgraph">#LangGraph</a>
+      <a href="tags.html#crewai">#CrewAI</a>
+      <a href="tags.html#autogen">#AutoGen</a>
     </div>
   </div>
   <div class="topic-group">
-    <button class="topic-group-btn">Automation <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="topic-group-btn">Visual &amp; Workflow Tools <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
-      <a href="blog.html">Workflow Automation</a>
-      <a href="blog.html">RPA</a>
-      <a href="blog.html">Integrations</a>
+      <a href="tags.html#n8n">#n8n</a>
+      <a href="tags.html#make">#Make</a>
+      <a href="tags.html#flowise">#Flowise</a>
     </div>
   </div>
   <div class="topic-group">
-    <button class="topic-group-btn">Prompting <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="topic-group-btn">Infrastructure &amp; Models <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
-      <a href="blog.html">Prompt Engineering</a>
-      <a href="blog.html">System Prompts</a>
+      <a href="tags.html#claudeapi">#ClaudeAPI</a>
+      <a href="tags.html#openai">#OpenAI</a>
+      <a href="tags.html#ollama">#Ollama</a>
     </div>
   </div>
   <div class="topic-group">
-    <button class="topic-group-btn">LLM Tooling <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button class="topic-group-btn">Languages &amp; Execution <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
-      <a href="blog.html">RAG</a>
-      <a href="blog.html">Fine-Tuning</a>
-      <a href="blog.html">Evaluation</a>
+      <a href="tags.html#python">#Python</a>
+      <a href="tags.html#typescript">#TypeScript</a>
+      <a href="tags.html#docker">#Docker</a>
     </div>
   </div>
+</div>
+
+<div class="categories-panel" id="categoriesPanel">
+  <div class="categories-panel-header">Categories</div>
+  <a class="category-item" href="blog.html">Agentic Architecture</a>
+  <a class="category-item" href="blog.html">Workflows &amp; Orchestration</a>
+  <a class="category-item" href="blog.html">Tooling &amp; Frameworks</a>
+  <a class="category-item" href="blog.html">Enterprise &amp; Production</a>
+  <a class="category-item" href="blog.html">Blueprints &amp; Case Studies</a>
 </div>
 
 <div class="mobile-drawer" id="mobileDrawer">
@@ -102,56 +190,71 @@
   <div class="mobile-drawer-panel">
     <div class="drawer-header">
       <a href="index.html" class="brand">
-        <svg class="brand-mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="url(#bm)"/><circle cx="10" cy="12" r="2.6" fill="#fff"/><circle cx="22" cy="12" r="2.6" fill="#fff"/><circle cx="16" cy="21" r="2.6" fill="#fff"/><path d="M10 12L16 21M22 12L16 21M10 12L22 12" stroke="#fff" stroke-width="1.4"/></svg>
+        <svg class="brand-mark" viewBox="0 0 32 32"><use href="#icon-brand-mark"></use></svg>
         FlowMind
       </a>
-      <button class="icon-btn" data-drawer-close aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" data-drawer-close aria-label="Close menu"><svg width="20" height="20"><use href="#icon-close"></use></svg></button>
     </div>
     <nav class="drawer-nav">
-      <a class="drawer-item" href="index.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M8.96 2.52C10.87 1.56 13.13 1.56 15.04 2.52L15.4 2.7C17.12 3.56 18.7 4.7 20.06 6.06V6.06C21.29 7.29 21.92 9 21.79 10.73V10.73C21.6 13.22 20.89 15.63 19.71 17.83L19.43 18.35C18.53 20.02 16.9 21.18 15.03 21.5V21.5C13.02 21.83 10.98 21.83 8.97 21.5V21.5C7.1 21.18 5.47 20.02 4.57 18.35L4.29 17.83C3.11 15.63 2.4 13.22 2.21 10.73V10.73C2.08 9 2.71 7.29 3.94 6.06V6.06C5.3 4.7 6.88 3.56 8.6 2.7L8.96 2.52Z" stroke="currentColor" stroke-width="1.6"/></svg></span>Home</a>
+      <a class="drawer-item" id="drawerHomeItem" href="index.html"><span class="drawer-icon"><svg width="20" height="20" class="transition-transform group-hover:scale-[0.85]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.95997 2.52001C10.8737 1.56314 13.1263 1.56314 15.04 2.52001L15.3983 2.69915C17.1215 3.56075 18.698 4.69802 20.0603 6.06032V6.06032C21.2894 7.28936 21.9233 8.99739 21.79 10.7304V10.7304C21.5988 13.2159 20.8894 15.6339 19.7076 17.8288L19.4278 18.3484C18.5271 20.021 16.9032 21.1828 15.0294 21.4951V21.4951C13.0236 21.8294 10.9764 21.8294 8.9706 21.4951V21.4951C7.09675 21.1828 5.47286 20.021 4.57221 18.3484L4.29245 17.8288C3.11057 15.6339 2.40123 13.2159 2.21003 10.7304V10.7304C2.07672 8.99739 2.71064 7.28936 3.93968 6.06032V6.06032C5.30198 4.69802 6.8785 3.56075 8.6017 2.69915L8.95997 2.52001Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M11.0137 16.8356C10.0655 16.6776 9.32242 15.9345 9.16438 14.9863V14.9863C9.05555 14.3333 9.05555 13.6667 9.16438 13.0137V13.0137C9.32242 12.0655 10.0655 11.3224 11.0137 11.1644V11.1644C11.6667 11.0555 12.3333 11.0555 12.9863 11.1644V11.1644C13.9345 11.3224 14.6776 12.0655 14.8356 13.0137V13.0137C14.9445 13.6667 14.9445 14.3333 14.8356 14.9863V14.9863C14.6776 15.9345 13.9345 16.6776 12.9863 16.8356V16.8356C12.3333 16.9445 11.6667 16.9445 11.0137 16.8356V16.8356Z" stroke="currentColor" stroke-width="1.5"></path></svg></span>Home</a>
       <div class="drawer-group">
         <button class="drawer-group-btn">
-          <span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10.5 3H6C4.34 3 3 4.34 3 6V10.5C3 11.3 3.32 12.06 3.88 12.62L11.38 20.12C12.54 21.28 14.42 21.28 15.58 20.12L20.12 15.58C21.28 14.42 21.28 12.54 20.12 11.38L12.62 3.88C12.06 3.32 11.3 3 10.5 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg></span>
-          Topics
-          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="drawer-icon"><svg width="20" height="20" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.1361 6.17647C19.3602 6.17647 21.2527 7.79672 21.5954 9.99422V9.99422C21.8637 11.7145 21.8818 13.4646 21.649 15.19L21.5516 15.9118C21.5236 16.1193 21.5096 16.2231 21.4936 16.3153C21.1256 18.4397 19.4372 20.0889 17.3048 20.4071C17.2122 20.4209 17.1022 20.4331 16.8821 20.4575V20.4575C16.6455 20.4838 16.5272 20.497 16.4161 20.5087C13.4802 20.8191 10.5198 20.8191 7.58386 20.5087C7.47283 20.497 7.36157 20.4846 7.13905 20.4599V20.4599C6.95911 20.4399 6.86915 20.4299 6.78931 20.4184C4.6053 20.1041 2.88551 18.3954 2.55715 16.2135C2.54514 16.1337 2.53456 16.0438 2.51341 15.864L2.39813 14.8841C2.34373 14.4217 2.31653 14.1905 2.2937 13.9596C2.13199 12.3238 2.13199 10.6762 2.2937 9.04043C2.31653 8.80947 2.34373 8.57827 2.39813 8.11587V8.11587C2.47551 7.4582 2.51419 7.12937 2.5806 6.84871C3.06523 4.80054 4.78059 3.27516 6.87136 3.03316C7.15785 3 7.48895 3 8.15115 3L9.15561 3C9.52064 3 9.70315 3 9.87474 3.03012C10.2425 3.09468 10.5849 3.2609 10.863 3.50997C10.9928 3.62617 11.1057 3.76959 11.3315 4.05644L12.0851 5.01407C12.3927 5.40479 12.5464 5.60015 12.7331 5.74725C12.9596 5.92577 13.222 6.05319 13.5024 6.12078C13.7334 6.17647 13.982 6.17647 14.4792 6.17647L17.1361 6.17647Z" stroke="currentColor" stroke-width="1.5"></path></svg></span>
+          Categories
+          <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg>
+        </button>
+        <div class="drawer-subitems">
+          <a href="blog.html">Agentic Architecture</a>
+          <a href="blog.html">Workflows &amp; Orchestration</a>
+          <a href="blog.html">Tooling &amp; Frameworks</a>
+          <a href="blog.html">Enterprise &amp; Production</a>
+          <a href="blog.html">Blueprints &amp; Case Studies</a>
+        </div>
+      </div>
+      <div class="drawer-group">
+        <button class="drawer-group-btn">
+          <span class="drawer-icon"><svg width="20" height="20" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.25735 9.39715C4.41128 7.24214 5.50422 5.26357 7.24646 3.98593L8.45182 3.102C10.5638 1.55324 13.4362 1.55324 15.5482 3.102L16.7535 3.98592C18.4958 5.26357 19.5887 7.24214 19.7427 9.39716L19.7997 10.1958C19.9329 12.0608 19.8832 13.9343 19.6513 15.7896L19.5976 16.2191C19.2448 19.0418 17.0464 21.2791 14.2303 21.6814V21.6814C12.7509 21.8927 11.2491 21.8927 9.76973 21.6814V21.6814C6.95364 21.2791 4.75522 19.0418 4.40238 16.2191L4.3487 15.7896C4.11679 13.9343 4.06709 12.0608 4.2003 10.1958L4.25735 9.39715Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M11.3425 10.8904C10.7103 10.7851 10.2149 10.2897 10.1096 9.65753V9.65753C10.037 9.22218 10.037 8.77782 10.1096 8.34247V8.34247C10.2149 7.71032 10.7103 7.21495 11.3425 7.10959V7.10959C11.7778 7.03703 12.2222 7.03703 12.6575 7.10959V7.10959C13.2897 7.21495 13.7851 7.71032 13.8904 8.34247V8.34247C13.963 8.77782 13.963 9.22218 13.8904 9.65753V9.65753C13.7851 10.2897 13.2897 10.7851 12.6575 10.8904V10.8904C12.2222 10.963 11.7778 10.963 11.3425 10.8904V10.8904Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M14 17L10 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></span>
+          Tags
+          <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg>
         </button>
         <div class="drawer-subitems">
           <div class="drawer-group">
-            <button class="drawer-group-btn">AI Agents<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="drawer-group-btn">Frameworks &amp; SDKs<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
-              <a href="blog.html">Support Agents</a>
-              <a href="blog.html">Sales Agents</a>
-              <a href="blog.html">Multi-Agent Systems</a>
+              <a href="tags.html#langgraph">#LangGraph</a>
+              <a href="tags.html#crewai">#CrewAI</a>
+              <a href="tags.html#autogen">#AutoGen</a>
             </div>
           </div>
           <div class="drawer-group">
-            <button class="drawer-group-btn">Automation<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="drawer-group-btn">Visual &amp; Workflow Tools<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
-              <a href="blog.html">Workflow Automation</a>
-              <a href="blog.html">RPA</a>
-              <a href="blog.html">Integrations</a>
+              <a href="tags.html#n8n">#n8n</a>
+              <a href="tags.html#make">#Make</a>
+              <a href="tags.html#flowise">#Flowise</a>
             </div>
           </div>
           <div class="drawer-group">
-            <button class="drawer-group-btn">Prompting<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="drawer-group-btn">Infrastructure &amp; Models<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
-              <a href="blog.html">Prompt Engineering</a>
-              <a href="blog.html">System Prompts</a>
+              <a href="tags.html#claudeapi">#ClaudeAPI</a>
+              <a href="tags.html#openai">#OpenAI</a>
+              <a href="tags.html#ollama">#Ollama</a>
             </div>
           </div>
           <div class="drawer-group">
-            <button class="drawer-group-btn">LLM Tooling<svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="drawer-group-btn">Languages &amp; Execution<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
-              <a href="blog.html">RAG</a>
-              <a href="blog.html">Fine-Tuning</a>
-              <a href="blog.html">Evaluation</a>
+              <a href="tags.html#python">#Python</a>
+              <a href="tags.html#typescript">#TypeScript</a>
+              <a href="tags.html#docker">#Docker</a>
             </div>
           </div>
         </div>
       </div>
-      <a class="drawer-item" href="blog.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M16.19 2.47C19.02 2.78 21.28 4.97 21.68 7.79V7.79C21.89 9.26 21.89 10.74 21.68 12.21V12.21C21.28 15.03 19.02 17.22 16.19 17.53L15.37 17.63C13.13 17.87 10.87 17.87 8.63 17.63L7.81 17.53C4.98 17.22 2.72 15.03 2.32 12.21V12.21C2.1 10.74 2.1 9.26 2.32 7.79V7.79C2.72 4.97 4.98 2.78 7.81 2.47L8.63 2.37C10.87 2.13 13.13 2.13 15.37 2.37L16.19 2.47Z" stroke="currentColor" stroke-width="1.6"/><path opacity="0.6" d="M8 8L16 8M8 12H13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Articles</a>
-      <a class="drawer-item" href="shop.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.87 21.36C5.11 21.14 3.64 19.93 3.08 18.25V18.25C2.33 15.99 2 13.95 2 11.9V10.76C2 9.46 2.95 8.36 4.23 8.17V8.17C9.38 7.39 14.62 7.39 19.77 8.17V8.17C21.05 8.36 22 9.46 22 10.76V11.89C22 13.95 21.67 15.99 21.02 17.95L20.92 18.25C20.36 19.93 18.88 21.14 17.13 21.36V21.36C13.72 21.78 10.28 21.78 6.87 21.36V21.36Z" stroke="currentColor" stroke-width="1.6"/><path d="M7 7.5L9 2M17 7.5L15 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Products</a>
-      <a class="drawer-item" href="settings.html"><span class="drawer-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.37 11.12L20.32 10.35C21.02 9.79 21.29 8.85 21 8.01C20.78 7.34 20.42 6.73 19.96 6.2C19.37 5.53 18.42 5.3 17.59 5.62L16.45 6.06C15.85 6.29 15.16 5.94 14.95 5.32L14.73 3.97C14.59 3.08 13.92 2.38 13.04 2.21C12.36 2.07 11.65 2.07 10.96 2.21C10.08 2.38 9.41 3.08 9.27 3.97L9.05 5.32C8.95 5.94 8.28 6.29 7.67 6.06L6.4 5.62C5.58 5.3 4.63 5.53 4.04 6.2C3.58 6.73 3.22 7.34 3 8.01C2.71 8.85 2.98 9.79 3.68 10.35L4.63 11.12C5.14 11.53 5.14 12.32 4.63 12.74L3.68 13.5C2.98 14.06 2.71 15 3 15.84C3.22 16.51 3.58 17.12 4.04 17.65C4.63 18.32 5.58 18.55 6.41 18.23L7.55 17.79C8.16 17.55 8.83 17.9 8.93 18.55L9.14 19.9C9.28 20.79 9.95 21.5 10.83 21.66C11.53 21.8 12.24 21.8 12.93 21.66C13.81 21.5 14.48 20.79 14.62 19.9L14.83 18.55C14.93 17.9 15.6 17.55 16.21 17.79L17.35 18.23C18.18 18.55 19.12 18.32 19.72 17.65C20.18 17.12 20.53 16.51 20.76 15.84C21.05 15 20.78 14.06 20.08 13.5L19.13 12.74C18.62 12.32 18.62 11.53 19.13 11.12Z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.8" stroke="currentColor" stroke-width="1.5"/></svg></span>Settings</a>
+      <a class="drawer-item" href="blog.html"><span class="drawer-icon"><svg width="20" height="20" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.3042 2.21958C20.4998 2.10002 21.5528 3.00379 21.616 4.20371L21.7318 6.40405C21.9103 9.79523 21.8005 13.1954 21.4038 16.5681L21.1439 18.7765C21.0619 19.4742 20.4706 20 19.7681 20L19.3487 20C17.1343 20 14.9379 20.3983 12.8646 21.1758V21.1758C12.3071 21.3848 11.6929 21.3848 11.1355 21.1758V21.1758C9.06206 20.3983 6.86572 20 4.65134 20L4.2319 20C3.52942 20 2.93814 19.4742 2.85606 18.7765L2.59624 16.5681C2.19946 13.1954 2.08972 9.79523 2.26821 6.40405L2.38408 4.20241C2.44729 3.00144 3.49831 2.09508 4.69552 2.2091V2.2091C6.71663 2.40158 8.68925 2.942 10.5263 3.80647L11.2621 4.15274C11.7307 4.37326 12.272 4.37911 12.7453 4.16877L13.9247 3.64457C15.6306 2.88638 17.4466 2.40534 19.3042 2.21958V2.21958Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M18 8L16 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 8.5L6 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M12 21L12 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M18 11L16 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 11.5L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M18 14L16 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 14.5L6 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></span>Articles</a>
+      <a class="drawer-item" href="shop.html"><span class="drawer-icon"><svg width="20" height="20" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.87198 21.3594C5.11427 21.1399 3.63861 19.9296 3.07986 18.2487L2.97791 17.942C2.33019 15.9933 2 13.9532 2 11.8998L2 10.7553C2 9.459 2.94839 8.35774 4.23037 8.16544V8.16544C9.38131 7.3928 14.6187 7.3928 19.7696 8.16544V8.16544C21.0516 8.35774 22 9.459 22 10.7553L22 11.8931C22 13.9509 21.6682 15.9953 21.0175 17.9475L20.9156 18.2531C20.3561 19.9316 18.8825 21.1397 17.1269 21.3591V21.3591C13.7222 21.7847 10.2767 21.7847 6.87198 21.3594V21.3594Z" stroke="currentColor" stroke-width="1.5"></path><path d="M7 7.5L9 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M17 7.5L15 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M8 13L8 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M12 13L12 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 13L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></span>Products</a>
+      <a class="drawer-item" href="settings.html"><span class="drawer-icon"><svg width="20" height="20" class="transition-transform group-hover:scale-[0.85]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.3712 11.1182L20.3235 10.3478C21.0169 9.78681 21.2876 8.85332 21.0018 8.00845C20.7764 7.34225 20.4214 6.72728 19.9571 6.19901C19.3683 5.52905 18.4246 5.2967 17.5921 5.61673L16.4487 6.05624L16.3289 6.1025C15.7233 6.33735 15.0468 5.96142 14.9455 5.31981L14.7317 3.96598C14.5926 3.08499 13.9195 2.38385 13.0449 2.20894C12.3553 2.07101 11.6452 2.07101 10.9555 2.20894C10.081 2.38385 9.40786 3.08499 9.26876 3.96598L9.05497 5.31996C8.95366 5.96157 8.27712 6.3375 7.6715 6.10265L7.55132 6.05624L6.40797 5.61673C5.57546 5.2967 4.63171 5.52905 4.04293 6.19901C3.57867 6.72728 3.22362 7.34225 2.99825 8.00845C2.71244 8.85332 2.98309 9.7868 3.6765 10.3478L4.6288 11.1182L4.7128 11.186C5.22952 11.6019 5.22952 12.3968 4.7128 12.8127L4.62904 12.8803L3.67673 13.6507C2.98332 14.2117 2.71267 15.1452 2.99848 15.9901C3.22385 16.6563 3.5789 17.2712 4.04316 17.7995C4.63194 18.4695 5.57568 18.7018 6.4082 18.3818L7.55154 17.9423L7.67131 17.896C8.27692 17.6612 8.95346 18.0371 9.05476 18.6787L9.26876 20.034C9.40786 20.915 10.081 21.6161 10.9555 21.7911C11.6452 21.929 12.3553 21.929 13.0449 21.7911C13.9195 21.6161 14.5926 20.915 14.7317 20.034L14.9457 18.6789C15.047 18.0373 15.7235 17.6613 16.3291 17.8962L16.4485 17.9423L17.5918 18.3818C18.4243 18.7018 19.3681 18.4695 19.9569 17.7995C20.4211 17.2712 20.7762 16.6563 21.0016 15.9901C21.2874 15.1452 21.0167 14.2117 20.3233 13.6507L19.371 12.8803L19.2872 12.8127C18.7705 12.3968 18.7705 11.6019 19.2872 11.186L19.3712 11.1182Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M11.0137 14.8356C10.0655 14.6776 9.32242 13.9345 9.16438 12.9863V12.9863C9.05555 12.3333 9.05555 11.6667 9.16438 11.0137V11.0137C9.32242 10.0655 10.0655 9.32242 11.0137 9.16438V9.16438C11.6667 9.05555 12.3333 9.05555 12.9863 9.16438V9.16438C13.9345 9.32242 14.6776 10.0655 14.8356 11.0137V11.0137C14.9445 11.6667 14.9445 12.3333 14.8356 12.9863V12.9863C14.6776 13.9345 13.9345 14.6776 12.9863 14.8356V14.8356C12.3333 14.9445 11.6667 14.9445 11.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path></svg></span>Settings</a>
     </nav>
   </div>
 </div>
@@ -162,7 +265,7 @@
     <div class="search-input-row">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path opacity="0.6" d="M22 22L18.5 18.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path><circle cx="11.5" cy="11.5" r="9.5" stroke="currentColor" stroke-width="1.6"></circle></svg>
       <input type="text" id="searchInput" placeholder="Search articles, products, topics...">
-      <button class="icon-btn" data-search-close aria-label="Close search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <button class="icon-btn" data-search-close aria-label="Close search"><svg width="18" height="18"><use href="#icon-close"></use></svg></button>
     </div>
     <div class="search-tabs">
       <button class="search-tab active" data-search-tab="all">All</button>
@@ -206,8 +309,8 @@
 
 <div class="notif-dropdown" id="notifDropdown">
   <div class="notif-tabs">
-    <button class="notif-tab active" data-notif-tab="notifications">Notifications</button>
-    <button class="notif-tab" data-notif-tab="bookmarks">Bookmarked</button>
+    <button class="notif-tab btn btn-tiny btn-outline active" data-notif-tab="notifications"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.14588 18.6797C5.25361 17.9701 4 16.1611 4 14.1402L4 13.6473C4 11.3056 4.46369 8.98715 5.36433 6.82563L5.65281 6.13327C6.49264 4.11769 8.29828 2.66633 10.4473 2.27951V2.27951C11.4742 2.09467 12.5258 2.09467 13.5527 2.27951V2.27951C15.7017 2.66633 17.5074 4.1177 18.3472 6.13327L18.6357 6.82564C19.5363 8.98716 20 11.3056 20 13.6473L20 14.1402C20 16.1611 18.7464 17.9701 16.8541 18.6797L16.5998 18.7751C13.6341 19.8872 10.3659 19.8872 7.40018 18.7751L7.14588 18.6797Z" stroke="currentColor" stroke-width="2"></path><path opacity="0.6" d="M15 19.5C13.8696 22.9376 10.1304 22.9376 9 19.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>Notifications</button>
+    <button class="notif-tab btn btn-tiny btn-outline" data-notif-tab="bookmarks"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" d="M12.4 2L12.9115 9.67222C12.9422 10.1329 12.3855 10.3855 12.059 10.059L10.3536 8.35355C10.1583 8.15829 9.84171 8.15829 9.64645 8.35355L7.93507 10.0649C7.60933 10.3907 7.05375 10.14 7.08249 9.68019L7.5 3" stroke="currentColor" stroke-width="2"></path><path d="M3.36984 8.67144C3.73938 5.34558 6.39015 2.70123 9.71063 2.28617V2.28617C11.2181 2.09774 12.7819 2.09774 14.2894 2.28617V2.28617C17.6099 2.70123 20.2606 5.34558 20.6302 8.67144V8.67144C20.876 10.8837 20.876 13.1163 20.6302 15.3286V15.3286C20.2606 18.6544 17.6099 21.2988 14.2894 21.7138V21.7138C12.7819 21.9023 11.2181 21.9023 9.71063 21.7138V21.7138C6.39015 21.2988 3.73938 18.6544 3.36984 15.3286V15.3286C3.12404 13.1163 3.12404 10.8837 3.36984 8.67144V8.67144Z" stroke="currentColor" stroke-width="2"></path></svg>Bookmarked</button>
   </div>
   <div class="notif-panel" data-notif-panel="notifications">
     <div class="notif-actions">
@@ -220,7 +323,7 @@
       <button class="btn btn-sm btn-outline notif-mark-unread-btn" id="markUnreadBtn" style="display:none;">Mark as unread</button>
       <div class="notif-more dropdown-anchor">
         <button class="notif-more-btn" id="notifMoreBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="More actions">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="19" cy="12" r="1.7" fill="currentColor"/></svg>
+          <svg width="18" height="18"><use href="#icon-kebab"></use></svg>
         </button>
         <div class="notif-more-menu label-dropdown-panel" id="notifMoreMenu" role="listbox">
           <button class="label-dropdown-item" id="moreMarkRead" role="option">Mark as read</button>
@@ -273,7 +376,12 @@
         <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
       </div>
     </div>
-    <a href="notifications.html" class="notif-viewall">View All<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></a>
+    <div class="notif-empty" id="notifEmptyState" style="display:none;">
+      <div class="notif-empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.14588 18.6797C5.25361 17.9701 4 16.1611 4 14.1402L4 13.6473C4 11.3056 4.46369 8.98715 5.36433 6.82563L5.65281 6.13327C6.49264 4.11769 8.29828 2.66633 10.4473 2.27951V2.27951C11.4742 2.09467 12.5258 2.09467 13.5527 2.27951V2.27951C15.7017 2.66633 17.5074 4.1177 18.3472 6.13327L18.6357 6.82564C19.5363 8.98716 20 11.3056 20 13.6473L20 14.1402C20 16.1611 18.7464 17.9701 16.8541 18.6797L16.5998 18.7751C13.6341 19.8872 10.3659 19.8872 7.40018 18.7751L7.14588 18.6797Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M15 19.5C13.8696 22.9376 10.1304 22.9376 9 19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></div>
+      <p>No notifications yet</p>
+      <a href="blog.html" class="btn btn-tiny btn-outline">Browse Articles</a>
+    </div>
+    <a href="notifications.html" class="notif-viewall">View All<svg width="12" height="12"><use href="#icon-chevron-right-sm"></use></svg></a>
   </div>
   <div class="notif-panel" data-notif-panel="bookmarks" style="display:none;">
     <div class="notif-item">
@@ -288,13 +396,18 @@
       <div class="notif-thumb"><img src="assets/thumb-network.svg" alt=""></div>
       <div><div class="notif-text">Orchestrating Multiple Agents Without the Chaos</div><div class="notif-time">Article · Multi-Agent</div></div>
     </div>
-    <a href="bookmarks.html" class="notif-viewall">View All<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></a>
+    <div class="notif-empty" id="bookmarksEmptyState" style="display:none;">
+      <div class="notif-empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" d="M12.4 2L12.9115 9.67222C12.9422 10.1329 12.3855 10.3855 12.059 10.059L10.3536 8.35355C10.1583 8.15829 9.84171 8.15829 9.64645 8.35355L7.93507 10.0649C7.60933 10.3907 7.05375 10.14 7.08249 9.68019L7.5 3" stroke="currentColor" stroke-width="1.5"></path><path d="M3.36984 8.67144C3.73938 5.34558 6.39015 2.70123 9.71063 2.28617V2.28617C11.2181 2.09774 12.7819 2.09774 14.2894 2.28617V2.28617C17.6099 2.70123 20.2606 5.34558 20.6302 8.67144V8.67144C20.876 10.8837 20.876 13.1163 20.6302 15.3286V15.3286C20.2606 18.6544 17.6099 21.2988 14.2894 21.7138V21.7138C12.7819 21.9023 11.2181 21.9023 9.71063 21.7138V21.7138C6.39015 21.2988 3.73938 18.6544 3.36984 15.3286V15.3286C3.12404 13.1163 3.12404 10.8837 3.36984 8.67144V8.67144Z" stroke="currentColor" stroke-width="1.5"></path></svg></div>
+      <p>No bookmarks yet</p>
+      <a href="blog.html" class="btn btn-tiny btn-outline">Browse Articles</a>
+    </div>
+    <a href="bookmarks.html" class="notif-viewall">View All<svg width="12" height="12"><use href="#icon-chevron-right-sm"></use></svg></a>
   </div>
 </div>
 
 <div class="account-popup" id="accountPopup">
   <div class="account-guest" data-account-state="guest">
-    <div class="account-guest-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"></circle><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></div>
+    <div class="account-guest-icon"><svg width="26" height="26"><use href="#icon-person"></use></svg></div>
     <h4>You're browsing as a guest</h4>
     <p>Log in to like articles, bookmark products, and keep track of what you've purchased.</p>
     <a href="auth.html" class="btn btn-primary btn-block">Log In</a>
@@ -305,11 +418,11 @@
       <div><div class="aa-name">Ava Chen</div><div class="aa-email">ava.chen@flowmind.dev</div></div>
     </div>
     <a href="settings.html#profile" class="account-menu-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"></circle><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      <svg width="18" height="18"><use href="#icon-person"></use></svg>
       Profile
     </a>
     <button class="account-menu-item danger" id="logoutBtn" type="button">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><path d="M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <svg width="18" height="18"><use href="#icon-logout"></use></svg>
       Log Out
     </button>
   </div>
@@ -320,7 +433,7 @@
   <div class="share-modal">
     <div class="share-modal-header">
       <h3>Share to other apps</h3>
-      <button class="share-close-text-btn" data-share-close>Close<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <button class="share-close-text-btn" data-share-close>Close<svg width="15" height="15"><use href="#icon-close"></use></svg></button>
     </div>
     <div class="share-preview-card">
       <img src="assets/thumb-agent.svg" alt="">
@@ -399,7 +512,7 @@
             <button class="label-dropdown-item" data-value="newest" role="option">Newest</button>
           </div>
         </div>
-        <button class="icon-btn" data-comment-close aria-label="Close comments"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+        <button class="icon-btn" data-comment-close aria-label="Close comments"><svg width="18" height="18"><use href="#icon-close"></use></svg></button>
       </div>
     </div>
     <div class="comment-list">
@@ -409,7 +522,7 @@
           <div class="comment-author">Marcus Cole</div>
           <div class="comment-time">14 May 2026 at 09:12</div>
           <div class="comment-text">This saved us so much back-and-forth with support tickets. Great writeup.</div>
-          <button class="comment-reply-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 10L4 15L9 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15H15.5C18 15 20 13 20 10.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply</button>
+          <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
 
           <button class="comment-hide-replies-btn" data-replies-toggle>— Hide replies</button>
           <div class="comment-replies">
@@ -419,7 +532,7 @@
                 <div class="comment-author">FlowMind Team</div>
                 <div class="comment-time">14 May 2026 at 11:40</div>
                 <div class="comment-text">Glad it helped, Marcus! Let us know if you hit any edge cases.</div>
-                <button class="comment-reply-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 10L4 15L9 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15H15.5C18 15 20 13 20 10.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply</button>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
               </div>
             </div>
           </div>
@@ -431,7 +544,7 @@
           <div class="comment-author">Dana Okafor</div>
           <div class="comment-time">16 May 2026 at 08:03</div>
           <div class="comment-text">The escalation path section is exactly what we were missing. Bookmarked.</div>
-          <button class="comment-reply-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 10L4 15L9 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15H15.5C18 15 20 13 20 10.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply</button>
+          <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
         </div>
       </div>
       <div class="comment-item">
@@ -440,7 +553,7 @@
           <div class="comment-author">Sam Reyes</div>
           <div class="comment-time">21 May 2026 at 19:47</div>
           <div class="comment-text">Curious how this holds up with multilingual tickets — anyone tried it?</div>
-          <button class="comment-reply-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 10L4 15L9 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 15H15.5C18 15 20 13 20 10.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply</button>
+          <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
         </div>
       </div>
     </div>
@@ -464,7 +577,7 @@
   <div class="tcp-sheet">
     <div class="tcp-header">
       <h3>Configuration</h3>
-      <button class="icon-btn" data-tcp-close aria-label="Close configuration"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+      <button class="icon-btn" data-tcp-close aria-label="Close configuration"><svg width="18" height="18"><use href="#icon-close"></use></svg></button>
     </div>
 
     <div class="tcp-section">
@@ -510,13 +623,13 @@
   </div>
 </div>
 
+
 <div class="page-shell">
-  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="blog.html">Articles</a><span>/</span><span>Autonomous Support Agent</span></div>
+  <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Component Documentation</span></div>
 
   <div class="post-layout">
   <div class="post-main">
   <div class="post-wrap" style="margin-top:20px;">
-    <span class="cat-pill">AI Agents</span>
     <h1 class="title" style="margin-top:14px;">Building Your First Autonomous Support Agent</h1>
     <p class="post-meta-desc">A step-by-step blueprint for an agent that resolves tickets without babysitting — where to spend your effort, and where not to.</p>
     <div class="byline">
@@ -528,8 +641,8 @@
         </div>
       </div>
       <div class="byline-actions">
-        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
-        <button class="icon-action" data-comment-toggle aria-label="Comments"><svg width="18" height="18" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M168,281 C166.832,281 165.704,280.864 164.62,280.633 L159.912,283.463 L159.975,278.824 C156.366,276.654 154,273.066 154,269 C154,262.373 160.268,257 168,257 C175.732,257 182,262.373 182,269 C182,275.628 175.732,281 168,281 L168,281 Z M168,255 C159.164,255 152,261.269 152,269 C152,273.419 154.345,277.354 158,279.919 L158,287 L165.009,282.747 C165.979,282.907 166.977,283 168,283 C176.836,283 184,276.732 184,269 C184,261.269 176.836,255 168,255 L168,255 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path><path opacity="0.6" d="M175,266 L161,266 C160.448,266 160,266.448 160,267 C160,267.553 160.448,268 161,268 L175,268 C175.552,268 176,267.553 176,267 C176,266.448 175.552,266 175,266 L175,266 Z M173,272 L163,272 C162.448,272 162,272.447 162,273 C162,273.553 162.448,274 163,274 L173,274 C173.552,274 174,273.553 174,273 C174,272.447 173.552,272 173,272 L173,272 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path></svg></button>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
+        <button class="icon-action" data-comment-toggle aria-label="Comments"><svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none"><path d="M16.1899 2.46542C19.0216 2.78005 21.2817 4.97064 21.6846 7.7911C21.8939 9.25619 21.8939 10.7436 21.6846 12.2087C21.2817 15.0292 19.0216 17.2197 16.1899 17.5344L15.3667 17.6258C13.7801 17.8021 12.1831 17.8534 10.5904 17.7797C10.2263 17.7628 9.8785 17.9374 9.6821 18.2444L7.84289 21.1197C7.30446 21.9615 6.00049 21.5801 6.00049 20.5808V17.7058C6.00049 17.3083 5.76109 16.9548 5.41544 16.7583C3.77283 15.8249 2.5957 14.1689 2.31567 12.2087C2.10637 10.7436 2.10637 9.25619 2.31567 7.7911C2.71859 4.97064 4.9787 2.78005 7.81037 2.46542L8.63356 2.37396C10.871 2.12535 13.1292 2.12535 15.3667 2.37396L16.1899 2.46542Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M8 8L16 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 12L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
         <button class="icon-action" aria-label="Share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.0137 14.8356C3.06547 14.6776 2.32242 13.9345 2.16438 12.9863V12.9863C2.05555 12.3333 2.05555 11.6667 2.16438 11.0137V11.0137C2.32242 10.0655 3.06547 9.32242 4.0137 9.16438V9.16438C4.66673 9.05555 5.33327 9.05555 5.9863 9.16438V9.16438C6.93453 9.32242 7.67758 10.0655 7.83562 11.0137V11.0137C7.94445 11.6667 7.94445 12.3333 7.83562 12.9863V12.9863C7.67758 13.9345 6.93453 14.6776 5.9863 14.8356V14.8356C5.33327 14.9445 4.66673 14.9445 4.0137 14.8356V14.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 21.8356C17.0655 21.6776 16.3224 20.9345 16.1644 19.9863V19.9863C16.0555 19.3333 16.0555 18.6667 16.1644 18.0137V18.0137C16.3224 17.0655 17.0655 16.3224 18.0137 16.1644V16.1644C18.6667 16.0555 19.3333 16.0555 19.9863 16.1644V16.1644C20.9345 16.3224 21.6776 17.0655 21.8356 18.0137V18.0137C21.9445 18.6667 21.9445 19.3333 21.8356 19.9863V19.9863C21.6776 20.9345 20.9345 21.6776 19.9863 21.8356V21.8356C19.3333 21.9445 18.6667 21.9445 18.0137 21.8356V21.8356Z" stroke="currentColor" stroke-width="1.5"></path><path d="M18.0137 7.83562C17.0655 7.67758 16.3224 6.93453 16.1644 5.9863V5.9863C16.0555 5.33327 16.0555 4.66673 16.1644 4.0137V4.0137C16.3224 3.06547 17.0655 2.32242 18.0137 2.16438V2.16438C18.6667 2.05555 19.3333 2.05555 19.9863 2.16438V2.16438C20.9345 2.32242 21.6776 3.06547 21.8356 4.0137V4.0137C21.9445 4.66673 21.9445 5.33327 21.8356 5.9863V5.9863C21.6776 6.93453 20.9345 7.67758 19.9863 7.83562V7.83562C19.3333 7.94445 18.6667 7.94446 18.0137 7.83562V7.83562Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M16 19L13.969 18.5938C12.033 18.2066 10.2551 17.2551 8.85905 15.8591L7.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M16 5L13.969 5.40621C12.033 5.79339 10.2551 6.74494 8.85905 8.14095L7.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
       </div>
     </div>
@@ -539,17 +652,7 @@
       <figcaption class="post-hero-caption">Illustration of the agent flow that routes tickets, checks policy, and escalates smartly.</figcaption>
     </figure>
 
-    <!-- ==================== POST BODY START ==================== -->
-
-    <div class="note-block note-info">
-      <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <div>
-        <strong>Using v2.6?</strong><br>
-        Looking for v2.5 documentation? <a href="#" style="color:var(--primary);">Visit old documentation</a>.
-      </div>
-    </div>
-
-    <!-- Collapsible Table of Contents -->
+    <!-- Collapsible Table of Contents (auto-populated from the h2/h3 ids below by script.js) -->
     <div class="toc-wrap" id="tocWrap">
       <div class="toc-header" id="tocHeader">
         <h3>Table of Contents</h3>
@@ -560,126 +663,587 @@
       </div>
     </div>
 
-    <p>Most "autonomous agent" projects fail for a boring reason: someone tries to automate judgment before automating the plumbing. Get the plumbing right first, and the judgment part turns out to be the easy 20%.</p>
+    <p>Each section below shows a live rendering of the component followed by the exact markup to copy. The comment on the first line of each snippet — <code>&lt;!--[ Feature Name ]--&gt;</code> — is just a label; it's optional and safe to delete.</p>
 
-    <p>This is the shape of a support agent that actually survives contact with real tickets — not a demo that works on three happy-path examples and falls over on the fourth.</p>
-
-    <!-- ======================== Blockquote Style 1 ======================== -->
-    <h2 id="sec-retrieval">Start with retrieval, not reasoning</h2>
-    <p>Before the agent decides anything, it needs to know what's true: order status, refund policy, account history. Wire up retrieval against your actual systems first. An agent with perfect reasoning and stale data will confidently say the wrong thing — and confidence is the expensive part to walk back.</p>
-
-    <div class="pull-img">
-      <img src="assets/thumb-network.svg" alt="Illustration of a connected data network">
-    </div>
-
-    <blockquote class="bq-style1">
-      "An agent's judgment is only as good as the ground truth you hand it. Fix retrieval before you tune the prompt."
-      <span class="bq-author">— Priya Nair</span>
-    </blockquote>
-
-    <div class="infeed-ad">Ad goes here</div>
-
-    <!-- ======================== Code Block ======================== -->
-    <h2 id="sec-tools">Give it three tools, not thirty</h2>
-    <p>Every extra tool is another way the agent can pick wrong. Start with lookup order, issue refund, and escalate to human. Ship that, watch where it actually gets stuck, and add the fourth tool only when you have a real transcript proving it's needed.</p>
-
-    <div class="code-block">
+    <h2 id="sec-buttons">Buttons</h2>
+    <p>Three visual styles ship with the template: <code>.btn-primary</code> (contained), <code>.btn-outline</code> (outlined), and <code>.btn-pastel</code> (tinted). Combine any of them with a size modifier — <code>.btn-lg</code>, the unmodified default (medium), <code>.btn-sm</code>, or <code>.btn-tiny</code> — and drop an inline <code>&lt;svg&gt;</code> before or after the label for a leading or trailing icon.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Button Variants</div>
+      <div class="doc-demo-render">
+        <div class="btn-demo-row">
+          <button type="button" class="btn btn-primary">Contained</button>
+          <button type="button" class="btn btn-outline">Outlined</button>
+          <button type="button" class="btn btn-pastel">Pastel</button>
+        </div>
+      </div>
+      <div class="code-block">
       <div class="code-block-header">
-        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>JavaScript</span>
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
         <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
-      <pre><code>const tools = ['lookup_order', 'issue_refund', 'escalate_to_human'];
+      <pre><code class="language-html">&lt;!--[ Button Variants ]--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Contained&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;Outlined&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-pastel&quot;&gt;Pastel&lt;/button&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Size — Large</div>
+      <div class="doc-demo-render">
+        <div class="btn-demo-row">
+          <button type="button" class="btn btn-primary btn-lg">Contained</button>
+          <button type="button" class="btn btn-outline btn-lg">Outlined</button>
+          <button type="button" class="btn btn-pastel btn-lg">Pastel</button>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Size — Large ]--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Contained&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline btn-lg&quot;&gt;Outlined&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-pastel btn-lg&quot;&gt;Pastel&lt;/button&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Size — Medium</div>
+      <div class="doc-demo-render">
+        <div class="btn-demo-row">
+          <button type="button" class="btn btn-primary">Contained</button>
+          <button type="button" class="btn btn-outline">Outlined</button>
+          <button type="button" class="btn btn-pastel">Pastel</button>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Size — Medium ]--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Contained&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;Outlined&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-pastel&quot;&gt;Pastel&lt;/button&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Size — Small</div>
+      <div class="doc-demo-render">
+        <div class="btn-demo-row">
+          <button type="button" class="btn btn-primary btn-sm">Contained</button>
+          <button type="button" class="btn btn-outline btn-sm">Outlined</button>
+          <button type="button" class="btn btn-pastel btn-sm">Pastel</button>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Size — Small ]--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;Contained&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline btn-sm&quot;&gt;Outlined&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-pastel btn-sm&quot;&gt;Pastel&lt;/button&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Size — Tiny</div>
+      <div class="doc-demo-render">
+        <div class="btn-demo-row">
+          <button type="button" class="btn btn-primary btn-tiny">Contained</button>
+          <button type="button" class="btn btn-outline btn-tiny">Outlined</button>
+          <button type="button" class="btn btn-pastel btn-tiny">Pastel</button>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Size — Tiny ]--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-tiny&quot;&gt;Contained&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline btn-tiny&quot;&gt;Outlined&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-pastel btn-tiny&quot;&gt;Pastel&lt;/button&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Icon — Left</div>
+      <div class="doc-demo-render">
+        <div class="btn-demo-row">
+          <button type="button" class="btn btn-primary"><svg width="18" height="18"><use href="#icon-search"></use></svg>Search</button>
+          <button type="button" class="btn btn-outline"><svg width="18" height="18"><use href="#icon-search"></use></svg>Search</button>
+          <button type="button" class="btn btn-pastel"><svg width="18" height="18"><use href="#icon-search"></use></svg>Search</button>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Icon — Left ]--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-search&quot;&gt;&lt;/use&gt;&lt;/svg&gt;Search&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-search&quot;&gt;&lt;/use&gt;&lt;/svg&gt;Search&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-pastel&quot;&gt;&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-search&quot;&gt;&lt;/use&gt;&lt;/svg&gt;Search&lt;/button&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Icon — Right</div>
+      <div class="doc-demo-render">
+        <div class="btn-demo-row">
+          <button type="button" class="btn btn-primary">Continue<svg width="18" height="18"><use href="#icon-chevron-right-sm"></use></svg></button>
+          <button type="button" class="btn btn-outline">Continue<svg width="18" height="18"><use href="#icon-chevron-right-sm"></use></svg></button>
+          <button type="button" class="btn btn-pastel">Continue<svg width="18" height="18"><use href="#icon-chevron-right-sm"></use></svg></button>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Icon — Right ]--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Continue&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-chevron-right-sm&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-outline&quot;&gt;Continue&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-chevron-right-sm&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-pastel&quot;&gt;Continue&lt;svg width=&quot;18&quot; height=&quot;18&quot;&gt;&lt;use href=&quot;#icon-chevron-right-sm&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/button&gt;</code></pre>
+    </div>
+    </div>
+    <h2 id="sec-blockquotes">Blockquotes</h2>
+    <p>Use inside .post-wrap (or any content column). Three variants ship with the template.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Standard Blockquote</div>
+      <div class="doc-demo-render">
+        <blockquote>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum dignissim diam, et efficitur felis commodo et.</p>
+          <span>Anonymous</span>
+        </blockquote>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Standard Blockquote ]--&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum dignissim diam, et efficitur felis commodo et.&lt;/p&gt;
+  &lt;span&gt;Anonymous&lt;/span&gt;
+&lt;/blockquote&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Blockquote — Style 1</div>
+      <div class="doc-demo-render">
+        <blockquote class="bq-style1">
+          "An agent's judgment is only as good as the ground truth you hand it. Fix retrieval before you tune the prompt."
+          <span class="bq-author">— Priya Nair</span>
+        </blockquote>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Blockquote — Style 1 ]--&gt;
+&lt;blockquote class=&quot;bq-style1&quot;&gt;
+  &quot;An agent&#x27;s judgment is only as good as the ground truth you hand it. Fix retrieval before you tune the prompt.&quot;
+  &lt;span class=&quot;bq-author&quot;&gt;— Priya Nair&lt;/span&gt;
+&lt;/blockquote&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Blockquote — Style 2</div>
+      <div class="doc-demo-render">
+        <blockquote class="bq-style2">
+          "The best agents are the ones that know when to stop. Overconfidence is the most expensive mistake in automation."
+          <span class="bq-author">— FlowMind Engineering Team</span>
+        </blockquote>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Blockquote — Style 2 ]--&gt;
+&lt;blockquote class=&quot;bq-style2&quot;&gt;
+  &quot;The best agents are the ones that know when to stop. Overconfidence is the most expensive mistake in automation.&quot;
+  &lt;span class=&quot;bq-author&quot;&gt;— FlowMind Engineering Team&lt;/span&gt;
+&lt;/blockquote&gt;</code></pre>
+    </div>
+    </div>
+
+    <h2 id="sec-note-blocks">Note Blocks</h2>
+    <p>Inline callouts with an icon. Four color variants — swap the modifier class and the icon's stroke color follows automatically.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Note Block — Info</div>
+      <div class="doc-demo-render">
+        <div class="note-block note-info">
+          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div>
+            <strong>Using v2.6?</strong><br>
+            Looking for v2.5 documentation? <a href="#">Visit old documentation</a>.
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Note Block — Info ]--&gt;
+&lt;div class=&quot;note-block note-info&quot;&gt;
+  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;path d=&quot;M12 16v-4M12 8h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;
+  &lt;div&gt;
+    &lt;strong&gt;Using v2.6?&lt;/strong&gt;&lt;br&gt;
+    Looking for v2.5 documentation? &lt;a href=&quot;#&quot;&gt;Visit old documentation&lt;/a&gt;.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Note Block — Warning</div>
+      <div class="doc-demo-render">
+        <div class="note-block note-warning">
+          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="1.5"/></svg>
+          <div><strong>Warning:</strong> Never let the agent attempt a refund without first verifying the order exists.</div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Note Block — Warning ]--&gt;
+&lt;div class=&quot;note-block note-warning&quot;&gt;
+  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M12 9v4M12 17h.01&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;path d=&quot;M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;/svg&gt;
+  &lt;div&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Never let the agent attempt a refund without first verifying the order exists.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Note Block — Success</div>
+      <div class="doc-demo-render">
+        <div class="note-block note-success">
+          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><strong>Nice —</strong> that config is valid and ready to ship.</div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Note Block — Success ]--&gt;
+&lt;div class=&quot;note-block note-success&quot;&gt;
+  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;path d=&quot;M8 12l2.5 2.5L16 9&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;
+  &lt;div&gt;&lt;strong&gt;Nice —&lt;/strong&gt; that config is valid and ready to ship.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Note Block — Danger</div>
+      <div class="doc-demo-render">
+        <div class="note-block note-danger">
+          <svg class="note-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div><strong>Heads up —</strong> this action can't be undone once confirmed.</div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Note Block — Danger ]--&gt;
+&lt;div class=&quot;note-block note-danger&quot;&gt;
+  &lt;svg class=&quot;note-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot;/&gt;&lt;path d=&quot;M15 9l-6 6M9 9l6 6&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.5&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;
+  &lt;div&gt;&lt;strong&gt;Heads up —&lt;/strong&gt; this action can&#x27;t be undone once confirmed.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+
+    <h2 id="sec-alerts">Alerts</h2>
+    <p>Bordered banners for step-by-step or procedural content — heavier emphasis than a note block.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Alert — Info</div>
+      <div class="doc-demo-render">
+        <div class="alert alert-info">
+          <div><div class="alert-title">Tip!</div>Keep your escalation threshold high at first and lower it gradually.</div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Alert — Info ]--&gt;
+&lt;div class=&quot;alert alert-info&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Tip!&lt;/div&gt;Keep your escalation threshold high at first and lower it gradually.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Alert — Success</div>
+      <div class="doc-demo-render">
+        <div class="alert alert-success">
+          <div><div class="alert-title">Success!</div>A well-configured agent should resolve 60-80% of tickets without human intervention.</div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Alert — Success ]--&gt;
+&lt;div class=&quot;alert alert-success&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Success!&lt;/div&gt;A well-configured agent should resolve 60-80% of tickets without human intervention.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Alert — Warning</div>
+      <div class="doc-demo-render">
+        <div class="alert alert-warning">
+          <div><div class="alert-title">Careful!</div>This setting affects every workspace member, not just your account.</div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Alert — Warning ]--&gt;
+&lt;div class=&quot;alert alert-warning&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Careful!&lt;/div&gt;This setting affects every workspace member, not just your account.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Alert — Danger</div>
+      <div class="doc-demo-render">
+        <div class="alert alert-danger">
+          <div><div class="alert-title">Error!</div>If the agent keeps mis-routing tickets, stop the rollout and review intent matching.</div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Alert — Danger ]--&gt;
+&lt;div class=&quot;alert alert-danger&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;alert-title&quot;&gt;Error!&lt;/div&gt;If the agent keeps mis-routing tickets, stop the rollout and review intent matching.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+
+    <h2 id="sec-code-block">Code Block</h2>
+    <p>A language label, a copy button (wired up in script.js), and real syntax highlighting — add a <code>language-xxx</code> class to the <code>&lt;code&gt;</code> element and highlight.js loads that language pack on demand and colors it using the <code>--hl-*</code> tokens in styles.css.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Code Block</div>
+      <div class="doc-demo-render">
+        <div class="code-block">
+          <div class="code-block-header">
+            <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>JavaScript</span>
+            <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+          </div>
+          <pre><code class="language-javascript">const tools = ['lookup_order', 'issue_refund', 'escalate_to_human'];
+        
+        function pickTool(intent) {
+          if (intent === 'order_status') return tools[0];
+          return tools[2];
+        }</code></pre>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Code Block ]--&gt;
+&lt;div class=&quot;code-block&quot;&gt;
+  &lt;div class=&quot;code-block-header&quot;&gt;
+    &lt;span class=&quot;code-block-lang&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;path d=&quot;M9 8L4 12L9 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;path d=&quot;M15 8L20 12L15 16&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.8&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/&gt;&lt;/svg&gt;JavaScript&lt;/span&gt;
+    &lt;button class=&quot;code-copy-btn&quot; aria-label=&quot;Copy code&quot; data-tooltip=&quot;Copy&quot;&gt;&lt;svg width=&quot;15&quot; height=&quot;15&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot;&gt;&lt;rect x=&quot;8&quot; y=&quot;8&quot; width=&quot;12&quot; height=&quot;12&quot; rx=&quot;2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot;/&gt;&lt;path d=&quot;M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;1.6&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/svg&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;pre&gt;&lt;code&gt;const tools = [&#x27;lookup_order&#x27;, &#x27;issue_refund&#x27;, &#x27;escalate_to_human&#x27;];
 
 function pickTool(intent) {
-  if (intent === 'order_status') return tools[0];
-  if (intent === 'refund')      return tools[1];
-  return tools[2]; // default: escalate
-}</code></pre>
+  if (intent === &#x27;order_status&#x27;) return tools[0];
+  return tools[2];
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</code></pre>
+    </div>
     </div>
 
-    <!-- ======================== Note Block Warning ======================== -->
-    <h2 id="sec-escalation">Design the escalation path first</h2>
-    <p>Paradoxically, the fastest way to earn trust in an autonomous agent is to make it excellent at knowing when it's out of its depth. A clean handoff — full context, no repeated questions — matters more to the customer than one extra thing the bot could technically attempt.</p>
-
-    <div class="note-block note-warning">
-      <svg class="note-icon" viewBox="0 0 24 24" fill="none"><path d="M12 9v4M12 17h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" stroke="currentColor" stroke-width="1.5"/></svg>
-      <div>
-        <strong>Warning:</strong> Never let the agent attempt a refund without first verifying the order exists and is within the return window. A wrong refund erodes trust faster than no refund at all.
+    <h2 id="sec-table">Table</h2>
+    <p>A responsive, horizontally-scrollable data table. data-label attributes drive the stacked mobile layout.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Table</div>
+      <div class="doc-demo-render">
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Tool</th><th>Risk Level</th><th>When to Use</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-label="Tool">lookup_order</td><td data-label="Risk Level">Low</td><td data-label="When to Use">Always — first step</td></tr>
+              <tr><td data-label="Tool">issue_refund</td><td data-label="Risk Level">Medium</td><td data-label="When to Use">Order verified & in policy</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-
-    <div class="infeed-ad">Ad goes here</div>
-
-    <!-- ======================== Table ======================== -->
-    <h2 id="sec-comparison">Tool comparison</h2>
-    <p>Here's how the three core tools compare in terms of complexity and risk.</p>
-
-    <div class="doc-table-wrap">
-      <table class="doc-table">
-        <thead>
-          <tr>
-            <th>Tool</th>
-            <th>Risk Level</th>
-            <th>Complexity</th>
-            <th>When to Use</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td data-label="Tool">lookup_order</td><td data-label="Risk Level">Low</td><td data-label="Complexity">Simple</td><td data-label="When to Use">Always — first step for any ticket</td></tr>
-          <tr><td data-label="Tool">issue_refund</td><td data-label="Risk Level">Medium</td><td data-label="Complexity">Moderate</td><td data-label="When to Use">When order is verified and within policy</td></tr>
-          <tr><td data-label="Tool">escalate_to_human</td><td data-label="Risk Level">None</td><td data-label="Complexity">Simple</td><td data-label="When to Use">When confidence is below threshold</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- ======================== Blockquote Style 2 ======================== -->
-    <blockquote class="bq-style2">
-      "The best agents are the ones that know when to stop. Overconfidence is the most expensive mistake in automation."
-      <span class="bq-author">— FlowMind Engineering Team</span>
-    </blockquote>
-
-    <!-- ======================== Alert Success ======================== -->
-    <h2 id="sec-deployment">Deploying to production</h2>
-    <p>After iterating on the three-tool agent, you're ready to deploy. Start with a 10% traffic split and monitor escalation rates.</p>
-
-    <div class="alert alert-success">
-      <div><div class="alert-title">Success!</div>A well-configured agent should resolve 60-80% of tickets without human intervention within the first week.</div>
-    </div>
-
-    <div class="alert alert-info">
-      <div><div class="alert-title">Tip!</div>Keep your escalation threshold high at first (e.g., 90% confidence) and lower it gradually as you validate the agent's decisions.</div>
-    </div>
-
-    <div class="alert alert-danger">
-      <div><div class="alert-title">Error!</div>If the agent keeps routing valid tickets to escalation, stop the rollout and review the intent matching logic immediately.</div>
-    </div>
-
-    <details class="spoiler">
-      <summary>Spoiler: reveal details</summary>
-      <div class="spoiler-body">
-        <p>This spoiler is closed by default and opens when the user clicks the summary. Any content can go here — including text, lists, images, or code blocks.</p>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
       </div>
-    </details>
-
-    <!-- ======================== Accordion ======================== -->
-    <h2 id="sec-faq">Frequently Asked Questions</h2>
-
-    <div class="accordion">
-      <details>
-        <summary>How long does it take to set up a support agent?</summary>
-        <div class="acc-body"><p>With the FlowMind blueprint, most teams have a working agent in 2-3 days. The retrieval integration is usually the longest part — expect 1-2 days for wiring up order systems and policies.</p></div>
-      </details>
-      <details>
-        <summary>Can I use this approach for sales or onboarding?</summary>
-        <div class="acc-body"><p>Absolutely. The same three-tool pattern works for any domain where you need bounded actions. Replace lookup_order with lookup_account, issue_refund with send_proposal, and keep the escalation path.</p></div>
-      </details>
-      <details>
-        <summary>What happens when the agent encounters an edge case?</summary>
-        <div class="acc-body"><p>The agent escalates to a human with full context — the original ticket, what the agent already checked, and why it's stuck. The customer never has to repeat themselves.</p></div>
-      </details>
+      <pre><code class="language-html">&lt;!--[ Table ]--&gt;
+&lt;div class=&quot;doc-table-wrap&quot;&gt;
+  &lt;table class=&quot;doc-table&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Tool&lt;/th&gt;&lt;th&gt;Risk Level&lt;/th&gt;&lt;th&gt;When to Use&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td data-label=&quot;Tool&quot;&gt;lookup_order&lt;/td&gt;&lt;td data-label=&quot;Risk Level&quot;&gt;Low&lt;/td&gt;&lt;td data-label=&quot;When to Use&quot;&gt;Always — first step&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td data-label=&quot;Tool&quot;&gt;issue_refund&lt;/td&gt;&lt;td data-label=&quot;Risk Level&quot;&gt;Medium&lt;/td&gt;&lt;td data-label=&quot;When to Use&quot;&gt;Order verified &amp; in policy&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+    </div>
     </div>
 
-    <!-- ======================== Author Card ======================== -->
+    <h2 id="sec-pull-img">Pulled Image</h2>
+    <p>A full-width inset image with rounded corners — drop it between paragraphs to break up long sections.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Pulled Image</div>
+      <div class="doc-demo-render">
+        <div class="pull-img">
+          <img src="assets/thumb-network.svg" alt="Descriptive alt text">
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Pulled Image ]--&gt;
+&lt;div class=&quot;pull-img&quot;&gt;
+  &lt;img src=&quot;assets/thumb-network.svg&quot; alt=&quot;Descriptive alt text&quot;&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+
+    <h2 id="sec-spoiler">Spoiler</h2>
+    <p>A single collapsed block, built on native <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> — no JS required.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Spoiler</div>
+      <div class="doc-demo-render">
+        <details class="spoiler">
+          <summary>Spoiler: reveal details</summary>
+          <div class="spoiler-body">
+            <p>Any content can go here — text, lists, images, or code blocks.</p>
+          </div>
+        </details>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Spoiler ]--&gt;
+&lt;details class=&quot;spoiler&quot;&gt;
+  &lt;summary&gt;Spoiler: reveal details&lt;/summary&gt;
+  &lt;div class=&quot;spoiler-body&quot;&gt;
+    &lt;p&gt;Any content can go here — text, lists, images, or code blocks.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/details&gt;</code></pre>
+    </div>
+    </div>
+
+    <h2 id="sec-accordion">Accordion</h2>
+    <p>Several <code>&lt;details&gt;</code> elements grouped together — ideal for FAQs. Each item opens independently.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Accordion</div>
+      <div class="doc-demo-render">
+        <div class="accordion">
+          <details>
+            <summary>How long does setup take?</summary>
+            <div class="acc-body"><p>Most teams have a working agent in 2-3 days.</p></div>
+          </details>
+          <details>
+            <summary>Can I use this for sales or onboarding?</summary>
+            <div class="acc-body"><p>Yes — the same three-tool pattern works for any bounded-action domain.</p></div>
+          </details>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Accordion ]--&gt;
+&lt;div class=&quot;accordion&quot;&gt;
+  &lt;details&gt;
+    &lt;summary&gt;How long does setup take?&lt;/summary&gt;
+    &lt;div class=&quot;acc-body&quot;&gt;&lt;p&gt;Most teams have a working agent in 2-3 days.&lt;/p&gt;&lt;/div&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;Can I use this for sales or onboarding?&lt;/summary&gt;
+    &lt;div class=&quot;acc-body&quot;&gt;&lt;p&gt;Yes — the same three-tool pattern works for any bounded-action domain.&lt;/p&gt;&lt;/div&gt;
+  &lt;/details&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+
+    <h2 id="sec-infeed-ad">In-Feed Ad Slot</h2>
+    <p>A placeholder block for an in-article ad unit — drop it between sections, not inside one.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">In-Feed Ad</div>
+      <div class="doc-demo-render">
+        <div class="infeed-ad">Ad goes here</div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ In-Feed Ad ]--&gt;
+&lt;div class=&quot;infeed-ad&quot;&gt;Ad goes here&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+
+    <h2 id="sec-toc">Table of Contents</h2>
+    <p>Drop this once near the top of an article. script.js scans .post-wrap for h2[id]/h3[id] and fills it in automatically — you never hand-write the list.</p>
+    <div class="doc-demo-block">
+      <div class="doc-demo-label">Table of Contents</div>
+      <div class="doc-demo-render">
+        <div class="toc-wrap" id="tocWrap">
+          <div class="toc-header" id="tocHeader">
+            <h3>Table of Contents</h3>
+            <button class="toc-toggle" id="tocToggle">Show All</button>
+          </div>
+          <div class="toc-body" id="tocBody">
+            <ul id="tocList"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="code-block">
+      <div class="code-block-header">
+        <span class="code-block-lang"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M9 8L4 12L9 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8L20 12L15 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>HTML</span>
+        <button class="code-copy-btn" aria-label="Copy code" data-tooltip="Copy"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <pre><code class="language-html">&lt;!--[ Table of Contents ]--&gt;
+&lt;div class=&quot;toc-wrap&quot; id=&quot;tocWrap&quot;&gt;
+  &lt;div class=&quot;toc-header&quot; id=&quot;tocHeader&quot;&gt;
+    &lt;h3&gt;Table of Contents&lt;/h3&gt;
+    &lt;button class=&quot;toc-toggle&quot; id=&quot;tocToggle&quot;&gt;Show All&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;toc-body&quot; id=&quot;tocBody&quot;&gt;
+    &lt;ul id=&quot;tocList&quot;&gt;&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    </div>
+
+    <!-- ==================== Fixed element — appears on every post, not documented above ==================== -->
     <div class="author-card">
       <div class="avatar-sm" style="width:56px; height:56px;"></div>
       <div>
@@ -688,7 +1252,7 @@ function pickTool(intent) {
       </div>
     </div>
 
-    <!-- ==================== POST BODY END ==================== -->
+    <!-- ==================== restored original post footer ==================== -->
 
     <div class="post-nav-row">
       <a href="post.html" class="post-nav-item prev">
@@ -699,6 +1263,12 @@ function pickTool(intent) {
         <div class="pn-text"><div class="pn-label">Next</div><div class="pn-title">The 12 Workflows Worth Automating First</div></div>
         <svg class="pn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M10 16L13.1515 12.8485C13.6201 12.3799 13.6201 11.6201 13.1515 11.1515L10 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </a>
+    </div>
+
+    <div class="post-footer-tags">
+      <a href="tags.html#n8n" class="btn btn-outline btn-sm">#n8n</a>
+      <a href="tags.html#make" class="btn btn-outline btn-sm">#Make</a>
+      <a href="tags.html#claudeapi" class="btn btn-outline btn-sm">#ClaudeAPI</a>
     </div>
 
     <div class="share-row-feature">
@@ -712,7 +1282,7 @@ function pickTool(intent) {
     </div>
 
     <button class="btn btn-outline btn-block" data-comment-toggle style="margin-bottom:8px;">
-      <svg width="17" height="17" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="margin-right:6px; vertical-align:-3px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M168,281 C166.832,281 165.704,280.864 164.62,280.633 L159.912,283.463 L159.975,278.824 C156.366,276.654 154,273.066 154,269 C154,262.373 160.268,257 168,257 C175.732,257 182,262.373 182,269 C182,275.628 175.732,281 168,281 L168,281 Z M168,255 C159.164,255 152,261.269 152,269 C152,273.419 154.345,277.354 158,279.919 L158,287 L165.009,282.747 C165.979,282.907 166.977,283 168,283 C176.836,283 184,276.732 184,269 C184,261.269 176.836,255 168,255 L168,255 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path><path opacity="0.6" d="M175,266 L161,266 C160.448,266 160,266.448 160,267 C160,267.553 160.448,268 161,268 L175,268 C175.552,268 176,267.553 176,267 C176,266.448 175.552,266 175,266 L175,266 Z M173,272 L163,272 C162.448,272 162,272.447 162,273 C162,273.553 162.448,274 163,274 L173,274 C173.552,274 174,273.553 174,273 C174,272.447 173.552,272 173,272 L173,272 Z" transform="translate(-152.000000, -255.000000)" fill="currentColor"></path></svg>
+      <svg width="17" height="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-right:6px; vertical-align:-3px;" fill="none"><path d="M16.1899 2.46542C19.0216 2.78005 21.2817 4.97064 21.6846 7.7911C21.8939 9.25619 21.8939 10.7436 21.6846 12.2087C21.2817 15.0292 19.0216 17.2197 16.1899 17.5344L15.3667 17.6258C13.7801 17.8021 12.1831 17.8534 10.5904 17.7797C10.2263 17.7628 9.8785 17.9374 9.6821 18.2444L7.84289 21.1197C7.30446 21.9615 6.00049 21.5801 6.00049 20.5808V17.7058C6.00049 17.3083 5.76109 16.9548 5.41544 16.7583C3.77283 15.8249 2.5957 14.1689 2.31567 12.2087C2.10637 10.7436 2.10637 9.25619 2.31567 7.7911C2.71859 4.97064 4.9787 2.78005 7.81037 2.46542L8.63356 2.37396C10.871 2.12535 13.1292 2.12535 15.3667 2.37396L16.1899 2.46542Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M8 8L16 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M8 12L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
       Leave a Comment
     </button>
   </div>
@@ -727,12 +1297,14 @@ function pickTool(intent) {
           <div class="avatar-letter" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));">M</div>
           <div class="author-text"><div class="aname">Marcus Cole</div><div class="ameta">Jun 2, 2026 · 8 min read</div></div>
         </div>
-        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
       </div>
       <a href="post.html" style="display:contents;">
-        <div class="article-thumb"><img src="assets/thumb-network.svg" alt="Illustration of a connected network"></div>
-        <span class="cat-pill">Multi-Agent</span>
-        <h3>Orchestrating Multiple Agents Without the Chaos</h3>
+                <div class="article-thumb"><img src="assets/thumb-network.svg" alt="Illustration of a connected network"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#crewai" class="card-tags">CrewAI</a> <span class="card-tags-sep">/</span> <a href="tags.html#autogen" class="card-tags">AutoGen</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Orchestrating Multiple Agents Without the Chaos</h3>
       </a>
       <div class="card-actions">
         <div class="card-actions-left">
@@ -748,12 +1320,14 @@ function pickTool(intent) {
           <div class="avatar-letter" style="background:linear-gradient(135deg, var(--secondary), var(--primary));">S</div>
           <div class="author-text"><div class="aname">Sam Reyes</div><div class="ameta">Jun 10, 2026 · 5 min read</div></div>
         </div>
-        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
       </div>
       <a href="post.html" style="display:contents;">
-        <div class="article-thumb"><img src="assets/thumb-chat.svg" alt="Illustration of a chat interface"></div>
-        <span class="cat-pill">Prompting</span>
-        <h3>Prompt Patterns That Survive Contact With Users</h3>
+                <div class="article-thumb"><img src="assets/thumb-chat.svg" alt="Illustration of a chat interface"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#claudeapi" class="card-tags">ClaudeAPI</a> <span class="card-tags-sep">/</span> <a href="tags.html#openai" class="card-tags">OpenAI</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>Prompt Patterns That Survive Contact With Users</h3>
       </a>
       <div class="card-actions">
         <div class="card-actions-left">
@@ -769,12 +1343,14 @@ function pickTool(intent) {
           <div class="avatar-letter">P</div>
           <div class="author-text"><div class="aname">Priya Nair</div><div class="ameta">Jun 5, 2026 · 6 min read</div></div>
         </div>
-        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M21 16.0909V11.0975C21 6.80891 21 4.6646 19.682 3.3323C18.364 2 16.2426 2 12 2C7.75736 2 5.63604 2 4.31802 3.3323C3 4.6646 3 6.80891 3 11.0975V16.0909C3 19.1875 3 20.7358 3.73411 21.4123C4.08421 21.735 4.52615 21.9377 4.99692 21.9915C5.98402 22.1045 7.13673 21.0849 9.44216 19.0458C10.4612 18.1445 10.9708 17.6938 11.5603 17.5751C11.8506 17.5166 12.1494 17.5166 12.4397 17.5751C13.0292 17.6938 13.5388 18.1445 14.5578 19.0458C16.8633 21.0849 18.016 22.1045 19.0031 21.9915C19.4739 21.9377 19.9158 21.735 20.2659 21.4123C21 20.7358 21 19.1875 21 16.0909Z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor"></path><path d="M10 10H14" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path><path d="M12 8V12" opacity="0.5" stroke-linecap="round" stroke-width="1.5" stroke="currentColor"></path></svg></button>
+        <button class="bookmark-btn" aria-label="Bookmark"><svg fill="none" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" stroke="currentColor" stroke-width="1.5"></path></svg></button>
       </div>
       <a href="post.html" style="display:contents;">
-        <div class="article-thumb"><img src="assets/thumb-gears.svg" alt="Illustration of automation gears"></div>
-        <span class="cat-pill">RPA</span>
-        <h3>When RPA Still Beats an LLM Agent</h3>
+                <div class="article-thumb"><img src="assets/thumb-gears.svg" alt="Illustration of automation gears"></div>
+      </a>
+      <span class="card-tags-row"><span class="card-tags-in">in</span> <a href="tags.html#n8n" class="card-tags">n8n</a></span>
+      <a href="post.html" style="display:contents;">
+                <h3>When RPA Still Beats an LLM Agent</h3>
       </a>
       <div class="card-actions">
         <div class="card-actions-left">
@@ -784,6 +1360,7 @@ function pickTool(intent) {
         <a href="post.html" class="learn-more-link">Learn More</a>
       </div>
     </div>
+
   </div>
   </div>
 
@@ -829,7 +1406,7 @@ function pickTool(intent) {
     <div class="footer-grid">
       <div>
         <a href="index.html" class="brand" style="color:#fff; margin-bottom:14px; display:inline-flex;">
-          <svg class="brand-mark" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="url(#bm)"/><circle cx="10" cy="12" r="2.6" fill="#fff"/><circle cx="22" cy="12" r="2.6" fill="#fff"/><circle cx="16" cy="21" r="2.6" fill="#fff"/><path d="M10 12L16 21M22 12L16 21M10 12L22 12" stroke="#fff" stroke-width="1.4"/></svg>
+          <svg class="brand-mark" viewBox="0 0 32 32"><use href="#icon-brand-mark"></use></svg>
           FlowMind
         </a>
         <p style="margin-top:14px;">Practical AI and automation writing for people who'd rather ship a working agent than read another hype post.</p>
@@ -845,6 +1422,8 @@ function pickTool(intent) {
   </div>
 </footer>
 
+
 <script src="script.js"></script>
 </body>
 </html>
+
