@@ -381,14 +381,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookmarkFilled = '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
   const bookmarkFilledSm = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.46553 7.81025C4.78016 4.97857 6.97074 2.71846 9.79121 2.31554V2.31554C11.2563 2.10624 12.7437 2.10624 14.2088 2.31554V2.31554C17.0293 2.71846 19.2198 4.97857 19.5345 7.81025L19.648 8.83196C19.8821 10.9386 19.9033 13.0635 19.7114 15.1744L19.3332 19.3344C19.1897 20.9138 17.3528 21.7058 16.1058 20.726L13.2356 18.4709C12.5104 17.901 11.4896 17.901 10.7644 18.4709L7.89419 20.726C6.64716 21.7058 4.81035 20.9138 4.66677 19.3344L4.28859 15.1745C4.09668 13.0635 4.11793 10.9386 4.352 8.83195L4.46553 7.81025Z" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M9 11L11.5 13.5L15.5 9" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
 
-  document.querySelectorAll('.bookmark-btn, .bookmark-btn-thumb').forEach(btn => {
+  document.querySelectorAll('.bookmark-btn, .bookmark-btn-thumb, .save-btn').forEach(btn => {
+    const label = btn.querySelector('.bookmark-btn-label');
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       const wasActive = btn.classList.contains('active');
       btn.classList.toggle('active');
       const isSmall = btn.classList.contains('bookmark-btn-thumb');
-      btn.innerHTML = wasActive ? (isSmall ? bookmarkOutlineSm : bookmarkOutline) : (isSmall ? bookmarkFilledSm : bookmarkFilled);
+      const icon = wasActive ? (isSmall ? bookmarkOutlineSm : bookmarkOutline) : (isSmall ? bookmarkFilledSm : bookmarkFilled);
+      if (label) {
+        btn.innerHTML = icon + ' <span class="bookmark-btn-label">' + (wasActive ? 'Save' : 'Saved') + '</span>';
+      } else {
+        btn.innerHTML = icon;
+      }
+    });
+  });
+
+  // Remove-bookmark buttons on the Bookmarks page — clicking removes the row from the list
+  document.querySelectorAll('.bookmark-remove-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const row = btn.closest('.bookmark-row');
+      if (row) row.remove();
     });
   });
 
@@ -797,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.add('active');
       const target = tab.dataset.notifTab;
       document.querySelectorAll('.notif-panel').forEach(p => {
-        p.style.display = (p.dataset.notifPanel === target) ? 'block' : 'none';
+        p.style.display = (p.dataset.notifPanel === target) ? 'flex' : 'none';
       });
       if (target === 'notifications') {
         resetNotifControls();
@@ -992,7 +1008,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Map of selectors -> friendly action messages, intercepted for guests before any other handler runs
   const guardedActions = [
-    { selector: '.bookmark-btn, .bookmark-btn-thumb', message: 'Log in to save items to your bookmarks.' },
+    { selector: '.bookmark-btn, .bookmark-btn-thumb, .save-btn', message: 'Log in to save items to your bookmarks.' },
     { selector: '.icon-action[aria-label="Like"]', message: 'Log in to like this post.' },
     { selector: '[data-comment-toggle]', message: 'Log in to join the conversation.' },
     { selector: '[data-requires-auth="buy"]', message: 'Log in to purchase this product.' }
@@ -1297,6 +1313,110 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('flowmind_loggedin');
         window.location.href = 'index.html';
       }, 600);
+    });
+  }
+
+  // ---- Settings: Edit Profile popup (avatar, name, email, phone, bio) ----
+  const profileEditOverlay = document.querySelector('#profileEditOverlay');
+  const profileEditTrigger = document.querySelector('#profileEditTrigger');
+  if (profileEditOverlay && profileEditTrigger) {
+    const nameInput = profileEditOverlay.querySelector('#profileEditName');
+    const emailInput = profileEditOverlay.querySelector('#profileEditEmail');
+    const phoneInput = profileEditOverlay.querySelector('#profileEditPhone');
+    const bioInput = profileEditOverlay.querySelector('#profileEditBio');
+    const avatarInput = profileEditOverlay.querySelector('#avatarEditInput');
+    const avatarPreview = profileEditOverlay.querySelector('#avatarEditPreview');
+    const saveBtn = profileEditOverlay.querySelector('#profileEditSaveBtn');
+
+    const displayName = document.querySelector('#profileDisplayName');
+    const displayEmail = document.querySelector('#profileDisplayEmail');
+    const displayAvatar = document.querySelector('#profileAvatarDisplay img');
+    const piiName = document.querySelector('#piiName');
+    const piiEmail = document.querySelector('#piiEmail');
+    const piiPhone = document.querySelector('#piiPhone');
+    const piiBio = document.querySelector('#piiBio');
+
+    let pendingAvatarSrc = null;
+
+    const openModal = () => {
+      nameInput.value = piiName.textContent.trim();
+      emailInput.value = piiEmail.textContent.trim();
+      phoneInput.value = piiPhone.textContent.trim();
+      bioInput.value = piiBio.textContent.trim();
+      avatarPreview.src = displayAvatar.src;
+      pendingAvatarSrc = null;
+      profileEditOverlay.classList.add('open');
+      setTimeout(() => nameInput.focus(), 50);
+    };
+
+    const closeModal = () => profileEditOverlay.classList.remove('open');
+
+    profileEditTrigger.addEventListener('click', openModal);
+    profileEditOverlay.querySelectorAll('[data-profile-edit-close]').forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && profileEditOverlay.classList.contains('open')) closeModal();
+    });
+
+    if (avatarInput) {
+      avatarInput.addEventListener('change', () => {
+        const file = avatarInput.files && avatarInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          pendingAvatarSrc = reader.result;
+          avatarPreview.src = pendingAvatarSrc;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    saveBtn.addEventListener('click', () => {
+      const savedLabel = saveBtn.textContent;
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving…';
+      setTimeout(() => {
+        piiName.textContent = nameInput.value.trim();
+        piiEmail.textContent = emailInput.value.trim();
+        piiPhone.textContent = phoneInput.value.trim();
+        piiBio.textContent = bioInput.value.trim();
+        displayName.textContent = nameInput.value.trim();
+        displayEmail.textContent = emailInput.value.trim();
+        if (pendingAvatarSrc) displayAvatar.src = pendingAvatarSrc;
+        saveBtn.disabled = false;
+        saveBtn.textContent = savedLabel;
+        closeModal();
+      }, 500);
+    });
+  }
+
+  // ---- Settings: Active Sessions (mock data) — per-session and bulk sign-out ----
+  const sessionList = document.querySelector('#sessionList');
+  if (sessionList) {
+    sessionList.querySelectorAll('[data-session-revoke]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('.session-item');
+        if (!row) return;
+        btn.disabled = true;
+        btn.textContent = 'Signing out…';
+        setTimeout(() => {
+          row.style.transition = 'opacity .2s ease';
+          row.style.opacity = '0';
+          setTimeout(() => row.remove(), 200);
+        }, 400);
+      });
+    });
+  }
+  const revokeAllSessionsBtn = document.querySelector('#revokeAllSessionsBtn');
+  if (revokeAllSessionsBtn && sessionList) {
+    revokeAllSessionsBtn.addEventListener('click', () => {
+      revokeAllSessionsBtn.disabled = true;
+      revokeAllSessionsBtn.textContent = 'Signing out other sessions…';
+      setTimeout(() => {
+        sessionList.querySelectorAll('.session-item [data-session-revoke]').forEach(btn => btn.click());
+        revokeAllSessionsBtn.textContent = 'All other sessions signed out';
+      }, 300);
     });
   }
 
