@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Settings — FlowMind</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400;500;600;700;800&family=Mulish:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
 <script>
 (function(){
   var THEME_COLORS = {
@@ -91,8 +92,40 @@
 
   <!--[ Icon: Log Out ]-->
   <symbol id="icon-logout" viewBox="0 0 24 24" fill="none">
-    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M11 3.14355C9.53835 2.95215 9.05209 2.95215 7.59044 3.14355C4.7766 3.51203 2.59116 5.5789 2.27727 8.16847L2.18602 8.92127C1.93799 10.9675 1.93799 13.0325 2.18602 15.0787L2.27727 15.8315C2.59116 18.4211 4.7766 20.488 7.59044 20.8564C9.05209 21.0479 9.53835 21.0479 11 20.8564" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path opacity="0.6" d="M19.1716 9.17187L21.2929 11.2932C21.6834 11.6837 21.6834 12.3168 21.2929 12.7074L19.1716 14.8287M8 12.0002L21.2929 12.0003" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+
+  <!--[ Icon: Log In — bracket flipped right, arrow points right into it, respaced to avoid overlap ]-->
+  <symbol id="icon-login" viewBox="0 0 24 24" fill="none">
+    <g transform="translate(24,0) scale(-1,1)">
+      <path d="M11 3.14355C9.53835 2.95215 9.05209 2.95215 7.59044 3.14355C4.7766 3.51203 2.59116 5.5789 2.27727 8.16847L2.18602 8.92127C1.93799 10.9675 1.93799 13.0325 2.18602 15.0787L2.27727 15.8315C2.59116 18.4211 4.7766 20.488 7.59044 20.8564C9.05209 21.0479 9.53835 21.0479 11 20.8564" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+    <path opacity="0.6" d="M13.4882 9.17187L15.6095 11.2932C16 11.6837 16 12.3168 15.6095 12.7074L13.4882 14.8287M2.3166 12.0002L15.6095 12.0003" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+
+  <!--[ Icon: Add Account — account menu ]-->
+  <symbol id="icon-account-plus" viewBox="0 0 24 24" fill="none">
+    <path d="M14.9841 2.33156C18.5012 2.72235 21.2776 5.4988 21.6684 9.01592V9.01592C21.8888 10.9992 21.8888 13.0008 21.6684 14.9841V14.9841C21.2776 18.5012 18.5012 21.2776 14.9841 21.6684V21.6684C13.0008 21.8888 10.9992 21.8888 9.01591 21.6684V21.6684C5.4988 21.2776 2.72235 18.5012 2.33156 14.9841V14.9841C2.1112 13.0008 2.1112 10.9992 2.33156 9.01591V9.01591C2.72236 5.4988 5.4988 2.72235 9.01592 2.33156V2.33156C10.9992 2.1112 13.0008 2.1112 14.9841 2.33156V2.33156Z" stroke="currentColor" stroke-width="1.5"/>
+    <path opacity="0.6" d="M9.50001 12.0003H14.5M12.0004 9.5L12.0004 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+  </symbol>
+
+  <!--[ Icon: My Account ]-->
+  <symbol id="icon-my-account" viewBox="0 0 24 24" fill="none">
+    <path opacity="0.6" d="M11.084 9.9133C9.54461 9.66705 8.33158 8.44937 8.08535 6.91001C7.98931 6.30956 7.9896 5.69412 8.08731 5.09394C8.33356 3.58126 9.5214 2.3966 11.0347 2.1544L11.0835 2.14659C11.6905 2.04946 12.309 2.04944 12.9159 2.14655L12.9649 2.1544C14.4781 2.39652 15.6659 3.58106 15.9121 5.09361C16.0099 5.69392 16.0101 6.30952 15.914 6.91009C15.6676 8.4493 14.4544 9.66697 12.9152 9.91325C12.3097 10.0101 11.6895 10.0102 11.084 9.9133Z" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M7.63405 21.5341C5.94181 21.1684 4.80893 19.557 5.02678 17.8256L5.38512 14.9777C5.57349 13.4806 6.60356 12.2112 8.01457 11.7087C10.5729 10.7975 13.3949 10.7599 15.9688 11.6252C17.3947 12.1045 18.421 13.367 18.6074 14.871L18.974 17.8283C19.1885 19.559 18.0538 21.1682 16.3626 21.5336C13.4864 22.1552 10.5103 22.1556 7.63405 21.5341Z" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+
+  <!--[ Icon: Guest Avatar (header, pre-auth placeholder) — same figure, full opacity ]-->
+  <symbol id="icon-guest-avatar" viewBox="0 0 24 24" fill="none">
+    <path opacity="1" d="M11.084 9.9133C9.54461 9.66705 8.33158 8.44937 8.08535 6.91001C7.98931 6.30956 7.9896 5.69412 8.08731 5.09394C8.33356 3.58126 9.5214 2.3966 11.0347 2.1544L11.0835 2.14659C11.6905 2.04946 12.309 2.04944 12.9159 2.14655L12.9649 2.1544C14.4781 2.39652 15.6659 3.58106 15.9121 5.09361C16.0099 5.69392 16.0101 6.30952 15.914 6.91009C15.6676 8.4493 14.4544 9.66697 12.9152 9.91325C12.3097 10.0101 11.6895 10.0102 11.084 9.9133Z" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M7.63405 21.5341C5.94181 21.1684 4.80893 19.557 5.02678 17.8256L5.38512 14.9777C5.57349 13.4806 6.60356 12.2112 8.01457 11.7087C10.5729 10.7975 13.3949 10.7599 15.9688 11.6252C17.3947 12.1045 18.421 13.367 18.6074 14.871L18.974 17.8283C19.1885 19.559 18.0538 21.1682 16.3626 21.5336C13.4864 22.1552 10.5103 22.1556 7.63405 21.5341Z" stroke="currentColor" stroke-width="1.5"/>
+  </symbol>
+
+  <!--[ Icon: Settings (gear) — account menu ]-->
+  <symbol id="icon-settings" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M19.4 14.5a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V20.5a2 2 0 11-4 0v-.1a1.65 1.65 0 00-1.08-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3.5a2 2 0 110-4h.1a1.65 1.65 0 001.51-1.08 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9.5a1.65 1.65 0 001-1.51V3.5a2 2 0 114 0v.1a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9.5a1.65 1.65 0 001.51 1h.1a2 2 0 110 4h-.1a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
   <!--[ Icon: Moon (static, single-state) ]-->
   <symbol id="icon-moon" viewBox="0 0 24 24" fill="none">
@@ -108,7 +141,6 @@
   </symbol>
 </svg>
 
-
 <header class="topbar">
   <div class="topbar-left">
     <button class="menu-toggle-mobile" id="mobileMenuBtn" aria-label="Open menu" data-tooltip="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 5L7 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M4 12L7 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M4 19L7 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M20 5L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M20 12L11 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M20 19L11 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
@@ -123,11 +155,10 @@
     <button class="icon-btn theme-toggle-btn" aria-label="Toggle dark mode" data-dark-toggle data-tooltip="Dark mode"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="theme-toggle-icon" xmlns="http://www.w3.org/2000/svg"><g class="ti-moon"><path d="M4.74986 16.7432C7.32279 21.292 13.0213 22.8505 17.4777 20.2242C18.7341 19.4838 19.7577 18.4898 20.5222 17.3421C20.7792 16.9563 20.3537 16.4958 19.9155 16.6286C16.5806 17.6392 12.8806 16.2318 11.0648 13.0216C9.2491 9.81153 9.90502 5.83713 12.4299 3.39441C12.7616 3.07348 12.5837 2.46713 12.1279 2.50139C10.7719 2.60332 9.41671 3.01112 8.16028 3.75155C3.70381 6.3778 2.17692 12.1943 4.74986 16.7432Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M12 18.5L11.5 18.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M9.5 16.5L8.5 16.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></g><g class="ti-sun"><circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.5"></circle><path d="M12 2.5V4.4M12 19.6V21.5M4.5 12H2.5M21.5 12H19.5M5.7 5.7L4.3 4.3M18.3 5.7L19.7 4.3M5.7 18.3L4.3 19.7M18.3 18.3L19.7 19.7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></g></svg></button>
     <button class="user-chip" id="profileTrigger" data-tooltip="Account">
       <span class="user-name-label">Sign In</span>
-      <div class="user-avatar guest" id="headerAvatar"><img src="assets/avatar-user.svg" alt="Profile"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/></svg></div>
+      <div class="user-avatar guest" id="headerAvatar"><img src="assets/avatar-user.svg" alt="Profile"><svg width="24" height="24"><use href="#icon-guest-avatar"></use></svg></div>
     </button>
   </div>
 </header>
-
 <nav class="rail">
   <div class="rail-group">
     <a class="rail-btn" id="railHomeBtn" href="index.html" data-tooltip="Home"><svg width="22" height="22" class="transition-transform group-hover:scale-[0.85]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.95997 2.52001C10.8737 1.56314 13.1263 1.56314 15.04 2.52001L15.3983 2.69915C17.1215 3.56075 18.698 4.69802 20.0603 6.06032V6.06032C21.2894 7.28936 21.9233 8.99739 21.79 10.7304V10.7304C21.5988 13.2159 20.8894 15.6339 19.7076 17.8288L19.4278 18.3484C18.5271 20.021 16.9032 21.1828 15.0294 21.4951V21.4951C13.0236 21.8294 10.9764 21.8294 8.9706 21.4951V21.4951C7.09675 21.1828 5.47286 20.021 4.57221 18.3484L4.29245 17.8288C3.11057 15.6339 2.40123 13.2159 2.21003 10.7304V10.7304C2.07672 8.99739 2.71064 7.28936 3.93968 6.06032V6.06032C5.30198 4.69802 6.8785 3.56075 8.6017 2.69915L8.95997 2.52001Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M11.0137 16.8356C10.0655 16.6776 9.32242 15.9345 9.16438 14.9863V14.9863C9.05555 14.3333 9.05555 13.6667 9.16438 13.0137V13.0137C9.32242 12.0655 10.0655 11.3224 11.0137 11.1644V11.1644C11.6667 11.0555 12.3333 11.0555 12.9863 11.1644V11.1644C13.9345 11.3224 14.6776 12.0655 14.8356 13.0137V13.0137C14.9445 13.6667 14.9445 14.3333 14.8356 14.9863V14.9863C14.6776 15.9345 13.9345 16.6776 12.9863 16.8356V16.8356C12.3333 16.9445 11.6667 16.9445 11.0137 16.8356V16.8356Z" stroke="currentColor" stroke-width="1.5"></path></svg></a>
@@ -143,7 +174,7 @@
 <div class="topics-panel" id="topicsPanel">
   <div class="topics-panel-header">Tags</div>
   <div class="topic-group">
-    <button class="topic-group-btn">Frameworks &amp; SDKs <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+    <button class="topic-group-btn">Frameworks <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
       <a href="tags.html#langgraph">#LangGraph</a>
       <a href="tags.html#crewai">#CrewAI</a>
@@ -151,7 +182,7 @@
     </div>
   </div>
   <div class="topic-group">
-    <button class="topic-group-btn">Visual &amp; Workflow Tools <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+    <button class="topic-group-btn">Workflows <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
       <a href="tags.html#n8n">#n8n</a>
       <a href="tags.html#make">#Make</a>
@@ -159,7 +190,7 @@
     </div>
   </div>
   <div class="topic-group">
-    <button class="topic-group-btn">Infrastructure &amp; Models <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+    <button class="topic-group-btn">Infrastructure <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
       <a href="tags.html#claudeapi">#ClaudeAPI</a>
       <a href="tags.html#openai">#OpenAI</a>
@@ -167,7 +198,7 @@
     </div>
   </div>
   <div class="topic-group">
-    <button class="topic-group-btn">Languages &amp; Execution <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+    <button class="topic-group-btn">Languages <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
     <div class="topic-subitems">
       <a href="tags.html#python">#Python</a>
       <a href="tags.html#typescript">#TypeScript</a>
@@ -178,11 +209,11 @@
 
 <div class="categories-panel" id="categoriesPanel">
   <div class="categories-panel-header">Categories</div>
-  <a class="category-item" href="blog.html">Agentic Architecture</a>
-  <a class="category-item" href="blog.html">Workflows &amp; Orchestration</a>
-  <a class="category-item" href="blog.html">Tooling &amp; Frameworks</a>
-  <a class="category-item" href="blog.html">Enterprise &amp; Production</a>
-  <a class="category-item" href="blog.html">Blueprints &amp; Case Studies</a>
+  <a class="category-item" href="blog.html">Agent Systems</a>
+  <a class="category-item" href="blog.html">Workflows</a>
+  <a class="category-item" href="blog.html">Developer Tools</a>
+  <a class="category-item" href="blog.html">Production</a>
+  <a class="category-item" href="blog.html">Case Studies</a>
 </div>
 
 <div class="mobile-drawer" id="mobileDrawer">
@@ -204,11 +235,11 @@
           <svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg>
         </button>
         <div class="drawer-subitems">
-          <a href="blog.html">Agentic Architecture</a>
-          <a href="blog.html">Workflows &amp; Orchestration</a>
-          <a href="blog.html">Tooling &amp; Frameworks</a>
-          <a href="blog.html">Enterprise &amp; Production</a>
-          <a href="blog.html">Blueprints &amp; Case Studies</a>
+          <a href="blog.html">Agent Systems</a>
+          <a href="blog.html">Workflows</a>
+          <a href="blog.html">Developer Tools</a>
+          <a href="blog.html">Production</a>
+          <a href="blog.html">Case Studies</a>
         </div>
       </div>
       <div class="drawer-group">
@@ -219,7 +250,7 @@
         </button>
         <div class="drawer-subitems">
           <div class="drawer-group">
-            <button class="drawer-group-btn">Frameworks &amp; SDKs<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+            <button class="drawer-group-btn"><span>Frameworks</span><svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
               <a href="tags.html#langgraph">#LangGraph</a>
               <a href="tags.html#crewai">#CrewAI</a>
@@ -227,7 +258,7 @@
             </div>
           </div>
           <div class="drawer-group">
-            <button class="drawer-group-btn">Visual &amp; Workflow Tools<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+            <button class="drawer-group-btn"><span>Workflows</span><svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
               <a href="tags.html#n8n">#n8n</a>
               <a href="tags.html#make">#Make</a>
@@ -235,7 +266,7 @@
             </div>
           </div>
           <div class="drawer-group">
-            <button class="drawer-group-btn">Infrastructure &amp; Models<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+            <button class="drawer-group-btn"><span>Infrastructure</span><svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
               <a href="tags.html#claudeapi">#ClaudeAPI</a>
               <a href="tags.html#openai">#OpenAI</a>
@@ -243,7 +274,7 @@
             </div>
           </div>
           <div class="drawer-group">
-            <button class="drawer-group-btn">Languages &amp; Execution<svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
+            <button class="drawer-group-btn"><span>Languages</span><svg class="chev" width="16" height="16"><use href="#icon-chevron"></use></svg></button>
             <div class="drawer-subitems">
               <a href="tags.html#python">#Python</a>
               <a href="tags.html#typescript">#TypeScript</a>
@@ -275,19 +306,19 @@
     <div class="search-body">
       <div class="search-section-title">Recent</div>
       <a href="post.html" class="search-result-item" data-type="article">
-        <div class="search-result-thumb"><img src="assets/thumb-agent.svg" alt=""></div>
+        <div class="search-result-thumb"><img src="assets/thumb-agent.svg" alt="" loading="lazy" decoding="async"></div>
         <div><div class="sr-title">Building Your First Autonomous Support Agent</div><div class="sr-path">/blog/autonomous-support-agent</div></div>
       </a>
       <a href="post.html" class="search-result-item" data-type="article">
-        <div class="search-result-thumb"><img src="assets/thumb-workflow.svg" alt=""></div>
+        <div class="search-result-thumb"><img src="assets/thumb-workflow.svg" alt="" loading="lazy" decoding="async"></div>
         <div><div class="sr-title">The 12 Workflows Worth Automating First</div><div class="sr-path">/blog/workflows-worth-automating</div></div>
       </a>
       <a href="product.html" class="search-result-item" data-type="product">
-        <div class="search-result-thumb"><img src="assets/product-agent.svg" alt=""></div>
+        <div class="search-result-thumb"><img src="assets/product-agent.svg" alt="" loading="lazy" decoding="async"></div>
         <div><div class="sr-title">Support Agent Blueprint</div><div class="sr-path">/shop/support-agent-blueprint</div></div>
       </a>
       <a href="product.html" class="search-result-item" data-type="product">
-        <div class="search-result-thumb"><img src="assets/product-flow.svg" alt=""></div>
+        <div class="search-result-thumb"><img src="assets/product-flow.svg" alt="" loading="lazy" decoding="async"></div>
         <div><div class="sr-title">Lead Enrichment Flow</div><div class="sr-path">/shop/lead-enrichment-flow</div></div>
       </a>
       <div class="search-section-title">Categories</div>
@@ -318,7 +349,7 @@
         <input type="checkbox" id="notifSelectAll">
         <span>Select all</span>
       </label>
-      <button class="notif-bin-btn" id="notifClearBtn" aria-label="Clear selected" data-tooltip="Clear" style="display:none;" disabled><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      <button class="notif-bin-btn" id="notifClearBtn" aria-label="Clear selected" data-tooltip="Clear" style="display:none;" disabled><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
       <button class="btn btn-sm btn-outline notif-mark-read-btn" id="markReadBtn" style="display:none;">Mark as read</button>
       <button class="btn btn-sm btn-outline notif-mark-unread-btn" id="markUnreadBtn" style="display:none;">Mark as unread</button>
       <div class="notif-more dropdown-anchor">
@@ -341,7 +372,7 @@
       </div>
       <div class="notif-item-actions">
         <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
-        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
       </div>
     </div>
     <div class="notif-item unread">
@@ -352,7 +383,7 @@
       </div>
       <div class="notif-item-actions">
         <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
-        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
       </div>
     </div>
     <div class="notif-item unread">
@@ -363,7 +394,7 @@
       </div>
       <div class="notif-item-actions">
         <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
-        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
       </div>
     </div>
     <div class="notif-item unread">
@@ -374,7 +405,7 @@
       </div>
       <div class="notif-item-actions">
         <button class="btn btn-sm btn-outline notif-item-mark-read small">Mark as read</button>
-        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+        <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
       </div>
     </div>
     <div class="notif-empty" id="notifEmptyState" style="display:none;">
@@ -388,19 +419,19 @@
   <div class="notif-panel" data-notif-panel="bookmarks" style="display:none;">
     <div class="notif-scroll">
     <div class="notif-item">
-      <div class="notif-thumb"><img src="assets/thumb-agent.svg" alt=""></div>
+      <div class="notif-thumb"><img src="assets/thumb-agent.svg" alt="" loading="lazy" decoding="async"></div>
       <div><div class="notif-text">Building Your First Autonomous Support Agent</div><div class="notif-time">Article · AI Agents</div></div>
-      <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
     </div>
     <div class="notif-item">
-      <div class="notif-thumb"><img src="assets/product-agent.svg" alt=""></div>
+      <div class="notif-thumb"><img src="assets/product-agent.svg" alt="" loading="lazy" decoding="async"></div>
       <div><div class="notif-text">Support Agent Blueprint</div><div class="notif-time">Product · $49</div></div>
-      <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
     </div>
     <div class="notif-item">
-      <div class="notif-thumb"><img src="assets/thumb-network.svg" alt=""></div>
+      <div class="notif-thumb"><img src="assets/thumb-network.svg" alt="" loading="lazy" decoding="async"></div>
       <div><div class="notif-text">Orchestrating Multiple Agents Without the Chaos</div><div class="notif-time">Article · Multi-Agent</div></div>
-      <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+      <button class="notif-item-bin-btn notif-item-clear" aria-label="Clear" data-tooltip="Clear"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
     </div>
     <div class="notif-empty" id="bookmarksEmptyState" style="display:none;">
       <div class="notif-empty-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.6" d="M12.4 2L12.9115 9.67222C12.9422 10.1329 12.3855 10.3855 12.059 10.059L10.3536 8.35355C10.1583 8.15829 9.84171 8.15829 9.64645 8.35355L7.93507 10.0649C7.60933 10.3907 7.05375 10.14 7.08249 9.68019L7.5 3" stroke="currentColor" stroke-width="1.5"></path><path d="M3.36984 8.67144C3.73938 5.34558 6.39015 2.70123 9.71063 2.28617V2.28617C11.2181 2.09774 12.7819 2.09774 14.2894 2.28617V2.28617C17.6099 2.70123 20.2606 5.34558 20.6302 8.67144V8.67144C20.876 10.8837 20.876 13.1163 20.6302 15.3286V15.3286C20.2606 18.6544 17.6099 21.2988 14.2894 21.7138V21.7138C12.7819 21.9023 11.2181 21.9023 9.71063 21.7138V21.7138C6.39015 21.2988 3.73938 18.6544 3.36984 15.3286V15.3286C3.12404 13.1163 3.12404 10.8837 3.36984 8.67144V8.67144Z" stroke="currentColor" stroke-width="1.5"></path></svg></div>
@@ -413,24 +444,24 @@
 </div>
 
 <div class="account-popup" id="accountPopup">
-  <div class="account-guest" data-account-state="guest">
-    <div class="account-guest-icon"><svg width="26" height="26"><use href="#icon-person"></use></svg></div>
-    <h4>You're browsing as a guest</h4>
-    <p>Log in to like articles, bookmark products, and keep track of what you've purchased.</p>
-    <a href="auth.html" class="btn btn-primary btn-block">Log In</a>
+  <div data-account-state="guest">
+    <a href="auth.html#signup" class="account-menu-item">
+      <svg width="18" height="18"><use href="#icon-account-plus"></use></svg>
+      Create account
+    </a>
+    <a href="auth.html" class="account-menu-item">
+      <svg width="18" height="18"><use href="#icon-login"></use></svg>
+      Login
+    </a>
   </div>
-  <div class="account-authed" data-account-state="authed">
-    <div class="account-authed-header">
-      <div class="user-avatar authed" style="width:44px; height:44px;"><img src="assets/avatar-user.svg" alt="Profile"></div>
-      <div><div class="aa-name">Ava Chen</div><div class="aa-email">ava.chen@flowmind.dev</div></div>
-    </div>
+  <div data-account-state="authed">
     <a href="settings.html#profile" class="account-menu-item">
-      <svg width="18" height="18"><use href="#icon-person"></use></svg>
-      Profile
+      <svg width="18" height="18"><use href="#icon-my-account"></use></svg>
+      My account
     </a>
     <button class="account-menu-item danger" id="logoutBtn" type="button">
       <svg width="18" height="18"><use href="#icon-logout"></use></svg>
-      Log Out
+      Logout
     </button>
   </div>
 </div>
@@ -444,7 +475,7 @@
     </div>
     <div class="share-modal-body">
     <div class="share-preview-card">
-      <img src="assets/thumb-agent.svg" alt="">
+      <img src="assets/thumb-agent.svg" alt="" loading="lazy" decoding="async">
       <div class="share-preview-text">
         <div class="share-preview-title">Building Your First Autonomous Support Agent</div>
         <div class="share-preview-sub">FlowMind</div>
@@ -452,35 +483,35 @@
     </div>
     <div class="share-social-grid">
       <button type="button" class="share-social-item" data-platform="Facebook">
-        <span class="share-social-icon"><svg width="18" height="18" viewBox="0 0 64 64" fill="currentColor"><path d="M20.1,36h3.4c0.3,0,0.6,0.3,0.6,0.6V58c0,1.1,0.9,2,2,2h7.8c1.1,0,2-0.9,2-2V36.6c0-0.3,0.3-0.6,0.6-0.6h5.6 c1,0,1.9-0.7,2-1.7l1.3-7.8c0.2-1.2-0.8-2.4-2-2.4h-6.6c-0.5,0-0.9-0.4-0.9-0.9v-5c0-1.3,0.7-2,2-2h5.9c1.1,0,2-0.9,2-2V6.2 c0-1.1-0.9-2-2-2h-7.1c-13,0-12.7,10.5-12.7,12v7.3c0,0.3-0.3,0.6-0.6,0.6h-3.4c-1.1,0-2,0.9-2,2v7.8C18.1,35.1,19,36,20.1,36z"></path></svg></span>
+        <span class="share-social-icon"><svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor"><path d="M20.1,36h3.4c0.3,0,0.6,0.3,0.6,0.6V58c0,1.1,0.9,2,2,2h7.8c1.1,0,2-0.9,2-2V36.6c0-0.3,0.3-0.6,0.6-0.6h5.6 c1,0,1.9-0.7,2-1.7l1.3-7.8c0.2-1.2-0.8-2.4-2-2.4h-6.6c-0.5,0-0.9-0.4-0.9-0.9v-5c0-1.3,0.7-2,2-2h5.9c1.1,0,2-0.9,2-2V6.2 c0-1.1-0.9-2-2-2h-7.1c-13,0-12.7,10.5-12.7,12v7.3c0,0.3-0.3,0.6-0.6,0.6h-3.4c-1.1,0-2,0.9-2,2v7.8C18.1,35.1,19,36,20.1,36z"></path></svg></span>
         Facebook
       </button>
       <button type="button" class="share-social-item" data-platform="WhatsApp">
-        <span class="share-social-icon"><svg width="18" height="18" viewBox="0 0 64 64" fill="currentColor"><path d="M6.9,48.4c-0.4,1.5-0.8,3.3-1.3,5.2c-0.7,2.9,1.9,5.6,4.8,4.8l5.1-1.3c1.7-0.4,3.5-0.2,5.1,0.5 c4.7,2.1,10,3,15.6,2.1c12.3-1.9,22-11.9,23.5-24.2C62,17.3,46.7,2,28.5,4.2C16.2,5.7,6.2,15.5,4.3,27.8c-0.8,5.6,0,10.9,2.1,15.6 C7.1,44.9,7.3,46.7,6.9,48.4z M21.3,19.8c0.6-0.5,1.4-0.9,1.8-0.9s2.3-0.2,2.9,1.2c0.6,1.4,2,4.7,2.1,5.1c0.2,0.3,0.3,0.7,0.1,1.2 c-0.2,0.5-0.3,0.7-0.7,1.1c-0.3,0.4-0.7,0.9-1,1.2c-0.3,0.3-0.7,0.7-0.3,1.4c0.4,0.7,1.8,2.9,3.8,4.7c2.6,2.3,4.9,3,5.5,3.4 c0.7,0.3,1.1,0.3,1.5-0.2c0.4-0.5,1.7-2,2.2-2.7c0.5-0.7,0.9-0.6,1.6-0.3c0.6,0.2,4,1.9,4.7,2.2c0.7,0.3,1.1,0.5,1.3,0.8 c0.2,0.3,0.2,1.7-0.4,3.2c-0.6,1.6-2.1,3.1-3.2,3.5c-1.3,0.5-2.8,0.7-9.3-1.9c-7-2.8-11.8-9.8-12.1-10.3c-0.3-0.5-2.8-3.7-2.8-7.1 C18.9,22.1,20.7,20.4,21.3,19.8z"></path></svg></span>
+        <span class="share-social-icon"><svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor"><path d="M6.9,48.4c-0.4,1.5-0.8,3.3-1.3,5.2c-0.7,2.9,1.9,5.6,4.8,4.8l5.1-1.3c1.7-0.4,3.5-0.2,5.1,0.5 c4.7,2.1,10,3,15.6,2.1c12.3-1.9,22-11.9,23.5-24.2C62,17.3,46.7,2,28.5,4.2C16.2,5.7,6.2,15.5,4.3,27.8c-0.8,5.6,0,10.9,2.1,15.6 C7.1,44.9,7.3,46.7,6.9,48.4z M21.3,19.8c0.6-0.5,1.4-0.9,1.8-0.9s2.3-0.2,2.9,1.2c0.6,1.4,2,4.7,2.1,5.1c0.2,0.3,0.3,0.7,0.1,1.2 c-0.2,0.5-0.3,0.7-0.7,1.1c-0.3,0.4-0.7,0.9-1,1.2c-0.3,0.3-0.7,0.7-0.3,1.4c0.4,0.7,1.8,2.9,3.8,4.7c2.6,2.3,4.9,3,5.5,3.4 c0.7,0.3,1.1,0.3,1.5-0.2c0.4-0.5,1.7-2,2.2-2.7c0.5-0.7,0.9-0.6,1.6-0.3c0.6,0.2,4,1.9,4.7,2.2c0.7,0.3,1.1,0.5,1.3,0.8 c0.2,0.3,0.2,1.7-0.4,3.2c-0.6,1.6-2.1,3.1-3.2,3.5c-1.3,0.5-2.8,0.7-9.3-1.9c-7-2.8-11.8-9.8-12.1-10.3c-0.3-0.5-2.8-3.7-2.8-7.1 C18.9,22.1,20.7,20.4,21.3,19.8z"></path></svg></span>
         WhatsApp
       </button>
       <button type="button" class="share-social-item" data-platform="X">
-        <span class="share-social-icon"><svg width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></span>
+        <span class="share-social-icon"><svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg></span>
         X / Twitter
       </button>
       <button type="button" class="share-social-item" data-platform="Telegram">
-        <span class="share-social-icon"><svg width="18" height="18" viewBox="0 0 64 64" fill="currentColor"><path d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z"></path></svg></span>
+        <span class="share-social-icon"><svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor"><path d="M56.4,8.2l-51.2,20c-1.7,0.6-1.6,3,0.1,3.5l9.7,2.9c2.1,0.6,3.8,2.2,4.4,4.3l3.8,12.1c0.5,1.6,2.5,2.1,3.7,0.9 l5.2-5.3c0.9-0.9,2.2-1,3.2-0.3l11.5,8.4c1.6,1.2,3.9,0.3,4.3-1.7l8.7-41.8C60.4,9.1,58.4,7.4,56.4,8.2z M50,17.4L29.4,35.6 c-1.1,1-1.9,2.4-2,3.9c-0.2,1.5-2.3,1.7-2.8,0.3l-0.9-3c-0.7-2.2,0.2-4.5,2.1-5.7l23.5-14.6C49.9,16.1,50.5,16.9,50,17.4z"></path></svg></span>
         Telegram
       </button>
       <button type="button" class="share-social-item" data-platform="Pinterest">
-        <span class="share-social-icon"><svg width="18" height="18" viewBox="0 0 64 64" fill="currentColor"><path d="M14.4,53.8c2.4,2,6.1,0.6,6.8-2.4l0-0.1c0.4-1.8,2.4-10.2,3.2-13.7c0.2-0.9,0.2-1.8-0.1-2.7 C24.2,34,24,32.8,24,31.5c0-4.1,2.4-7.2,5.4-7.2c2.5,0,3.8,1.9,3.8,4.2c0,2.6-1.6,6.4-2.5,9.9c-0.7,3,1.5,5.4,4.4,5.4 c5.3,0,8.9-6.8,8.9-14.9c0-6.1-4.1-10.7-11.6-10.7c-8.5,0-13.8,6.3-13.8,13.4c0,2.4,0.7,4.2,1.8,5.5c0.5,0.6,0.6,0.9,0.4,1.6 c-0.1,0.5-0.4,1.8-0.6,2.2c-0.2,0.7-0.8,1-1.4,0.7c-3.9-1.6-5.7-5.9-5.7-10.7c0-8,6.7-17.5,20-17.5c10.7,0,17.7,7.7,17.7,16 c0,11-6.1,19.2-15.1,19.2c-1.9,0-3.8-0.7-5.2-1.6c-0.9-0.6-2.1-0.1-2.4,0.9c-0.5,1.9-1.1,4.3-1.3,4.9c-0.1,0.5-0.3,0.9-0.4,1.4 c-1,2.7,0.9,5.5,3.7,5.7c2.1,0.1,4.2,0,6.3-0.3c12.4-2,22.1-12.2,23.4-24.7C61.5,18.1,48.4,4,32,4C16.5,4,4,16.5,4,32 C4,40.8,8.1,48.6,14.4,53.8z"></path></svg></span>
+        <span class="share-social-icon"><svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor"><path d="M14.4,53.8c2.4,2,6.1,0.6,6.8-2.4l0-0.1c0.4-1.8,2.4-10.2,3.2-13.7c0.2-0.9,0.2-1.8-0.1-2.7 C24.2,34,24,32.8,24,31.5c0-4.1,2.4-7.2,5.4-7.2c2.5,0,3.8,1.9,3.8,4.2c0,2.6-1.6,6.4-2.5,9.9c-0.7,3,1.5,5.4,4.4,5.4 c5.3,0,8.9-6.8,8.9-14.9c0-6.1-4.1-10.7-11.6-10.7c-8.5,0-13.8,6.3-13.8,13.4c0,2.4,0.7,4.2,1.8,5.5c0.5,0.6,0.6,0.9,0.4,1.6 c-0.1,0.5-0.4,1.8-0.6,2.2c-0.2,0.7-0.8,1-1.4,0.7c-3.9-1.6-5.7-5.9-5.7-10.7c0-8,6.7-17.5,20-17.5c10.7,0,17.7,7.7,17.7,16 c0,11-6.1,19.2-15.1,19.2c-1.9,0-3.8-0.7-5.2-1.6c-0.9-0.6-2.1-0.1-2.4,0.9c-0.5,1.9-1.1,4.3-1.3,4.9c-0.1,0.5-0.3,0.9-0.4,1.4 c-1,2.7,0.9,5.5,3.7,5.7c2.1,0.1,4.2,0,6.3-0.3c12.4-2,22.1-12.2,23.4-24.7C61.5,18.1,48.4,4,32,4C16.5,4,4,16.5,4,32 C4,40.8,8.1,48.6,14.4,53.8z"></path></svg></span>
         Pinterest
       </button>
       <button type="button" class="share-social-item" data-platform="LinkedIn">
-        <span class="share-social-icon"><svg width="18" height="18" viewBox="0 0 64 64" fill="currentColor"><path d="M8,54.7C8,55.4,8.6,56,9.3,56h9.3c0.7,0,1.3-0.6,1.3-1.3V23.9c0-0.7-0.6-1.3-1.3-1.3H9.3 c-0.7,0-1.3,0.6-1.3,1.3V54.7z"></path><path d="M46.6,22.3c-4.5,0-7.7,1.8-9.4,3.7c-0.4,0.4-1.1,0.1-1.1-0.5l0-1.6c0-0.7-0.6-1.3-1.3-1.3h-9.4 c-0.7,0-1.3,0.6-1.3,1.3c0.1,5.7,0,25.4,0,30.7c0,0.7,0.6,1.3,1.3,1.3h9.5c0.7,0,1.3-0.6,1.3-1.3V37.9c0-1,0-2,0.3-2.7 c0.8-2,2.6-4.1,5.7-4.1c4.1,0,6,3.1,6,7.6v15.9c0,0.7,0.6,1.3,1.3,1.3h9.3c0.7,0,1.3-0.6,1.3-1.3V37.4C60,27.1,54.1,22.3,46.6,22.3z"></path><path d="M13.9,18.9L13.9,18.9c3.8,0,6.1-2.4,6.1-5.4C19.9,10.3,17.7,8,14,8c-3.7,0-6,2.3-6,5.4 C8,16.5,10.3,18.9,13.9,18.9z"></path></svg></span>
+        <span class="share-social-icon"><svg width="22" height="22" viewBox="0 0 64 64" fill="currentColor"><path d="M8,54.7C8,55.4,8.6,56,9.3,56h9.3c0.7,0,1.3-0.6,1.3-1.3V23.9c0-0.7-0.6-1.3-1.3-1.3H9.3 c-0.7,0-1.3,0.6-1.3,1.3V54.7z"></path><path d="M46.6,22.3c-4.5,0-7.7,1.8-9.4,3.7c-0.4,0.4-1.1,0.1-1.1-0.5l0-1.6c0-0.7-0.6-1.3-1.3-1.3h-9.4 c-0.7,0-1.3,0.6-1.3,1.3c0.1,5.7,0,25.4,0,30.7c0,0.7,0.6,1.3,1.3,1.3h9.5c0.7,0,1.3-0.6,1.3-1.3V37.9c0-1,0-2,0.3-2.7 c0.8-2,2.6-4.1,5.7-4.1c4.1,0,6,3.1,6,7.6v15.9c0,0.7,0.6,1.3,1.3,1.3h9.3c0.7,0,1.3-0.6,1.3-1.3V37.4C60,27.1,54.1,22.3,46.6,22.3z"></path><path d="M13.9,18.9L13.9,18.9c3.8,0,6.1-2.4,6.1-5.4C19.9,10.3,17.7,8,14,8c-3.7,0-6,2.3-6,5.4 C8,16.5,10.3,18.9,13.9,18.9z"></path></svg></span>
         LinkedIn
       </button>
       <button type="button" class="share-social-item" data-platform="Line">
-        <span class="share-social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path></svg></span>
+        <span class="share-social-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path></svg></span>
         Line
       </button>
       <button type="button" class="share-social-item" data-platform="Email">
-        <span class="share-social-icon"><svg width="18" height="18" viewBox="0 0 500 500" fill="currentColor"><path d="M468.051,222.657c0-12.724-5.27-24.257-13.717-32.527 L282.253,45.304c-17.811-17.807-46.702-17.807-64.505,0L45.666,190.129c-8.448,8.271-13.717,19.803-13.717,32.527v209.054 c0,20.079,16.264,36.341,36.34,36.341h363.421c20.078,0,36.34-16.262,36.34-36.341V222.657z M124.621,186.402h250.758 c11.081,0,19.987,8.905,19.987,19.991v34.523c-0.088,4.359-1.818,8.631-5.181,11.997l-55.966,56.419l83.224,83.127 c6.904,6.904,6.904,18.081,0,24.985s-18.085,6.904-24.985,0l-85.676-85.672H193.034l-85.492,85.672 c-6.907,6.904-18.081,6.904-24.985,0c-6.906-6.904-6.906-18.081,0-24.985l83.131-83.127l-55.875-56.419 c-3.638-3.638-5.363-8.358-5.181-13.177v-33.343C104.632,195.307,113.537,186.402,124.621,186.402z"></path></svg></span>
+        <span class="share-social-icon"><svg width="22" height="22" viewBox="0 0 500 500" fill="currentColor"><path d="M468.051,222.657c0-12.724-5.27-24.257-13.717-32.527 L282.253,45.304c-17.811-17.807-46.702-17.807-64.505,0L45.666,190.129c-8.448,8.271-13.717,19.803-13.717,32.527v209.054 c0,20.079,16.264,36.341,36.34,36.341h363.421c20.078,0,36.34-16.262,36.34-36.341V222.657z M124.621,186.402h250.758 c11.081,0,19.987,8.905,19.987,19.991v34.523c-0.088,4.359-1.818,8.631-5.181,11.997l-55.966,56.419l83.224,83.127 c6.904,6.904,6.904,18.081,0,24.985s-18.085,6.904-24.985,0l-85.676-85.672H193.034l-85.492,85.672 c-6.907,6.904-18.081,6.904-24.985,0c-6.906-6.904-6.906-18.081,0-24.985l83.131-83.127l-55.875-56.419 c-3.638-3.638-5.363-8.358-5.181-13.177v-33.343C104.632,195.307,113.537,186.402,124.621,186.402z"></path></svg></span>
         Email
       </button>
     </div>
@@ -499,16 +530,7 @@
   <div class="comment-modal">
     <div class="comment-modal-header">
       <div class="comment-modal-title">
-        <h3 id="commentCountLabel">13 comments</h3>
-        <div class="dropdown-anchor">
-          <button class="comment-kebab-btn" id="commentKebabBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Comment options">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.6" fill="currentColor"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><circle cx="19" cy="12" r="1.6" fill="currentColor"/></svg>
-          </button>
-          <div class="label-dropdown-panel" id="commentKebabPanel" role="listbox">
-            <button class="label-dropdown-item" role="option">Turn off comments</button>
-            <button class="label-dropdown-item" role="option">Report thread</button>
-          </div>
-        </div>
+        <h3 id="commentCountLabel">17 comments</h3>
       </div>
       <div class="comment-modal-header-right">
         <div class="dropdown-anchor">
@@ -533,7 +555,7 @@
           <div class="comment-text">This saved us so much back-and-forth with support tickets. Great writeup.</div>
           <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
 
-          <button class="comment-hide-replies-btn" data-replies-toggle>— Hide replies</button>
+          <button class="comment-hide-replies-btn" data-replies-toggle>Hide replies</button>
           <div class="comment-replies">
             <div class="comment-item comment-reply">
               <div class="avatar-sm comment-badge-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L19 8l-4.2 3.3L16 17l-4-3-4 3 1.2-5.7L5 8l5.4-.9L12 2Z"/></svg></div>
@@ -541,6 +563,51 @@
                 <div class="comment-author">FlowMind Team</div>
                 <div class="comment-time">14 May 2026 at 11:40</div>
                 <div class="comment-text">Glad it helped, Marcus! Let us know if you hit any edge cases.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));"></div>
+              <div class="comment-item-body">
+                <div class="comment-author">Marcus Cole</div>
+                <div class="comment-time">14 May 2026 at 12:03</div>
+                <div class="comment-text">Will do — first thing I'll test is the retry logic under rate limits.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm comment-badge-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L19 8l-4.2 3.3L16 17l-4-3-4 3 1.2-5.7L5 8l5.4-.9L12 2Z"/></svg></div>
+              <div class="comment-item-body">
+                <div class="comment-author">FlowMind Team</div>
+                <div class="comment-time">14 May 2026 at 12:30</div>
+                <div class="comment-text">Good call — the retry section in part 3 covers exponential backoff if you haven't seen it yet.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-green), var(--accent-teal));"></div>
+              <div class="comment-item-body">
+                <div class="comment-author">Wei Zhang</div>
+                <div class="comment-time">15 May 2026 at 07:44</div>
+                <div class="comment-text">Jumping in — we hit a case where the backoff wasn't enough during a provider outage. Ended up adding a circuit breaker on top.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-blue), var(--accent-teal));"></div>
+              <div class="comment-item-body">
+                <div class="comment-author">Marcus Cole</div>
+                <div class="comment-time">15 May 2026 at 08:02</div>
+                <div class="comment-text">Circuit breaker makes sense. Did you trip it per-provider or globally?</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-green), var(--accent-teal));"></div>
+              <div class="comment-item-body">
+                <div class="comment-author">Wei Zhang</div>
+                <div class="comment-time">15 May 2026 at 08:19</div>
+                <div class="comment-text">Per-provider. Global felt too aggressive since one flaky provider shouldn't block the others.</div>
                 <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
               </div>
             </div>
@@ -554,6 +621,19 @@
           <div class="comment-time">16 May 2026 at 08:03</div>
           <div class="comment-text">The escalation path section is exactly what we were missing. Bookmarked.</div>
           <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+
+          <button class="comment-hide-replies-btn" data-replies-toggle>Hide replies</button>
+          <div class="comment-replies">
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm comment-badge-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L19 8l-4.2 3.3L16 17l-4-3-4 3 1.2-5.7L5 8l5.4-.9L12 2Z"/></svg></div>
+              <div class="comment-item-body">
+                <div class="comment-author">FlowMind Team</div>
+                <div class="comment-time">16 May 2026 at 09:15</div>
+                <div class="comment-text">Glad that landed, Dana! Let us know if you build on top of it.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="comment-item">
@@ -563,16 +643,88 @@
           <div class="comment-time">21 May 2026 at 19:47</div>
           <div class="comment-text">Curious how this holds up with multilingual tickets — anyone tried it?</div>
           <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+
+          <button class="comment-hide-replies-btn" data-replies-toggle>Hide replies</button>
+          <div class="comment-replies">
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-green), var(--accent-teal));"></div>
+              <div class="comment-item-body">
+                <div class="comment-author">Wei Zhang</div>
+                <div class="comment-time">22 May 2026 at 06:12</div>
+                <div class="comment-text">Yes — we run it across EN/FR/DE tickets. Works well as long as the intent labels stay in English internally.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm" style="background:linear-gradient(135deg, var(--secondary), var(--primary));"></div>
+              <div class="comment-item-body">
+                <div class="comment-author">Sam Reyes</div>
+                <div class="comment-time">22 May 2026 at 06:40</div>
+                <div class="comment-text">Good to know, thanks. Did you have to retrain the classifier per language or one model for all?</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-green), var(--accent-teal));"></div>
+              <div class="comment-item-body">
+                <div class="comment-author">Wei Zhang</div>
+                <div class="comment-time">22 May 2026 at 07:05</div>
+                <div class="comment-text">One model for all — it generalizes fine since the underlying LLM already handles translation well.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="comment-item">
+        <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-orange), var(--secondary));"></div>
+        <div class="comment-item-body">
+          <div class="comment-author">Priya Nair</div>
+          <div class="comment-time">23 May 2026 at 10:28</div>
+          <div class="comment-text">Would love a follow-up post on cost per resolved ticket once you have a few months of data.</div>
+          <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+        </div>
+      </div>
+      <div class="comment-item">
+        <div class="avatar-sm comment-badge-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L19 8l-4.2 3.3L16 17l-4-3-4 3 1.2-5.7L5 8l5.4-.9L12 2Z"/></svg></div>
+        <div class="comment-item-body">
+          <div class="comment-author">FlowMind Team</div>
+          <div class="comment-time">23 May 2026 at 11:50</div>
+          <div class="comment-text">Noted, Priya — that's already in the queue for next month.</div>
+          <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+        </div>
+      </div>
+      <div class="comment-item">
+        <div class="avatar-sm" style="background:linear-gradient(135deg, var(--accent-green), var(--primary));"></div>
+        <div class="comment-item-body">
+          <div class="comment-author">Josh Bennett</div>
+          <div class="comment-time">25 May 2026 at 14:02</div>
+          <div class="comment-text">Solid breakdown. One nitpick: the diagram in step 4 is a bit hard to read on mobile.</div>
+          <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+
+          <button class="comment-hide-replies-btn" data-replies-toggle>Hide replies</button>
+          <div class="comment-replies">
+            <div class="comment-item comment-reply">
+              <div class="avatar-sm comment-badge-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 5.1L19 8l-4.2 3.3L16 17l-4-3-4 3 1.2-5.7L5 8l5.4-.9L12 2Z"/></svg></div>
+              <div class="comment-item-body">
+                <div class="comment-author">FlowMind Team</div>
+                <div class="comment-time">25 May 2026 at 15:10</div>
+                <div class="comment-text">Thanks for flagging — we'll ship a higher-res version this week.</div>
+                <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="comment-tabs">
-      <button class="comment-tab active" type="button">Comment message</button>
-      <button class="comment-tab" type="button">Media +</button>
-    </div>
     <div class="comment-form">
       <div class="avatar-sm" style="width:32px; height:32px;"></div>
-      <input type="text" class="comment-input" placeholder="Enter comment">
+      <div class="comment-form-bar">
+        <input type="text" class="comment-input" placeholder="Type something...">
+        <button class="comment-form-send" type="button" aria-label="Post comment">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20.4054 15.0556C16.2581 18.5808 10.9582 20.5982 5.51804 20.7737C2.75443 20.8628 1.07276 17.6924 2.77033 15.5098L4.54508 13.2279C5.10681 12.5057 5.10681 11.4944 4.54508 10.7722L2.77033 8.49037C1.07276 6.30777 2.75443 3.1373 5.51805 3.22645C10.9582 3.40194 16.2581 5.41937 20.4054 8.94454C22.2894 10.5459 22.2894 13.4542 20.4054 15.0556Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M5.5 12L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -632,6 +784,17 @@
   </div>
 </div>
 
+<!-- Scroll Navigation & Progress Ring — fixed bottom-right; script.js
+     (initScrollNavButton) drives the arrow direction, ring fill %,
+     and click-to-scroll behavior. -->
+<button class="scroll-nav-btn" id="scrollNavBtn" type="button" data-dir="down" aria-label="Scroll to bottom">
+  <svg class="scroll-nav-ring" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+    <circle class="scroll-nav-ring-bg" cx="20" cy="20" r="19"></circle>
+    <circle class="scroll-nav-ring-fg" id="scrollNavRingFg" cx="20" cy="20" r="19"></circle>
+  </svg>
+  <svg width="18" height="18" class="scroll-nav-icon is-down" id="scrollNavIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 16L13.1289 9.29013C12.5312 8.60714 11.4688 8.60714 10.8711 9.29013L5 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+</button>
+
 
 <div class="danger-overlay" id="dangerOverlay">
   <div class="danger-backdrop" data-danger-close></div>
@@ -654,8 +817,8 @@
     </div>
 
     <div class="danger-modal-actions">
-      <button type="button" class="btn btn-outline" data-danger-close>Cancel</button>
-      <button type="button" class="btn danger-solid-btn" id="dangerConfirmBtn" disabled>Confirm</button>
+      <button type="button" class="btn btn-outline btn-sm" data-danger-close>Cancel</button>
+      <button type="button" class="btn danger-solid-btn btn-sm" id="dangerConfirmBtn" disabled>Confirm</button>
     </div>
   </div>
 </div>
@@ -687,8 +850,41 @@
     </div>
 
     <div class="danger-modal-actions">
-      <button type="button" class="btn btn-outline" data-profile-edit-close>Cancel</button>
-      <button type="button" class="btn btn-primary" id="profileEditSaveBtn">Save Changes</button>
+      <button type="button" class="btn btn-outline btn-sm" data-profile-edit-close>Cancel</button>
+      <button type="button" class="btn btn-primary btn-sm" id="profileEditSaveBtn">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<div class="danger-overlay" id="changePasswordOverlay">
+  <div class="danger-backdrop" data-password-close></div>
+  <div class="danger-modal" role="dialog" aria-modal="true" aria-labelledby="changePasswordTitle">
+    <div class="danger-modal-header">
+      <h3 id="changePasswordTitle">Change Password</h3>
+      <button type="button" class="icon-btn" data-password-close aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+
+    <p class="sc-desc" style="margin-top:2px; margin-bottom:18px;">Use at least 8 characters, with a mix of letters and numbers.</p>
+
+    <div class="form-grid" id="passwordFormGrid">
+      <div class="form-row full">
+        <label for="currentPasswordInput">Current Password</label>
+        <input type="password" id="currentPasswordInput" placeholder="Enter current password" autocomplete="current-password">
+      </div>
+      <div class="form-row full">
+        <label for="newPasswordInput">New Password</label>
+        <input type="password" id="newPasswordInput" placeholder="Enter new password" autocomplete="new-password">
+      </div>
+      <div class="form-row full">
+        <label for="confirmPasswordInput">Confirm New Password</label>
+        <input type="password" id="confirmPasswordInput" placeholder="Re-enter new password" autocomplete="new-password">
+      </div>
+    </div>
+    <p class="password-error-msg" id="passwordErrorMsg" style="display:none;"></p>
+
+    <div class="danger-modal-actions">
+      <button type="button" class="btn btn-outline btn-sm" data-password-close>Cancel</button>
+      <button type="button" class="btn btn-primary btn-sm" id="changePasswordSaveBtn">Update Password</button>
     </div>
   </div>
 </div>
@@ -745,7 +941,7 @@
         <div class="settings-card">
           <div class="profile-card-topbar">
             <div class="profile-header">
-              <div class="profile-avatar-lg" id="profileAvatarDisplay"><img src="assets/avatar-user.svg" alt=""></div>
+              <div class="profile-avatar-lg" id="profileAvatarDisplay"><img src="assets/avatar-user.svg" alt="" loading="lazy" decoding="async"></div>
               <div>
                 <h4 id="profileDisplayName">Ava Chen</h4>
                 <p id="profileDisplayEmail">ava.chen@flowmind.dev</p>
@@ -766,7 +962,14 @@
         <div class="settings-card">
           <h3>Account</h3>
           <p class="sc-desc">Manage your signed-in sessions and account access.</p>
-          <button class="btn btn-outline" id="logoutBtnSettings">Sign Out</button>
+
+          <div class="settings-row">
+            <div>
+              <div class="danger-row-title">Password</div>
+              <span style="font-size:13.5px; color:var(--text-secondary);">Set a strong password to keep your account secure</span>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" id="changePasswordBtn">Change Password</button>
+          </div>
 
           <div class="session-list" id="sessionList">
             <div class="session-item">
@@ -786,7 +989,9 @@
                 <div class="mini-title">iOS · FlowMind App</div>
                 <div class="mini-sub">Lilongwe, Malawi · Active 2 hours ago</div>
               </div>
-              <button type="button" class="btn btn-outline btn-sm session-revoke-btn" data-session-revoke>Sign Out</button>
+              <button type="button" class="icon-btn session-delete-btn" data-session-revoke aria-label="Sign out this session" data-tooltip="Sign Out">
+                <svg width="20" height="20" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+              </button>
             </div>
             <div class="session-item">
               <div class="mini-thumb session-icon">
@@ -796,10 +1001,12 @@
                 <div class="mini-title">Windows · Edge</div>
                 <div class="mini-sub">Lusaka, Zambia · Active 3 days ago</div>
               </div>
-              <button type="button" class="btn btn-outline btn-sm session-revoke-btn" data-session-revoke>Sign Out</button>
+              <button type="button" class="icon-btn session-delete-btn" data-session-revoke aria-label="Sign out this session" data-tooltip="Sign Out">
+                <svg width="20" height="20" class="mb-4 text-text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L5.48806 9.58357C5.16413 11.8511 5.14395 14.1516 5.42806 16.4245L5.51601 17.1281C5.80316 19.4253 7.56538 21.2609 9.84894 21.6415V21.6415C11.2732 21.8789 12.7268 21.8789 14.1511 21.6415V21.6415C16.4346 21.2609 18.1968 19.4253 18.484 17.1281L18.5719 16.4245C18.856 14.1516 18.8359 11.8511 18.5119 9.58357L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M15 5L14.9062 4.43717C14.7408 3.4451 14.6582 2.94906 14.3711 2.60286C14.2462 2.45218 14.0957 2.32469 13.9265 2.22623C13.5378 2 13.035 2 12.0292 2L11.9708 2C10.965 2 10.4622 2 10.0735 2.22623C9.90431 2.32469 9.75381 2.45219 9.62888 2.60286C9.34182 2.94906 9.25915 3.4451 9.09381 4.43717L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20 6L18.2017 5.77522C14.0833 5.26041 9.91673 5.26041 5.79826 5.77522L4 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+              </button>
             </div>
           </div>
-          <button type="button" class="btn btn-outline danger-outline-btn session-revoke-all-btn" id="revokeAllSessionsBtn">Sign Out All Other Sessions</button>
+          <button type="button" class="btn btn-outline btn-sm danger-outline-btn session-revoke-all-btn" id="revokeAllSessionsBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 3.14355C9.53835 2.95215 9.05209 2.95215 7.59044 3.14355C4.7766 3.51203 2.59116 5.5789 2.27727 8.16847L2.18602 8.92127C1.93799 10.9675 1.93799 13.0325 2.18602 15.0787L2.27727 15.8315C2.59116 18.4211 4.7766 20.488 7.59044 20.8564C9.05209 21.0479 9.53835 21.0479 11 20.8564" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path opacity="0.6" d="M19.1716 9.17187L21.2929 11.2932C21.6834 11.6837 21.6834 12.3168 21.2929 12.7074L19.1716 14.8287M8 12.0002L21.2929 12.0003" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>Sign Out</button>
         </div>
 
         <div class="settings-card danger-zone-card">
@@ -814,7 +1021,7 @@
               <div class="danger-row-title">Delete Account Data</div>
               <span style="font-size:13.5px; color:var(--text-secondary);">Erase your activity, content, and personal data, but keep your account active</span>
             </div>
-            <button type="button" class="btn btn-outline danger-outline-btn" id="deleteAccountDataBtn">Delete Account Data</button>
+            <button type="button" class="btn btn-outline danger-outline-btn btn-sm" id="deleteAccountDataBtn">Delete Account Data</button>
           </div>
 
           <div class="danger-row">
@@ -822,7 +1029,7 @@
               <div class="danger-row-title">Delete Account</div>
               <span style="font-size:13.5px; color:var(--text-secondary);">Permanently delete your account and all associated data</span>
             </div>
-            <button type="button" class="btn danger-solid-btn" id="deleteAccountBtn">Delete Account</button>
+            <button type="button" class="btn danger-solid-btn btn-sm" id="deleteAccountBtn">Delete Account</button>
           </div>
         </div>
       </div>
@@ -832,15 +1039,15 @@
           <h3>Liked Items</h3>
           <p class="sc-desc">Articles and products you've liked.</p>
           <div class="mini-list-item">
-            <div class="mini-thumb"><img src="assets/thumb-agent.svg" alt=""></div>
+            <div class="mini-thumb"><img src="assets/thumb-agent.svg" alt="" loading="lazy" decoding="async"></div>
             <div class="mini-info"><div class="mini-title">Building Your First Autonomous Support Agent</div><div class="mini-sub">Article · AI Agents</div></div>
           </div>
           <div class="mini-list-item">
-            <div class="mini-thumb"><img src="assets/thumb-network.svg" alt=""></div>
+            <div class="mini-thumb"><img src="assets/thumb-network.svg" alt="" loading="lazy" decoding="async"></div>
             <div class="mini-info"><div class="mini-title">Orchestrating Multiple Agents Without the Chaos</div><div class="mini-sub">Article · Multi-Agent</div></div>
           </div>
           <div class="mini-list-item">
-            <div class="mini-thumb"><img src="assets/product-flow.svg" alt=""></div>
+            <div class="mini-thumb"><img src="assets/product-flow.svg" alt="" loading="lazy" decoding="async"></div>
             <div class="mini-info"><div class="mini-title">Lead Enrichment Flow</div><div class="mini-sub">Product · Make.com</div></div>
           </div>
         </div>
@@ -851,12 +1058,12 @@
           <h3>Purchase History</h3>
           <p class="sc-desc">Products you've bought from the shop.</p>
           <div class="mini-list-item">
-            <div class="mini-thumb"><img src="assets/product-agent.svg" alt=""></div>
+            <div class="mini-thumb"><img src="assets/product-agent.svg" alt="" loading="lazy" decoding="async"></div>
             <div class="mini-info"><div class="mini-title">Support Agent Blueprint</div><div class="mini-sub">Purchased Jun 15, 2026 · $49</div></div>
             <button class="btn btn-outline btn-sm">Download</button>
           </div>
           <div class="mini-list-item">
-            <div class="mini-thumb"><img src="assets/product-chip.svg" alt=""></div>
+            <div class="mini-thumb"><img src="assets/product-chip.svg" alt="" loading="lazy" decoding="async"></div>
             <div class="mini-info"><div class="mini-title">RAG Pipeline Starter</div><div class="mini-sub">Purchased May 30, 2026 · $39</div></div>
             <button class="btn btn-outline btn-sm">Download</button>
           </div>
@@ -872,19 +1079,30 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <a href="index.html" class="brand" style="color:#fff; margin-bottom:14px; display:inline-flex;">
+        <a href="index.html" class="brand" style="margin-bottom:14px; display:inline-flex;">
           <svg class="brand-mark" viewBox="0 0 32 32"><use href="#icon-brand-mark"></use></svg>
           FlowMind
         </a>
         <p style="margin-top:14px;">Practical AI and automation writing for people who'd rather ship a working agent than read another hype post.</p>
+        <div class="footer-social">
+          <a href="#" class="footer-social-icon" aria-label="Facebook"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M24,3H8A5,5,0,0,0,3,8V24a5,5,0,0,0,5,5H24a5,5,0,0,0,5-5V8A5,5,0,0,0,24,3Zm3,21a3,3,0,0,1-3,3H17V18h4a1,1,0,0,0,0-2H17V14a2,2,0,0,1,2-2h2a1,1,0,0,0,0-2H19a4,4,0,0,0-4,4v2H12a1,1,0,0,0,0,2h3v9H8a3,3,0,0,1-3-3V8A3,3,0,0,1,8,5H24a3,3,0,0,1,3,3Z"></path></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M14.095479,10.316482L22.286354,1h-1.940718l-7.115352,8.087682L7.551414,1H1l8.589488,12.231093L1,23h1.940717  l7.509372-8.542861L16.448587,23H23L14.095479,10.316482z M11.436522,13.338465l-0.871624-1.218704l-6.924311-9.68815h2.981339  l5.58978,7.82155l0.867949,1.218704l7.26506,10.166271h-2.981339L11.436522,13.338465z" style="stroke:currentColor;stroke-width:0.4;transform:scale(0.8);transform-origin:center"></path></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="Medium"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><g><path d="M24,3H8A5,5,0,0,0,3,8V24a5,5,0,0,0,5,5H24a5,5,0,0,0,5-5V8A5,5,0,0,0,24,3Zm3,21a3,3,0,0,1-3,3H8a3,3,0,0,1-3-3V8A3,3,0,0,1,8,5H24a3,3,0,0,1,3,3Z"></path><path d="M23,12a1,1,0,0,0,0-2H21a.88.88,0,0,0-.28.06l-.09,0a1.07,1.07,0,0,0-.28.19h0L16,14.59l-4.29-4.3h0a1.07,1.07,0,0,0-.28-.19l-.09,0a.88.88,0,0,0-.28-.06H9a1,1,0,0,0,0,2h1v8H9a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2H12V13.41l3.29,3.3a1,1,0,0,0,1.42,0L20,13.41V20H19a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2H22V12Z"></path></g></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="LinkedIn"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M24,3H8A5,5,0,0,0,3,8V24a5,5,0,0,0,5,5H24a5,5,0,0,0,5-5V8A5,5,0,0,0,24,3Zm3,21a3,3,0,0,1-3,3H8a3,3,0,0,1-3-3V8A3,3,0,0,1,8,5H24a3,3,0,0,1,3,3Z"></path><path d="M11,14a1,1,0,0,0-1,1v6a1,1,0,0,0,2,0V15A1,1,0,0,0,11,14Z"></path><path d="M19,13a4,4,0,0,0-4,4v4a1,1,0,0,0,2,0V17a2,2,0,0,1,4,0v4a1,1,0,0,0,2,0V17A4,4,0,0,0,19,13Z"></path><circle cx="11" cy="11" r="1"></circle></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="Pinterest"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Zm0,26a12,12,0,0,1-3.81-.63l1.2-4.81A7.93,7.93,0,0,0,16,23a8.36,8.36,0,0,0,1.4-.12,8,8,0,1,0-9.27-6.49,1,1,0,0,0,2-.35,6,6,0,1,1,3.79,4.56L15,16.24A1,1,0,1,0,13,15.76l-2.7,10.81A12,12,0,1,1,16,28Z"></path></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="Instagram"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M22,3H10a7,7,0,0,0-7,7V22a7,7,0,0,0,7,7H22a7,7,0,0,0,7-7V10A7,7,0,0,0,22,3Zm5,19a5,5,0,0,1-5,5H10a5,5,0,0,1-5-5V10a5,5,0,0,1,5-5H22a5,5,0,0,1,5,5Z"></path><path d="M16,9.5A6.5,6.5,0,1,0,22.5,16,6.51,6.51,0,0,0,16,9.5Zm0,11A4.5,4.5,0,1,1,20.5,16,4.51,4.51,0,0,1,16,20.5Z"></path><circle cx="23" cy="9" r="1"></circle></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="Threads"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M5.25 12c0-3.247.861-5.272 2.12-6.493c1.265-1.225 3.052-1.757 5.15-1.757c2.856 0 5.345 1.467 6.265 4.356a.75.75 0 0 0 1.43-.455c-1.152-3.615-4.301-5.401-7.696-5.401c-2.332 0-4.554.593-6.192 2.18C4.684 6.022 3.75 8.497 3.75 12s.934 5.978 2.577 7.57c1.638 1.587 3.86 2.18 6.192 2.18c2.932 0 5.429-1.577 6.514-3.68c.547-1.06.74-2.269.411-3.459c-.33-1.192-1.16-2.284-2.51-3.152l-.067-.038a7 7 0 0 0-.463-.212q-.025-.326-.067-.654c-.225-1.77-1.314-2.998-2.718-3.48c-1.386-.475-3.016-.203-4.322.858a.75.75 0 1 0 .945 1.164c.926-.751 2.018-.902 2.89-.603c.856.294 1.563 1.04 1.717 2.25v.002c-1.033-.203-2.118-.227-3.083-.059c-.82.144-1.614.437-2.22.94c-.625.52-1.027 1.25-1.03 2.164v.004a2 2 0 0 0 .004.148a3.5 3.5 0 0 0 .405 1.473c.223.416.573.84 1.106 1.156s1.207.498 2.043.498c1.8 0 3.056-.749 3.743-2.049c.328-.62.511-1.34.584-2.111c.918.66 1.403 1.396 1.597 2.1c.215.777.101 1.598-.298 2.372c-.808 1.565-2.766 2.868-5.18 2.868c-2.098 0-3.885-.532-5.15-1.757c-1.259-1.22-2.12-3.246-2.12-6.493m6.774.165c.905-.158 1.958-.103 2.912.137c-.023.817-.171 1.5-.445 2.018c-.394.745-1.098 1.25-2.417 1.25c-.613 0-1.014-.132-1.278-.29a1.46 1.46 0 0 1-.551-.576a2 2 0 0 1-.227-.83l-.001-.074c0-.432.171-.756.488-1.02c.339-.28.858-.5 1.52-.615"></path></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="Bluesky"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" width="17" height="17"><path d="M6.335 5.144C4.681 3.945 2 3.017 2 5.97c0 .59.35 4.953.556 5.661C3.269 14.094 5.686 14.381 8 14c-4.045.665-4.889 3.208-2.667 5.41C6.363 20.428 7.246 21 8 21c2 0 3.134-2.769 3.5-3.5q.5-1 .5-1.5q0 .5.5 1.5c.366.731 1.5 3.5 3.5 3.5c.754 0 1.637-.571 2.667-1.59C20.889 17.207 20.045 14.664 16 14c2.314.38 4.73.094 5.444-2.369c.206-.708.556-5.072.556-5.661c0-2.953-2.68-2.025-4.335-.826C15.372 6.806 12.905 10.192 12 12c-.905-1.808-3.372-5.194-5.665-6.856"></path></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M16,2A13,13,0,0,0,8,25.23V29a1,1,0,0,0,.51.87A1,1,0,0,0,9,30a1,1,0,0,0,.51-.14l3.65-2.19A12.64,12.64,0,0,0,16,28,13,13,0,0,0,16,2Zm0,24a11.13,11.13,0,0,1-2.76-.36,1,1,0,0,0-.76.11L10,27.23v-2.5a1,1,0,0,0-.42-.81A11,11,0,1,1,16,26Z"></path><path d="M19.86,15.18a1.9,1.9,0,0,0-2.64,0l-.09.09-1.4-1.4.09-.09a1.86,1.86,0,0,0,0-2.64L14.23,9.55a1.9,1.9,0,0,0-2.64,0l-.8.79a3.56,3.56,0,0,0-.5,3.76,10.64,10.64,0,0,0,2.62,4A8.7,8.7,0,0,0,18.56,21a2.92,2.92,0,0,0,2.1-.79l.79-.8a1.86,1.86,0,0,0,0-2.64Zm-.62,3.61c-.57.58-2.78,0-4.92-2.11a8.88,8.88,0,0,1-2.13-3.21c-.26-.79-.25-1.44,0-1.71l.7-.7,1.4,1.4-.7.7a1,1,0,0,0,0,1.41l2.82,2.82a1,1,0,0,0,1.41,0l.7-.7,1.4,1.4Z"></path></svg></a>
+          <a href="#" class="footer-social-icon" aria-label="TikTok"><svg viewBox="0 0 32 32" fill="currentColor" width="16" height="16"><path d="M24,3H8A5,5,0,0,0,3,8V24a5,5,0,0,0,5,5H24a5,5,0,0,0,5-5V8A5,5,0,0,0,24,3Zm3,21a3,3,0,0,1-3,3H8a3,3,0,0,1-3-3V8A3,3,0,0,1,8,5H24a3,3,0,0,1,3,3Z"></path><path d="M22,12a3,3,0,0,1-3-3,1,1,0,0,0-2,0V19a3,3,0,1,1-3-3,1,1,0,0,0,0-2,5,5,0,1,0,5,5V13a4.92,4.92,0,0,0,3,1,1,1,0,0,0,0-2Z"></path></svg></a>
+        </div>
       </div>
       <div><h4>Explore</h4><ul><li><a href="blog.html">AI Agents</a></li><li><a href="blog.html">Automation</a></li><li><a href="blog.html">Prompting</a></li><li><a href="blog.html">RPA</a></li></ul></div>
       <div><h4>Products</h4><ul><li><a href="shop.html">Agent Blueprints</a></li><li><a href="shop.html">Workflow Packs</a></li><li><a href="product.html">Featured Product</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 FlowMind. All rights reserved.</span>
-      <span>Built for people who automate on purpose.</span>
+      <span>© 2026 &middot; FlowMind &middot; All rights reserved.</span>
     </div>
   </div>
 </footer>

@@ -1,4 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // ------------------------------------------------------------------
+  // Body scroll lock for full-screen overlays/panels
+  // ------------------------------------------------------------------
+  // The mobile nav drawer, theme config panel, search overlay, share/
+  // comment modals, confirm modals, and the settings mobile panel are
+  // all position:fixed elements toggled via an "open" class from many
+  // different places below. Rather than repeating lock/unlock calls at
+  // every one of those call sites, watch all of them centrally and lock
+  // the page whenever at least one is open. This also stops the
+  // underlying page from scrolling behind an open panel, which is what
+  // let the browser add blank space at the bottom on a fast scroll
+  // (most visible once the address bar collapses).
+  (function initScrollLock() {
+    const OVERLAY_SELECTOR = [
+      '#mobileDrawer', '#searchOverlay', '#themeConfigPanel',
+      '#dangerOverlay', '#profileEditOverlay', '#changePasswordOverlay',
+      '#shareOverlay', '#commentOverlay', '#settingsMobilePanel',
+      '.img-lightbox'
+    ].join(', ');
+    const overlays = Array.from(document.querySelectorAll(OVERLAY_SELECTOR));
+    if (!overlays.length) return;
+
+    let savedScrollY = 0;
+
+    const lock = () => {
+      savedScrollY = window.scrollY;
+      document.body.style.top = `-${savedScrollY}px`;
+      document.documentElement.classList.add('scroll-locked');
+    };
+    const unlock = () => {
+      document.documentElement.classList.remove('scroll-locked');
+      document.body.style.top = '';
+      // html has scroll-behavior:smooth globally, which would animate
+      // this restore into a visible "scroll back" - force it instant.
+      const prevBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, savedScrollY);
+      document.documentElement.style.scrollBehavior = prevBehavior;
+    };
+    const sync = () => {
+      const anyOpen = overlays.some(el => el.classList.contains('open'));
+      const isLocked = document.documentElement.classList.contains('scroll-locked');
+      if (anyOpen && !isLocked) lock();
+      else if (!anyOpen && isLocked) unlock();
+    };
+
+    const observer = new MutationObserver(sync);
+    overlays.forEach(el => observer.observe(el, { attributes: true, attributeFilter: ['class'] }));
+
+    sync(); // in case a panel is server-rendered already open
+  })();
+
   // Sidebar "Home" link (rail icon + mobile drawer item) only makes sense
   // when you're not already on the home page — hide both on index.html.
   const onHomePage = /(^|\/)index\.html$/.test(window.location.pathname) || /\/$/.test(window.location.pathname);
@@ -7,10 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('drawerHomeItem')?.remove();
   }
 
-  // Syntax highlighting: only loads highlight.js (and only the specific
-  // language packs actually used on the page) when a code block with a
-  // language-xxx class is present — pages with no code blocks load nothing.
-  initSyntaxHighlighting();
+  // Code: write plain <pre><code>...</code></pre> for blocks or a bare
+  // <code>...</code> inline, and this wraps blocks with a copy button +
+  // language label and highlights both — only loads highlight.js when
+  // a code element is actually on the page.
+  initCodeBlocks();
 
   // Product gallery thumbnail swap
   const thumbs = document.querySelectorAll('.pd-thumbs img');
@@ -34,27 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tabPanels.forEach(p => p.style.display = 'none');
       btn.classList.add('active');
       if (tabPanels[i]) tabPanels[i].style.display = 'block';
-    });
-  });
-
-  // Code block copy button: copy text, show a checkmark for 2s, then revert
-  document.querySelectorAll('.code-copy-btn').forEach(btn => {
-    const originalIcon = btn.innerHTML;
-    const checkIcon = '<svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9.86221 17.5978C9.67192 17.8155 9.33719 17.8269 9.13254 17.6226L4 12.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
-    let revertTimer = null;
-    btn.addEventListener('click', () => {
-      const code = btn.closest('.code-block')?.querySelector('pre');
-      if (!code) return;
-      navigator.clipboard.writeText(code.textContent);
-      clearTimeout(revertTimer);
-      btn.innerHTML = checkIcon;
-      btn.classList.add('copied');
-      btn.setAttribute('data-tooltip', 'Copied');
-      revertTimer = setTimeout(() => {
-        btn.innerHTML = originalIcon;
-        btn.classList.remove('copied');
-        btn.setAttribute('data-tooltip', 'Copy');
-      }, 2000);
     });
   });
 
@@ -445,11 +477,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Header menus: search overlay, notification dropdown, and account popup
+  // are mutually exclusive — opening one closes the other two. This only
+  // covers the header's own menus, not the sidebar/mobile drawer.
+  function closeHeaderMenus(except) {
+    document.querySelectorAll('#searchOverlay, #notifDropdown, #accountPopup').forEach(el => {
+      if (el !== except) el.classList.remove('open');
+    });
+  }
+
   // Search overlay
   const searchToggle = document.querySelector('[data-search-toggle]');
   const searchOverlay = document.querySelector('#searchOverlay');
   if (searchToggle && searchOverlay) {
     searchToggle.addEventListener('click', () => {
+      closeHeaderMenus(searchOverlay);
       searchOverlay.classList.add('open');
       const input = searchOverlay.querySelector('input');
       if (input) setTimeout(() => input.focus(), 50);
@@ -630,6 +672,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (notifToggle && notifDropdown) {
     notifToggle.addEventListener('click', (e) => {
       e.stopPropagation();
+      const opening = !notifDropdown.classList.contains('open');
+      if (opening) closeHeaderMenus(notifDropdown);
       notifDropdown.classList.toggle('open');
       if (notifDropdown.classList.contains('open')) {
         resetNotifControls();
@@ -963,9 +1007,6 @@ document.addEventListener('DOMContentLoaded', () => {
       avatar.classList.toggle('guest', !loggedIn);
       avatar.classList.toggle('authed', loggedIn);
     }
-    document.querySelectorAll('.account-authed-header .user-avatar').forEach(el => {
-      el.classList.add('authed');
-    });
     document.querySelectorAll('.user-name-label').forEach(el => {
       el.textContent = loggedIn ? 'Ava Chen' : 'Sign In';
     });
@@ -1052,6 +1093,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (profileTrigger && accountPopup) {
     profileTrigger.addEventListener('click', (e) => {
       e.stopPropagation();
+      const opening = !accountPopup.classList.contains('open');
+      if (opening) closeHeaderMenus(accountPopup);
       accountPopup.classList.toggle('open');
     });
     document.addEventListener('click', (e) => {
@@ -1093,7 +1136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Live password requirement checklist (Sign up + New Password views)
     document.querySelectorAll('.auth-pw-input').forEach(input => {
-      input.addEventListener('input', () => {
+      const evaluate = () => {
         const val = input.value;
         const reqLen = val.length >= 8;
         const reqCase = /[a-z]/.test(val) && /[A-Z]/.test(val);
@@ -1106,7 +1149,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setReq('len', reqLen);
         setReq('case', reqCase);
         setReq('special', reqSpecial);
-      });
+        const alertIcon = scope.querySelector('[data-pw-alert]');
+        if (alertIcon) alertIcon.hidden = reqLen && reqCase && reqSpecial;
+      };
+      input.addEventListener('input', evaluate);
+      input.addEventListener('focus', evaluate);
     });
 
     // Show/hide password toggle
@@ -1391,6 +1438,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- Settings: Change Password popup ----
+  const changePasswordOverlay = document.querySelector('#changePasswordOverlay');
+  const changePasswordBtn = document.querySelector('#changePasswordBtn');
+  if (changePasswordOverlay && changePasswordBtn) {
+    const currentInput = changePasswordOverlay.querySelector('#currentPasswordInput');
+    const newInput = changePasswordOverlay.querySelector('#newPasswordInput');
+    const confirmInput = changePasswordOverlay.querySelector('#confirmPasswordInput');
+    const errorMsg = changePasswordOverlay.querySelector('#passwordErrorMsg');
+    const saveBtn = changePasswordOverlay.querySelector('#changePasswordSaveBtn');
+
+    const showError = (msg) => {
+      errorMsg.textContent = msg;
+      errorMsg.style.display = 'block';
+    };
+    const clearError = () => {
+      errorMsg.style.display = 'none';
+      errorMsg.textContent = '';
+    };
+
+    const openPasswordModal = () => {
+      currentInput.value = '';
+      newInput.value = '';
+      confirmInput.value = '';
+      clearError();
+      changePasswordOverlay.classList.add('open');
+      setTimeout(() => currentInput.focus(), 50);
+    };
+    const closePasswordModal = () => changePasswordOverlay.classList.remove('open');
+
+    changePasswordBtn.addEventListener('click', openPasswordModal);
+    changePasswordOverlay.querySelectorAll('[data-password-close]').forEach(el => {
+      el.addEventListener('click', closePasswordModal);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && changePasswordOverlay.classList.contains('open')) closePasswordModal();
+    });
+    [currentInput, newInput, confirmInput].forEach(inp => inp.addEventListener('input', clearError));
+
+    saveBtn.addEventListener('click', () => {
+      if (!currentInput.value) { showError('Enter your current password.'); currentInput.focus(); return; }
+      if (newInput.value.length < 8) { showError('New password must be at least 8 characters.'); newInput.focus(); return; }
+      if (newInput.value !== confirmInput.value) { showError('New passwords do not match.'); confirmInput.focus(); return; }
+      if (newInput.value === currentInput.value) { showError('New password must be different from the current one.'); newInput.focus(); return; }
+
+      const savedLabel = saveBtn.textContent;
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Updating…';
+      setTimeout(() => {
+        saveBtn.disabled = false;
+        saveBtn.textContent = savedLabel;
+        closePasswordModal();
+      }, 600);
+    });
+  }
+
   // ---- Settings: Active Sessions (mock data) — per-session and bulk sign-out ----
   const sessionList = document.querySelector('#sessionList');
   if (sessionList) {
@@ -1492,8 +1594,6 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('click', () => commentOverlay.classList.remove('open'));
     });
 
-    setupSimpleDropdown(document.getElementById('commentKebabBtn'), document.getElementById('commentKebabPanel'));
-
     setupSimpleDropdown(document.getElementById('commentSortBtn'), document.getElementById('commentSortPanel'), (item) => {
       document.querySelectorAll('#commentSortPanel .label-dropdown-item').forEach(i => i.classList.remove('active'));
       item.classList.add('active');
@@ -1501,21 +1601,134 @@ document.addEventListener('DOMContentLoaded', () => {
       if (label) label.textContent = item.textContent.trim();
     });
 
-    commentOverlay.querySelectorAll('[data-replies-toggle]').forEach(btn => {
+    // Turns a hide/show-replies toggle button live. Extracted so it can
+    // be (re)used both for buttons present at load and ones created
+    // on the fly the first time a root comment gets its first reply.
+    function bindHideRepliesToggle(btn) {
       const replies = btn.nextElementSibling;
       if (!replies) return;
       btn.addEventListener('click', () => {
         const isHidden = replies.classList.toggle('hidden');
-        btn.textContent = isHidden ? '— Show replies' : '— Hide replies';
+        btn.textContent = isHidden ? 'Show replies' : 'Hide replies';
       });
-    });
+    }
+    commentOverlay.querySelectorAll('[data-replies-toggle]').forEach(bindHideRepliesToggle);
 
-    commentOverlay.querySelectorAll('.comment-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        commentOverlay.querySelectorAll('.comment-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // Builds a freshly-posted reply's markup. `repliedToName` is only
+    // set when replying to a nested reply (not the root), and shows
+    // up as a permanent "Replied to {name}" badge on the comment
+    // itself — since the flat reply list can't visually nest, the
+    // badge is what preserves who a reply was actually aimed at.
+    function buildReplyNode(text, repliedToName) {
+      const node = document.createElement('div');
+      node.className = 'comment-item comment-reply';
+      node.innerHTML = `
+        <div class="avatar-sm" style="background:var(--grad-brand);"></div>
+        <div class="comment-item-body">
+          <div class="comment-author">You</div>
+          <div class="comment-time">Just now</div>
+          ${repliedToName ? `<div class="comment-replied-to">Replied to ${escapeHtml(repliedToName)}</div>` : ''}
+          <div class="comment-text">${escapeHtml(text)}</div>
+          <button class="comment-reply-link"><svg width="14" height="14"><use href="#icon-back"></use></svg>Reply</button>
+        </div>`;
+      node.querySelector('.comment-reply-link').addEventListener('click', onReplyLinkClick);
+      return node;
+    }
+
+    function bumpCommentCount() {
+      const label = document.getElementById('commentCountLabel');
+      if (!label) return;
+      const n = parseInt(label.textContent, 10);
+      if (!isNaN(n)) label.textContent = `${n + 1} comments`;
+    }
+
+    // Reply link on any comment (root or nested reply) opens its own
+    // inline reply box directly under that comment. Replying to a
+    // nested reply (not the root) tags who it's aimed at, since all
+    // replies live in one flat list under the root — without the tag
+    // it'd be unclear who a reply several levels down was meant for.
+    function onReplyLinkClick() {
+      const btn = this;
+      const existing = btn.nextElementSibling;
+      if (existing && existing.classList.contains('comment-inline-reply')) {
+        existing.remove();
+        return;
+      }
+      const isNestedReply = !!btn.closest('.comment-reply');
+      const authorName = btn.closest('.comment-item-body')
+        .querySelector('.comment-author').textContent.trim();
+
+      const box = document.createElement('div');
+      box.className = 'comment-inline-reply';
+      box.innerHTML = `
+        ${isNestedReply ? `
+          <div class="comment-replying-to">
+            Replying to ${escapeHtml(authorName)}
+            <button type="button" aria-label="Cancel reply-to">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            </button>
+          </div>` : ''}
+        <div class="comment-inline-reply-row">
+          <div class="avatar-sm" style="background:var(--grad-brand);"></div>
+          <div class="comment-form-bar">
+            <input type="text" class="comment-input" placeholder="Write a reply...">
+            <button class="comment-form-send" type="button" aria-label="Post reply">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M20.4054 15.0556C16.2581 18.5808 10.9582 20.5982 5.51804 20.7737C2.75443 20.8628 1.07276 17.6924 2.77033 15.5098L4.54508 13.2279C5.10681 12.5057 5.10681 11.4944 4.54508 10.7722L2.77033 8.49037C1.07276 6.30777 2.75443 3.1373 5.51805 3.22645C10.9582 3.40194 16.2581 5.41937 20.4054 8.94454C22.2894 10.5459 22.2894 13.4542 20.4054 15.0556Z" stroke="currentColor" stroke-width="1.5"></path><path opacity="0.6" d="M5.5 12L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            </button>
+          </div>
+        </div>`;
+      btn.insertAdjacentElement('afterend', box);
+      const input = box.querySelector('.comment-input');
+      input.focus();
+
+      const cancelTag = box.querySelector('.comment-replying-to button');
+      if (cancelTag) cancelTag.addEventListener('click', () => box.remove());
+
+      const post = () => {
+        const text = input.value.trim();
+        if (!text) return;
+
+        // Flat model: every reply — no matter which comment's Reply
+        // link opened this box — lands in the root's single replies
+        // list, in order. Find (or create) that list.
+        const rootItem = isNestedReply
+          ? btn.closest('.comment-replies').closest('.comment-item')
+          : btn.closest('.comment-item-body').parentElement;
+        const rootItemBody = rootItem.querySelector(':scope > .comment-item-body');
+
+        let repliesList = rootItemBody.querySelector(':scope > .comment-replies');
+        if (!repliesList) {
+          const toggleBtn = document.createElement('button');
+          toggleBtn.className = 'comment-hide-replies-btn';
+          toggleBtn.setAttribute('data-replies-toggle', '');
+          toggleBtn.textContent = 'Hide replies';
+          repliesList = document.createElement('div');
+          repliesList.className = 'comment-replies';
+          const replyLinkOfRoot = rootItemBody.querySelector(':scope > .comment-reply-link');
+          replyLinkOfRoot.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.insertAdjacentElement('afterend', repliesList);
+          bindHideRepliesToggle(toggleBtn);
+        }
+
+        const repliedToName = isNestedReply ? authorName : null;
+        const newReply = buildReplyNode(text, repliedToName);
+        repliesList.appendChild(newReply);
+        bumpCommentCount();
+        box.remove();
+      };
+
+      box.querySelector('.comment-form-send').addEventListener('click', post);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); post(); }
       });
-    });
+    }
+    commentOverlay.querySelectorAll('.comment-reply-link').forEach(btn => btn.addEventListener('click', onReplyLinkClick));
   }
 
   // Tooltip: hide on mousedown, reappear only on mouseout + re-hover
@@ -1543,63 +1756,243 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---- Auto-generated collapsible Table of Contents ----
-  const tocWrap = document.getElementById('tocWrap');
-  const tocBody = document.getElementById('tocBody');
-  const tocList = document.getElementById('tocList');
-  const tocToggle = document.getElementById('tocToggle');
-  if (tocWrap && tocList) {
+  // Call it in a post with:
+  //   <details class="spoiler toc">
+  //     <summary>Table of Contents</summary>
+  //     <div class="aToc"></div>
+  //   </details>
+  // The open/close behavior comes for free from <details>/<summary>;
+  // this just fills in .aToc from the h2/h3 ids in .post-wrap.
+  document.querySelectorAll('.spoiler.toc .aToc').forEach(aToc => {
+    const details = aToc.closest('details');
     const postContent = document.querySelector('.post-wrap');
-    if (postContent) {
-      const headings = postContent.querySelectorAll('h2[id], h3[id]');
-      headings.forEach(h => {
-        const li = document.createElement('li');
-        if (h.tagName === 'H3') li.className = 'toc-h3';
-        const a = document.createElement('a');
-        a.href = '#' + h.id;
-        a.textContent = h.textContent;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          const target = document.getElementById(h.id);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Close TOC on mobile after click
-            if (window.innerWidth < 768) {
-              tocBody.classList.remove('open');
-              tocToggle.textContent = 'Show All';
-            }
-          }
-        });
-        li.appendChild(a);
-        tocList.appendChild(li);
+    if (!postContent) return;
+    const ul = document.createElement('ul');
+    const headings = postContent.querySelectorAll('h2[id], h3[id]');
+    headings.forEach(h => {
+      const li = document.createElement('li');
+      if (h.tagName === 'H3') li.className = 'toc-h3';
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById(h.id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close TOC on mobile after click
+          if (window.innerWidth < 768 && details) details.open = false;
+        }
       });
-    }
-    if (tocToggle) {
-      tocToggle.addEventListener('click', () => {
-        const isOpen = tocBody.classList.toggle('open');
-        tocToggle.textContent = isOpen ? 'Hide All' : 'Show All';
-      });
-    }
-  }
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    aToc.appendChild(ul);
+  });
+  // Blog-post tables: turn each column into a CSS Grid track shared by
+  // the header and body, so header/body column widths always line up
+  // (a plain <table> with no wrapper div or classes needed — see
+  // enhancePostTables() below).
+  enhancePostTables();
+
+  // Fixed bottom-right scroll nav button (down-arrow/progress-ring at
+  // top, flips to up-arrow + fills as the page scrolls) — see
+  // initScrollNavButton() below.
+  initScrollNavButton();
 });
 
 // ---------------------------------------------------------------
-// Syntax highlighting for .code-block <pre><code class="language-xxx">
-// Loads highlight.js core + only the needed language packs from
-// cdnjs, on demand — pages with no code blocks never fetch it.
-// Classes are prefixed "hl-" to match the --hl-* tokens in styles.css.
+// Blog-post tables — a plain semantic <table> (no wrapper <div>, no
+// classes, no data-label attributes) is turned into a CSS Grid: thead/
+// tbody/tr become display:contents so every <th>/<td> is a direct grid
+// item sharing one set of column tracks, keeping header and body
+// columns pixel-aligned. Also tags first/last-column and last-row
+// cells so styles.css can drop their inner border edges.
 // ---------------------------------------------------------------
-function initSyntaxHighlighting() {
-  const blocks = document.querySelectorAll('.code-block pre code[class*="language-"]');
-  if (!blocks.length) return;
+function enhancePostTables() {
+  const tables = document.querySelectorAll('.post-wrap table');
+  tables.forEach(table => {
+    const rows = Array.from(table.querySelectorAll('tr'));
+    if (!rows.length) return;
+    const colCount = rows[0].children.length;
+    table.style.setProperty('--table-cols', colCount);
+    rows.forEach((tr, i) => {
+      const cells = Array.from(tr.children);
+      cells.forEach((cell, j) => {
+        if (j === cells.length - 1) cell.classList.add('col-last');
+        if (i === rows.length - 1) cell.classList.add('row-last');
+      });
+    });
+  });
+}
+
+// ---------------------------------------------------------------
+// Scroll Navigation & Progress Ring (fixed bottom-right button,
+// markup in partials/overlays.html, styled in styles.css).
+//   - At the top of the page: down-arrow, ring empty, click scrolls
+//     to document.documentElement.scrollHeight.
+//   - Once scrolled: up-arrow, ring fills with scroll %, click
+//     scrolls back to top.
+// Ring fill is driven by stroke-dashoffset on a circle whose
+// stroke-dasharray is the circle's own circumference, so 0 = empty
+// and dasharray = full. Recomputed on resize (and on load) since
+// scrollHeight/innerHeight change with viewport size and reflow.
+// ---------------------------------------------------------------
+function initScrollNavButton() {
+  const btn = document.getElementById('scrollNavBtn');
+  const icon = document.getElementById('scrollNavIcon');
+  const ringFg = document.getElementById('scrollNavRingFg');
+  if (!btn || !icon || !ringFg) return;
+
+  const RADIUS = ringFg.r.baseVal.value;
+  let circumference = 2 * Math.PI * RADIUS;
+
+  function setCircumference() {
+    circumference = 2 * Math.PI * ringFg.r.baseVal.value;
+    ringFg.style.strokeDasharray = `${circumference}`;
+  }
+
+  function update() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = scrollable > 0 ? Math.min(Math.max(scrollTop / scrollable, 0), 1) : 0;
+    const atTop = scrollTop <= 0;
+
+    icon.classList.toggle('is-down', atTop);
+    btn.dataset.dir = atTop ? 'down' : 'up';
+    btn.setAttribute('aria-label', atTop ? 'Scroll to bottom' : 'Scroll to top');
+
+    // Empty ring at the top; fills in as pct climbs toward 1.
+    ringFg.style.strokeDashoffset = `${circumference * (1 - (atTop ? 0 : pct))}`;
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      update();
+      ticking = false;
+    });
+  }
+
+  function onResize() {
+    setCircumference();
+    update();
+  }
+
+  setCircumference();
+  update();
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize);
+
+  btn.addEventListener('click', () => {
+    if (btn.dataset.dir === 'down') {
+      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+}
+
+// ---------------------------------------------------------------
+// Code blocks. Authoring is just plain markup:
+//
+//   <pre><code>your code here</code></pre>
+//
+// This finds every one of those on the page, wraps it in the
+// .code-block chrome (a header with a copy button + language label),
+// then loads highlight.js and lets it auto-detect the language and
+// highlight the block — no language-xxx class needed. The default
+// cdnjs build of highlight.js already bundles the ~40 most common
+// languages, which is what makes detection possible without knowing
+// the language up front, so pages with no code blocks load nothing.
+// Highlight.js's classes are prefixed "hl-" to match the --hl-*
+// theme tokens in styles.css.
+// ---------------------------------------------------------------
+function initCodeBlocks() {
+  const allCode = Array.from(document.querySelectorAll('code'));
+  if (!allCode.length) return;
+
+  const codeEls = allCode.filter(code =>
+    code.parentElement.tagName === 'PRE' && !code.closest('.code-block')
+  );
+  const inlineEls = allCode.filter(code => code.parentElement.tagName !== 'PRE');
+  if (!codeEls.length && !inlineEls.length) return;
+
+  const iconLang = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M17 6L21.5858 10.5858C22.3668 11.3668 22.3668 12.6332 21.5858 13.4142L17 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path d="M7 6L2.41421 10.5858C1.63317 11.3668 1.63316 12.6332 2.41421 13.4142L7 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/><path opacity="0.6" d="M9.81053 20.2205L14.2104 3.7998" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
+  const iconCopy = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M7.36986 21.5616C4.84126 21.1402 2.85979 19.1587 2.43836 16.6301V16.6301C2.14812 14.8887 2.14812 13.1113 2.43836 11.3699V11.3699C2.85979 8.84126 4.84126 6.85979 7.36986 6.43836V6.43836C9.11127 6.14812 10.8887 6.14812 12.6301 6.43836V6.43836C15.1587 6.85979 17.1402 8.84126 17.5616 11.3699V11.3699C17.8519 13.1113 17.8519 14.8887 17.5616 16.6301V16.6301C17.1402 19.1587 15.1587 21.1402 12.6301 21.5616V21.5616C10.8887 21.8519 9.11127 21.8519 7.36986 21.5616V21.5616Z" stroke="currentColor" stroke-width="1.75"/><path opacity="0.6" d="M18.0002 15.4507C19.8725 14.8681 21.2877 13.2753 21.6167 11.3016C21.8706 9.7779 21.8706 8.22263 21.6167 6.69889C21.2479 4.48637 19.5141 2.75258 17.3016 2.38383C15.7779 2.12987 14.2226 2.12987 12.6989 2.38383C10.7252 2.71278 9.13243 4.12796 8.5498 6.00024" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
+  const iconCheck = '<svg class="icon-check" width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9.86221 17.5978C9.67192 17.8155 9.33719 17.8269 9.13254 17.6226L4 12.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
+
+  // Auto-detection scores every loaded grammar and picks the closest
+  // match, which can misfire on very short snippets (a one-line
+  // `<div>...</div>` has just enough ambiguity to occasionally score
+  // higher against an unrelated grammar than against HTML). Scoping
+  // the guess to this practical subset — languages worth writing docs
+  // in — keeps detection automatic while avoiding those false
+  // positives; it's the same tradeoff highlight.js's own docs
+  // recommend for auto-detection accuracy.
+  const LANGUAGE_SUBSET = [
+    'xml', 'javascript', 'typescript', 'css', 'scss', 'json', 'bash',
+    'shell', 'python', 'ruby', 'php', 'java', 'csharp', 'cpp', 'c',
+    'go', 'rust', 'sql', 'yaml', 'markdown', 'plaintext'
+  ];
+
+  // Friendlier display names for the language keys hljs detects.
+  const LANG_LABELS = {
+    xml: 'HTML', html: 'HTML', javascript: 'JavaScript', typescript: 'TypeScript',
+    css: 'CSS', scss: 'SCSS', less: 'Less', json: 'JSON', bash: 'Bash',
+    shell: 'Shell', python: 'Python', ruby: 'Ruby', php: 'PHP', java: 'Java',
+    csharp: 'C#', cpp: 'C++', c: 'C', go: 'Go', rust: 'Rust', sql: 'SQL',
+    yaml: 'YAML', markdown: 'Markdown', plaintext: 'Plain Text', diff: 'Diff'
+  };
+
+  // Wrap each bare block in the .code-block chrome and wire up its
+  // copy button now; the language label gets filled in once
+  // highlight.js has had a chance to detect it, below.
+  const entries = codeEls.map(code => {
+    const pre = code.parentElement;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'code-block';
+
+    const header = document.createElement('div');
+    header.className = 'code-block-header';
+
+    const langLabel = document.createElement('span');
+    langLabel.className = 'code-block-lang';
+    langLabel.innerHTML = `${iconLang}Code`;
+
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'code-copy-btn';
+    copyBtn.setAttribute('aria-label', 'Copy code');
+    copyBtn.setAttribute('data-tooltip', 'Copy');
+    copyBtn.innerHTML = iconCopy;
+
+    let revertTimer = null;
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(pre.textContent);
+      clearTimeout(revertTimer);
+      copyBtn.innerHTML = iconCheck;
+      copyBtn.classList.add('copied');
+      copyBtn.setAttribute('data-tooltip', 'Copied');
+      revertTimer = setTimeout(() => {
+        copyBtn.innerHTML = iconCopy;
+        copyBtn.classList.remove('copied');
+        copyBtn.setAttribute('data-tooltip', 'Copy');
+      }, 2000);
+    });
+
+    header.append(langLabel, copyBtn);
+    pre.replaceWith(wrapper);
+    wrapper.append(header, pre);
+
+    return { code, langLabel };
+  });
 
   const HLJS_VERSION = '11.9.0';
   const BASE = `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/${HLJS_VERSION}`;
-
-  const languages = new Set();
-  blocks.forEach(el => {
-    const match = el.className.match(/\blanguage-([\w-]+)\b/i);
-    if (match) languages.add(match[1]);
-  });
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
@@ -1611,20 +2004,39 @@ function initSyntaxHighlighting() {
     });
   }
 
+  // For inline `<code>` snippets, auto-detection is noisier — a bare
+  // word or class name (".subtitle1", "alert") often scores a weak,
+  // partial match against some grammar, which highlights only a
+  // fragment of the word and looks broken rather than colored. Only
+  // apply the result when hljs is confident enough to tag the *whole*
+  // snippet as one clean unit (a single top-level span, e.g. a full
+  // `<h1>` tag) — otherwise leave it as plain text in its pill, same
+  // as before.
+  const fullyWrapped = html => /^<span\b[^>]*>[\s\S]*<\/span>$/.test(html.trim());
+
   loadScript(`${BASE}/highlight.min.js`).then(() => {
     if (!window.hljs) return;
     window.hljs.configure({ classPrefix: 'hl-' });
 
-    const loaders = [...languages].map(lang =>
-      loadScript(`${BASE}/languages/${lang}.min.js`).catch(() => {
-        // Unknown/unsupported language name — skip it, block just stays plain text.
-      })
-    );
+    entries.forEach(({ code, langLabel }) => {
+      try {
+        const result = window.hljs.highlightAuto(code.textContent, LANGUAGE_SUBSET);
+        code.innerHTML = result.value;
+        code.classList.add('hljs');
+        const detected = result.language;
+        const label = LANG_LABELS[detected] || (detected && detected[0].toUpperCase() + detected.slice(1));
+        if (label) langLabel.innerHTML = `${iconLang}${label}`;
+      } catch (e) { /* leave that block as plain text */ }
+    });
 
-    Promise.all(loaders).then(() => {
-      blocks.forEach(el => {
-        try { window.hljs.highlightElement(el); } catch (e) { /* leave as plain text */ }
-      });
+    inlineEls.forEach(code => {
+      try {
+        const result = window.hljs.highlightAuto(code.textContent, LANGUAGE_SUBSET);
+        if (result.relevance > 0 && fullyWrapped(result.value)) {
+          code.innerHTML = result.value;
+          code.classList.add('hljs');
+        }
+      } catch (e) { /* leave that snippet as plain text */ }
     });
   }).catch(() => { /* offline or CDN blocked — code blocks stay readable, unhighlighted */ });
 }
